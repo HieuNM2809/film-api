@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
 class PostController extends BaseController
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('pages.post.list');
     }
 
     /**
@@ -23,7 +23,7 @@ class PostController extends BaseController
      */
     public function create()
     {
-        //
+        return view('pages.post.add');
     }
 
     /**
@@ -34,7 +34,7 @@ class PostController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -45,7 +45,7 @@ class PostController extends BaseController
      */
     public function show($id)
     {
-        //
+        return view('pages.post.detail');
     }
 
     /**
@@ -56,7 +56,7 @@ class PostController extends BaseController
      */
     public function edit($id)
     {
-        //
+        return view('pages.post.edit');
     }
 
     /**
@@ -68,7 +68,7 @@ class PostController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -79,6 +79,6 @@ class PostController extends BaseController
      */
     public function destroy($id)
     {
-        //
+
     }
 }

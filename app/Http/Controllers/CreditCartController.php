@@ -14,7 +14,7 @@ class CreditCartController extends BaseController
      */
     public function index()
     {
-        //
+        return view('pages.creditCart.list');
     }
 
     /**
@@ -24,7 +24,7 @@ class CreditCartController extends BaseController
      */
     public function create()
     {
-        //
+        return view('pages.creditCart.add');
     }
 
     /**
@@ -35,7 +35,7 @@ class CreditCartController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -46,7 +46,7 @@ class CreditCartController extends BaseController
      */
     public function show($id)
     {
-        //
+        return view('pages.creditCart.detail');
     }
 
     /**
@@ -57,7 +57,7 @@ class CreditCartController extends BaseController
      */
     public function edit($id)
     {
-        //
+        return view('pages.creditCart.edit');
     }
 
     /**
@@ -69,7 +69,7 @@ class CreditCartController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -80,6 +80,6 @@ class CreditCartController extends BaseController
      */
     public function destroy($id)
     {
-        //
+
     }
 }

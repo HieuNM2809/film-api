@@ -6,14 +6,14 @@ use App\Http\Controllers\BaseController;
 
 class CommentsController extends BaseController
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('pages.comment.list');
     }
 
     /**
@@ -23,7 +23,7 @@ class CommentsController extends BaseController
      */
     public function create()
     {
-        //
+        return view('pages.comment.add');
     }
 
     /**
@@ -34,7 +34,7 @@ class CommentsController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -45,7 +45,7 @@ class CommentsController extends BaseController
      */
     public function show($id)
     {
-        //
+        return view('pages.comment.detail');
     }
 
     /**
@@ -56,7 +56,7 @@ class CommentsController extends BaseController
      */
     public function edit($id)
     {
-        //
+        return view('pages.comment.edit');
     }
 
     /**
@@ -68,7 +68,7 @@ class CommentsController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -79,6 +79,6 @@ class CommentsController extends BaseController
      */
     public function destroy($id)
     {
-        //
+
     }
 }

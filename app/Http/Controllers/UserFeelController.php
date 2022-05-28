@@ -13,7 +13,7 @@ class UserFeelController extends BaseController
      */
     public function index()
     {
-        //
+        return view('pages.userFeel.list');
     }
 
     /**
@@ -23,7 +23,7 @@ class UserFeelController extends BaseController
      */
     public function create()
     {
-        //
+        return view('pages.userFeel.add');
     }
 
     /**
@@ -34,7 +34,7 @@ class UserFeelController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -45,7 +45,7 @@ class UserFeelController extends BaseController
      */
     public function show($id)
     {
-        //
+        return view('pages.userFeel.detail');
     }
 
     /**
@@ -56,7 +56,7 @@ class UserFeelController extends BaseController
      */
     public function edit($id)
     {
-        //
+        return view('pages.userFeel.edit');
     }
 
     /**
@@ -68,7 +68,7 @@ class UserFeelController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -79,6 +79,6 @@ class UserFeelController extends BaseController
      */
     public function destroy($id)
     {
-        //
+
     }
 }

@@ -7,14 +7,14 @@ use App\Http\Controllers\BaseController;
 
 class OrganizationController extends BaseController
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('pages.organization.list');
     }
 
     /**
@@ -24,7 +24,7 @@ class OrganizationController extends BaseController
      */
     public function create()
     {
-        //
+        return view('pages.organization.add');
     }
 
     /**
@@ -35,7 +35,7 @@ class OrganizationController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -46,7 +46,7 @@ class OrganizationController extends BaseController
      */
     public function show($id)
     {
-        //
+        return view('pages.organization.detail');
     }
 
     /**
@@ -57,7 +57,7 @@ class OrganizationController extends BaseController
      */
     public function edit($id)
     {
-        //
+        return view('pages.organization.edit');
     }
 
     /**
@@ -69,7 +69,7 @@ class OrganizationController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -80,6 +80,6 @@ class OrganizationController extends BaseController
      */
     public function destroy($id)
     {
-        //
+
     }
 }
