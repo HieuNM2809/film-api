@@ -6,15 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Donate extends Model
+class Hashtag extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory ,SoftDeletes;
     protected $fillable = [
-        'link',
-        'id_user',
+        'title',
     ];
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'id_user');
-    }
 }

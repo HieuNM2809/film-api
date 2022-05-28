@@ -4,19 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Post;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Setting extends Model
+class TitleType extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'key',
-        'value',
-        'id_user',
+        'type',
     ];
 
-    public function user()
+
+    public function post()
     {
-        return $this->hasOne(User::class, 'id', 'id_user');
+        return $this->hasMany(Post::class, 'id_title_type', 'id');
     }
 }

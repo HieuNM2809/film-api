@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->date('birthday')->nullable();
             $table->string('avatar', 255)->nullable();
             $table->string('url', 255)->nullable();
-            $table->bigInteger('id_organization')->nullable();
             $table->string('location', 255)->nullable();
             $table->text('bio')->nullable();
             $table->string('currently_learning', 255)->nullable();

@@ -6,17 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Setting extends Model
+class React extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'key',
-        'value',
-        'id_user',
+        'text_feel',
     ];
 
-    public function user()
+    public function react()
     {
-        return $this->hasOne(User::class, 'id', 'id_user');
+        return $this->hasMany(React::class, 'id_react', 'id');
     }
 }

@@ -16,7 +16,6 @@ class CreateIconRanksTable extends Migration
         Schema::create('icon_ranks', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_rule')->nullable();
-            $table->string('rule', 255)->nullable();
             $table->string('icon', 255)->nullable();
             $table->string('title', 255)->nullable();
             $table->timestamps();

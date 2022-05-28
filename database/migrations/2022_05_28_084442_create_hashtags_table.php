@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserFeelsTable extends Migration
+class CreateHashtagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateUserFeelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_feels', function (Blueprint $table) {
+        Schema::create('hashtags', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_user')->nullable();
-            $table->bigInteger('id_post')->nullable();
-            $table->bigInteger('id_comment')->nullable();
-            $table->bigInteger('id_react')->nullable();
+            $table->string('title', 255)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +28,6 @@ class CreateUserFeelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_feels');
+        Schema::dropIfExists('hashtags');
     }
 }

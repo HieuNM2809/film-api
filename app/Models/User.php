@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -26,7 +27,6 @@ class User extends Authenticatable
         'birthday',
         'avatar',
         'url',
-        'id_organization',
         'location',
         'bio',
         'currently_learning',
@@ -53,4 +53,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function userIconRank()
+    {
+        return $this->hasMany(UserIconRank::class, 'id_user', 'id');
+    }
+    public function userOrganization()
+    {
+        return $this->hasMany(UserOrganization::class, 'id_user', 'id');
+    }
+    public function donate()
+    {
+        return $this->hasMany(Donate::class, 'id_user', 'id');
+    }
+    public function creditCart()
+    {
+        return $this->hasMany(CreditCart::class, 'id_user', 'id');
+    }
+    public function post()
+    {
+        return $this->hasMany(Post::class, 'id_user', 'id');
+    }
+    public function userFeel()
+    {
+        return $this->hasMany(UserFeel::class, 'id_user', 'id');
+    }
 }
