@@ -33,10 +33,19 @@ Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('pages.home');
     });
+    Route::get('get-token', function () {
+        return view('pages.login');
+    });
     Route::get('login', function () {
         return view('pages.login');
     });
+    Route::post('login', function () {
+        return view('pages.login');
+    });
     Route::get('register', function () {
+        return view('pages.register');
+    });
+    Route::post('register', function () {
         return view('pages.register');
     });
 
@@ -57,3 +66,4 @@ Route::prefix('admin')->group(function () {
     Route::resource('credit-cart', CreditCartController::class);
 
 });
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
