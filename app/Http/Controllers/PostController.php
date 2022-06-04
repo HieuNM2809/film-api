@@ -71,7 +71,7 @@ class PostController extends BaseController
     {
         if ($request->expectsJson()) {
             $data = $this->table->with("titleType")->with("user")->find($id);
-            return $this->dataResponse('200', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND'),  $data);
+            return $this->dataResponse('200', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI'),  $data);
         }
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
@@ -96,33 +96,19 @@ class PostController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'regions' => 'required',
-        ], [
-            'name.required' => 'vui lòng nhập tên',
-            'regions.required' => 'vui lòng nhập vùng'
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|min:10',
+            'content' => 'required|min:20',
+            'id_title_type' => 'required|numeric|exists:title_types,id',
+            'id_user' => 'required|numeric|exists:users,id',
         ]);
-        try {
-            DB::beginTransaction();
-            $typeSites = $this->table->find($id);
-            if (!empty($typeSites)) {
-                $typeSites->name = $request->name;
-                $typeSites->regions = $request->regions;
-                $typeSites->save();
-                DB::commit();
-                $responseData['result']  = 'Thành công';
-            } else {
-                $responseData['result'] = 'Thất bại';
-            }
-        } catch (\PDOException $e) {
-            DB::rollBack();
-            $responseData['result'] = 'Thất bại';
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
         }
-        if ($request->expectsJson()) {
-            return  response()->json($responseData);
-        }
-        return back()->with('thongbao', $responseData['result']);
+        $data=  $request->all();
+        unset($data['_method']);
+        $data = $this->table->updatePost($data, $id);
+        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI') , []);
     }
 
     /**
@@ -133,27 +119,10 @@ class PostController extends BaseController
      */
     public function destroy($id, Request $request)
     {
-        try {
-            DB::beginTransaction();
-            $user = $this->table->find($id);
-            if (!empty($user)) {
-                $user->delete();
-                DB::commit();
-                $responseData['result']  = 'Thành công';
-            } else {
-                $responseData['result'] = 'Không tìm thấy user';
-            }
-        } catch (\PDOException $e) {
-            DB::rollBack();
-            $responseData['result'] = 'Thất bại';
-        }
-
-        // api call
         if ($request->expectsJson()) {
-            return  $responseData;
+            $data = $this->table->where('id', $id)->delete();
+            return $this->dataResponse('200', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI'),  $data);
         }
-
-        //call web
-        return back()->with('thongbao', $responseData['result']);
+        return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 }
