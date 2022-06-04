@@ -12,17 +12,21 @@ class Comment extends Base
     protected $table = "comments";
 
     protected $fillable = [
+        'id',
         'content',
         'parent',
         'id_post',
-        'id_user'
+        'id_user',
+        'image'
     ];
 
 
 
-    function __construct(){
-        parent::__construct();
-    }
+
+
+    // function __construct(){
+    //     parent::__construct();
+    // }
 
     public function post()
     {
@@ -41,12 +45,24 @@ class Comment extends Base
         return $this->belongsTo(User::class, 'id_user');
     }
 
+    public function userComment()
+    {
+        return $this->belongsTo(User::class, 'id_user')->select("id", "name", "email", "avatar");
+    }
+
     public function replies()
     {
         return $this->hasMany(Comment::class, 'parent');
     }
 
+    public function repliesShort()
+    {
+        return $this->hasMany(Comment::class, 'parent')->select($this->fillable)->with('userComment');
+    }
+
     public function getListComment(){
-        return $this->with("replies")->with("user")->where('parent', null)->get();
+        return $this->select($this->fillable)->with("userComment")->with("repliesShort")->where('parent', null)->get();
     }
 }
+
+

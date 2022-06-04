@@ -61,7 +61,22 @@ class CommentsController extends BaseController
      */
     public function store(Request $request)
     {
+        if(isset($request['id'])){
+            return  $this->dataResponse('200',  config('statusCode.FAIL') , []);
+        }
+        $validator = Validator::make($request->all(), [
+            'id_post' => 'required|numeric|exists:posts,id',
+            'parent' => 'required|numeric|exists:comments,id',
+            'content' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
 
+        if ($request->expectsJson()) {
+            $data = $this->table->createByTable($this->table,$request->all());
+            return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , []);
+        }
     }
 
     /**
@@ -95,7 +110,22 @@ class CommentsController extends BaseController
      */
     public function update(Request $request, $id)
     {
-
+        $validator = Validator::make($request->all(), [
+            'id_post' => 'required|numeric|exists:posts,id',
+            'parent' => 'required|numeric|exists:comments,id',
+            'content' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        $data = $request->all();
+        if(isset($data['_method'])){
+            unset($data['_method']);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table->updateCondition($this->table,$data, ['id'=>$id]);
+            return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , []);
+        }
     }
 
     /**
@@ -104,9 +134,12 @@ class CommentsController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-
+        if ($request->expectsJson()) {
+            $data = $this->table->where('id', $id)->delete();
+            return $this->dataResponse($data ?'200' :'404', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI'),  $data);
+        }
     }
 
 
