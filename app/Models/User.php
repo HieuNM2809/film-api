@@ -65,6 +65,11 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'id_user', 'id');
+    }
+
     public function userIconRank()
     {
         return $this->hasMany(UserIconRank::class, 'id_user', 'id');

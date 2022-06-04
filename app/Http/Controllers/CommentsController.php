@@ -8,18 +8,22 @@ use Illuminate\Support\Facades\Validator;
 
 class CommentsController extends BaseController
 {
-    private $commentModel;
+    private $table;
     function __construct()
     {
-        $this->commentModel = new Comment();
+        $this->table = new Comment();
     }
    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->expectsJson()) {
+            $data = $this->table->getListComment();
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
         return view('pages.comment.list');
     }
     //  get comment by post
@@ -35,7 +39,7 @@ class CommentsController extends BaseController
         }
 
         if ($request->expectsJson()) {
-            $data = $this->commentModel->getCommentById($request->idPost, $request->from, $request->to);
+            $data = $this->table->getCommentById($request->idPost, $request->from, $request->to);
             return $this->dataResponse('200','Thành công' ,  $data);
         }
     }

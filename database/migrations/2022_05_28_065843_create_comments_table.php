@@ -18,6 +18,8 @@ class CreateCommentsTable extends Migration
             $table->text('content')->nullable();
             $table->bigInteger('parent')->nullable();
             $table->bigInteger('id_post')->nullable();
+            $table->string('image', 255)->nullable();
+            $table->bigInteger('id_user')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -6,16 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Comment extends Model
+class Comment extends Base
 {
     use HasFactory, SoftDeletes;
-    protected $table ="comments";
+    protected $table = "comments";
 
     protected $fillable = [
         'content',
         'parent',
-        'id_post'
+        'id_post',
+        'id_user'
     ];
+
+
+
+    function __construct(){
+        parent::__construct();
+    }
 
     public function post()
     {
@@ -27,5 +34,19 @@ class Comment extends Model
     }
     public function getCommentById($idPost, $from, $to){
        return $this->where('id_post' , $idPost)->offset($from)->limit($to)->get();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Comment::class, 'parent');
+    }
+
+    public function getListComment(){
+        return $this->with("replies")->with("user")->where('parent', null)->get();
     }
 }
