@@ -13,6 +13,7 @@ class PostController extends BaseController
      */
     public function index()
     {
+        return "123213";
         return view('pages.post.list');
     }
 
