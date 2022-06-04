@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
-class Hashtag extends Model
+use App\Models\Base;
+class Hashtag extends Base
 {
     use HasFactory ,SoftDeletes;
     protected $fillable = [

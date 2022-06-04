@@ -4,17 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
+use App\Models\Hashtag;
+use Illuminate\Support\Facades\Validator;
 
 class HashtagController extends BaseController
 {
+    private $table;
+    function __construct()
+    {
+        $this->table = new Hashtag();
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.hashTag.list');
+        if ($request->expectsJson()) {
+            $data = $this->table->get();
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI'),  $data);
+        }
+        return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 
     /**
@@ -24,7 +35,7 @@ class HashtagController extends BaseController
      */
     public function create()
     {
-        return view('pages.hashTag.add');
+        return view('pages.post.add');
     }
 
     /**
@@ -35,7 +46,14 @@ class HashtagController extends BaseController
      */
     public function store(Request $request)
     {
-
+        $validator = Validator::make($request->all(), [
+            'title' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors(), []);
+        }
+        $data = $this->table->createByTable($this->table, $request->all());
+        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), []);
     }
 
     /**
@@ -44,9 +62,15 @@ class HashtagController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-        return view('pages.hashTag.detail');
+        $condition['id'] = $id;
+        if ($request->expectsJson()) {
+            $data = $this->table->getByCondition( $this->table, $condition);
+            // return $data;
+            return $this->dataResponse(!$data->IsEmpty() ? '200' :'404',!$data->IsEmpty() ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),  $data);
+        }
+        return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 
     /**
@@ -57,7 +81,7 @@ class HashtagController extends BaseController
      */
     public function edit($id)
     {
-        return view('pages.hashTag.edit');
+        return view('pages.post.edit', ['typeSites' => $this->table->find($id)]);
     }
 
     /**
@@ -69,7 +93,19 @@ class HashtagController extends BaseController
      */
     public function update(Request $request, $id)
     {
+        $condition = [];
+        $validator = Validator::make($request->all(), [
+            'title' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors(), []);
+        }
+        $data =  $request->all();
+        unset($data['_method']);
 
+        $condition['id'] = $id;
+        $data = $this->table->updateCondition($this->table, $data ,$condition);
+        return  $this->dataResponse($data ?'200' :'404',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'), []);
     }
 
     /**
@@ -78,8 +114,12 @@ class HashtagController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-
+        if ($request->expectsJson()) {
+            $data = $this->table->where('id', $id)->delete();
+            return $this->dataResponse($data ?'200' :'404', $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),  $data);
+        }
+        return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 }

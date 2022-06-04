@@ -46,21 +46,29 @@ Route::get('test', function(){
     return 'test ok';
 });
 
-Route::apiResource('post', PostController::class);
-Route::post('post/get-comment-by-id-post',  [CommentsController::class  , 'getComment']);
-Route::apiResource('title-type', TitleTypeController::class);
-Route::apiResource('settings', SettingsController::class);
+Route::apiResource('post', PostController::class);  //ok
+Route::post('post/get-comment-by-id-post',  [CommentsController::class  , 'getComment']);  //ok
+Route::apiResource('title-type', TitleTypeController::class);  //ok
+Route::apiResource('settings', SettingsController::class);  //ok
+Route::apiResource('organization', OrganizationController::class); //ok
+Route::apiResource('hash-tag', HashtagController::class); //ok
 
 
+Route::apiResource('credit-cart', CreditCartController::class);
 Route::apiResource('icon-rank', IconRankController::class);
 Route::apiResource('user-icon-rank', UserIconRankController::class);
 Route::apiResource('comment', CommentsController::class);
 Route::apiResource('user', UserController::class);
-Route::apiResource('organization', OrganizationController::class);
 Route::apiResource('user-feel', UserFeelController::class);
 Route::apiResource('donate', DonateController::class);
 Route::apiResource('react', ReactController::class);
 Route::apiResource('group-permission', GroupPermissionController::class);
-Route::apiResource('hash-tag', HashtagController::class);
 Route::apiResource('permission', PermissionController::class);
-Route::apiResource('credit-cart', CreditCartController::class);
+
+
+
+
+
+
+//LINK API DOC
+//https://docs.google.com/spreadsheets/d/1sjvm56yQZQzBoNEccidzOWr436-Q3r2pLxRKtTifa1w/edit#gid=1687574333
