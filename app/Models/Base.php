@@ -23,4 +23,24 @@ class Base extends Model{
         // }
         return $sql->update($data);
     }
+    public function getByCondition($table, $condition){
+        $sql = $table;
+        if(isset($condition['id_user']) ){
+            $sql = $sql->where('id_user' ,$condition['id_user']);
+        }
+        if(isset($condition['id']) ){
+            $sql = $sql->where('id' ,$condition['id']);
+        }
+        return $sql->get();
+    }
+    public function createByTable($table, $data){
+        $sql = $table;
+        // if(isset($condition['id_user']) ){
+        //     $sql = $sql->where('id_user' ,$condition['id_user']);
+        // }
+        // if(isset($condition['id']) ){
+        //     $sql = $sql->where('id' ,$condition['id']);
+        // }
+        return $sql->create($data);
+    }
 }

@@ -49,10 +49,11 @@ Route::get('test', function(){
 Route::apiResource('post', PostController::class);
 Route::post('post/get-comment-by-id-post',  [CommentsController::class  , 'getComment']);
 Route::apiResource('title-type', TitleTypeController::class);
+Route::apiResource('settings', SettingsController::class);
+
 
 Route::apiResource('icon-rank', IconRankController::class);
 Route::apiResource('user-icon-rank', UserIconRankController::class);
-Route::apiResource('settings', SettingsController::class);
 Route::apiResource('comment', CommentsController::class);
 Route::apiResource('user', UserController::class);
 Route::apiResource('organization', OrganizationController::class);
