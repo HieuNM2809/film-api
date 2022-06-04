@@ -17,6 +17,7 @@ use App\Http\Controllers\TitleTypeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserFeelController;
 use App\Http\Controllers\UserIconRankController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,9 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
-
+    Route::post('me', 'me');
 });
+
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
