@@ -7,4 +7,7 @@ return [
         'status' => 1,
         'message' => 'Success'
     ],
+    'SUCCESS_VI' => 'Thành công',
+    'FAIL_VI' => 'Thất bại',
+    'NOT_FOUND' =>'Không tìm thấy'
 ];

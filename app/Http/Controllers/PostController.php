@@ -7,6 +7,7 @@ use App\Http\Controllers\BaseController;
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 use App\Models\TitleType;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends BaseController
 {
@@ -24,7 +25,7 @@ class PostController extends BaseController
     {
         if ($request->expectsJson()) {
             $data = $this->table->with("titleType")->with("user")->get();
-            return $this->dataResponse('200','Thành công' ,  $data);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
@@ -47,31 +48,17 @@ class PostController extends BaseController
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'regions' => 'required'
-        ], [
-            'name.required' => 'vui lòng nhập tên',
-            'regions.required' => 'vui lòng nhập vùng'
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|min:10',
+            'content' => 'required|min:20',
+            'id_title_type' => 'required|numeric|exists:title_types,id',
+            'id_user' => 'required|numeric|exists:users,id',
         ]);
-        try {
-            DB::beginTransaction();
-            $responseData['data'] = $this->table->create([
-                'name' => $request->name,
-                'regions' => $request->regions
-            ]);
-            DB::commit();
-            $responseData['result']  = 'Thành công';
-        } catch (\PDOException $e) {
-            DB::rollBack();
-            $responseData['result'] = 'Thất bại';
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
         }
-
-        // call api
-        if ($request->expectsJson()) {
-            return  response()->json($responseData);
-        }
-        return back()->with('thongbao', $responseData['result']);
+        $data = $this->table->createPost($request->all());
+        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , []);
     }
 
     /**
@@ -80,16 +67,13 @@ class PostController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-        try {
-            $responseData['result'] = 'Thành công';
-            $responseData['data'] = $this->table->find($id);
-        } catch (\PDOException $e) {
-            $responseData['result'] = 'Thất bại';
+        if ($request->expectsJson()) {
+            $data = $this->table->with("titleType")->with("user")->find($id);
+            return $this->dataResponse('200', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND'),  $data);
         }
-        return  $responseData;
-        // return view('pages.post.detail');
+        return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 
     /**
