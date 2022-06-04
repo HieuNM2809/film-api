@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Comment extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $table ="comments";
 
     protected $fillable = [
         'content',
@@ -23,5 +24,8 @@ class Comment extends Model
     public function userFeel()
     {
         return $this->hasMany(UserFeel::class, 'id_comment', 'id');
+    }
+    public function getCommentById($idPost, $from, $to){
+       return $this->where('id_post' , $idPost)->offset($from)->limit($to)->get();
     }
 }

@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
+use App\Models\Comment;
+use Illuminate\Support\Facades\Validator;
 
 class CommentsController extends BaseController
 {
+    private $commentModel;
+    function __construct()
+    {
+        $this->commentModel = new Comment();
+    }
    /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,23 @@ class CommentsController extends BaseController
     {
         return view('pages.comment.list');
     }
+    //  get comment by post
+    public function getComment(Request $request){
 
+        $validator = Validator::make($request->all(), [
+            'idPost' => 'required|numeric',
+            'from' => 'required|numeric',
+            'to' => 'required|numeric',
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+
+        if ($request->expectsJson()) {
+            $data = $this->commentModel->getCommentById($request->idPost, $request->from, $request->to);
+            return $this->dataResponse('200','Thành công' ,  $data);
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -81,4 +104,6 @@ class CommentsController extends BaseController
     {
 
     }
+
+
 }
