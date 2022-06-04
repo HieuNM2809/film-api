@@ -17,7 +17,7 @@ class Post extends Model
     ];
     public function titleType()
     {
-        return $this->belongsTo(TitleType::class, 'id_title_type');
+        return $this->belongsTo(TitleType::class, 'id_title_type', 'id');
     }
     public function user()
     {

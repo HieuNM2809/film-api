@@ -14,4 +14,11 @@ class BaseController extends Controller
     function __construct()
     {
     }
+
+    public function dataResponse($status, $message ,$data){
+        $dataResponse['status'] = $status;
+        $dataResponse['message'] = $message;
+        $dataResponse['data'] = $data;
+        return response()->json($dataResponse);
+    }
 }
