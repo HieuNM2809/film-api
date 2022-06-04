@@ -52,9 +52,9 @@ Route::apiResource('title-type', TitleTypeController::class);  //ok
 Route::apiResource('settings', SettingsController::class);  //ok
 Route::apiResource('organization', OrganizationController::class); //ok
 Route::apiResource('hash-tag', HashtagController::class); //ok
+Route::apiResource('credit-cart', CreditCartController::class); //ok
 
 
-Route::apiResource('credit-cart', CreditCartController::class);
 Route::apiResource('icon-rank', IconRankController::class);
 Route::apiResource('user-icon-rank', UserIconRankController::class);
 Route::apiResource('comment', CommentsController::class);
