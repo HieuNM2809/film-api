@@ -15,7 +15,7 @@ class Base extends Model{
     //         return $data;
     //     }
     // }
-    public function updateCondition($table ,$data ,$condition){
+    public function updateCondition($table ,$data ,$condition=[]){
         $sql = $table;
         $sql = $sql->where('id' ,$condition['id']);
         // if(isset($condition['id']) ){
@@ -23,7 +23,7 @@ class Base extends Model{
         // }
         return $sql->update($data);
     }
-    public function getByCondition($table, $condition){
+    public function getByCondition($table, $condition=[]){
         $sql = $table;
         if(isset($condition['id_user']) ){
             $sql = $sql->where('id_user' ,$condition['id_user']);

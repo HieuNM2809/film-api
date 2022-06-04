@@ -26,23 +26,6 @@ class CommentsController extends BaseController
         }
         return view('pages.comment.list');
     }
-    //  get comment by post
-    public function getComment(Request $request){
-
-        $validator = Validator::make($request->all(), [
-            'idPost' => 'required|numeric',
-            'from' => 'required|numeric',
-            'to' => 'required|numeric',
-        ]);
-        if ($validator->fails()) {
-            return $this->dataResponse('401', $validator->errors() , []);
-        }
-
-        if ($request->expectsJson()) {
-            $data = $this->table->getCommentById($request->idPost, $request->from, $request->to);
-            return $this->dataResponse('200','Thành công' ,  $data);
-        }
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -67,7 +50,8 @@ class CommentsController extends BaseController
         $validator = Validator::make($request->all(), [
             'id_post' => 'required|numeric|exists:posts,id',
             'parent' => 'required|numeric|exists:comments,id',
-            'content' => 'required'
+            'id_user' => 'required|numeric|exists:users,id',
+            'content' => 'required',
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
@@ -111,8 +95,6 @@ class CommentsController extends BaseController
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'id_post' => 'required|numeric|exists:posts,id',
-            'parent' => 'required|numeric|exists:comments,id',
             'content' => 'required'
         ]);
         if ($validator->fails()) {
