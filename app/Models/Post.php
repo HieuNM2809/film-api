@@ -46,4 +46,8 @@ class Post extends Model
             return false;
         }
     }
+    public function updatePost($data, $id) {
+        return $this->where('id',$id)->update($data);
+    }
+
 }

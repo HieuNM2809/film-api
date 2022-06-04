@@ -9,5 +9,5 @@ return [
     ],
     'SUCCESS_VI' => 'Thành công',
     'FAIL_VI' => 'Thất bại',
-    'NOT_FOUND' =>'Không tìm thấy'
+    'NOT_FOUND_VI' =>'Không tìm thấy'
 ];
