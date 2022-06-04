@@ -17,7 +17,7 @@ class CreateCreditCartsTable extends Migration
             $table->id();
             $table->string('name', 255)->nullable();
             $table->string('cart_number', 255)->nullable();
-            $table->timestamps('date_expired')->nullable();
+            $table->dateTime('date_expired')->nullable();
             $table->string('avatar')->nullable();
             $table->bigInteger('id_user')->nullable();
             $table->timestamps();
