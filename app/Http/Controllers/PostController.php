@@ -71,7 +71,7 @@ class PostController extends BaseController
     {
         if ($request->expectsJson()) {
             $data = $this->table->with("titleType")->with("user")->find($id);
-            return $this->dataResponse('200', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI'),  $data);
+            return $this->dataResponse($data ?'200' :'404', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI'),  $data);
         }
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
@@ -106,9 +106,11 @@ class PostController extends BaseController
             return $this->dataResponse('401', $validator->errors() , []);
         }
         $data=  $request->all();
-        unset($data['_method']);
+        if(isset($data['_method'])){
+            unset($data['_method']);
+        }
         $data = $this->table->updatePost($data, $id);
-        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI') , []);
+        return  $this->dataResponse($data ?'200' :'404',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI') , []);
     }
 
     /**
@@ -121,7 +123,7 @@ class PostController extends BaseController
     {
         if ($request->expectsJson()) {
             $data = $this->table->where('id', $id)->delete();
-            return $this->dataResponse('200', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI'),  $data);
+            return $this->dataResponse($data ?'200' :'404', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI'),  $data);
         }
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }

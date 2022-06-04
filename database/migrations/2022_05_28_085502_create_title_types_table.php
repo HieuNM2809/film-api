@@ -16,6 +16,7 @@ class CreateTitleTypesTable extends Migration
         Schema::create('title_types', function (Blueprint $table) {
             $table->id();
             $table->string('type', 255)->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
