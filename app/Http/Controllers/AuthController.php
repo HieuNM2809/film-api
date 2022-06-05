@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
 
-    public function __construct()
+    public function __construct(Request $request)
     {
+
        $this->middleware('auth:api', ['except' => ['login','register']]);
     }
 
@@ -71,6 +72,7 @@ class AuthController extends Controller
 
     public function me()
     {
+        die('ádada');
         return response()->json(auth()->user());
     }
 
