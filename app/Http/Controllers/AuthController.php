@@ -81,7 +81,7 @@ class AuthController extends Controller
             'status' => 1,
             'message'=> 'success',
             'data' => [
-                'profile'=> $this->me(),
+                'profile'=> auth()->user(),
                 'access_token' => $token,
                 'token_type' => 'bearer',
                 'expires_in' => auth()->factory()->getTTL() * 60
