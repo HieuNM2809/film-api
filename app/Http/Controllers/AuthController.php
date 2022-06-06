@@ -72,7 +72,6 @@ class AuthController extends Controller
 
     public function me()
     {
-        die('ádada');
         return response()->json(auth()->user());
     }
 
@@ -82,6 +81,7 @@ class AuthController extends Controller
             'status' => 1,
             'message'=> 'success',
             'data' => [
+                'profile'=> $this->me(),
                 'access_token' => $token,
                 'token_type' => 'bearer',
                 'expires_in' => auth()->factory()->getTTL() * 60
