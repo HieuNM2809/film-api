@@ -165,6 +165,5 @@ class PostController extends BaseController
             return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
-
     }
 }

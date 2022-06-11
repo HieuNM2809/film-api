@@ -14,9 +14,9 @@ class CreateUserIconRanksTable extends Migration
     public function up()
     {
         Schema::create('user_icon_ranks', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('id_user')->nullable();
-            $table->bigInteger('id_icon')->nullable();
+        $table->id();
+        $table->bigInteger('id_user')->nullable();
+        $table->bigInteger('id_icon')->nullable();
         });
     }
 
