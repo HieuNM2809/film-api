@@ -47,6 +47,7 @@ Route::get('test', function(){
 });
 
 Route::apiResource('post', PostController::class);  //ok
+Route::get('get-post-custom', [PostController::class,'getPostCustom']);  //ok
 Route::post('post/get-comment-by-id-post',  [CommentsController::class  , 'getComment']);  //ok
 Route::apiResource('title-type', TitleTypeController::class);  //ok
 Route::apiResource('settings', SettingsController::class);  //ok

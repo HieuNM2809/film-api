@@ -127,4 +127,22 @@ class PostController extends BaseController
         }
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
+
+    public function getPostCustom(Request $request){
+        // post?limit={số bài viết trả về}?page={số trang} nhé
+        $validator = Validator::make($request->all(), [
+            'posts_on_page' => 'required|integer|min:0',
+            'page' => 'required|integer|min:0'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table
+                        ->with("titleType")->with("user")
+                        ->paginate($request->posts_on_page);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
+    }
 }
