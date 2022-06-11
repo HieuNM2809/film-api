@@ -49,7 +49,8 @@ class TitleTypeController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'type' => 'required|min:5',
-            'description' => 'required|min:20'
+            'description' => 'required|min:20',
+            'color' => 'required'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
@@ -96,7 +97,8 @@ class TitleTypeController extends BaseController
         $condition = [];
         $validator = Validator::make($request->all(), [
             'type' => 'required|min:5',
-            'description' => 'required|min:20'
+            'description' => 'required|min:20',
+            'color' => 'required'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);

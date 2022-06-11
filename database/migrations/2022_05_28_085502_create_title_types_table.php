@@ -17,6 +17,7 @@ class CreateTitleTypesTable extends Migration
             $table->id();
             $table->string('type', 255)->nullable();
             $table->text('description')->nullable();
+            $table->string('color', 255)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
