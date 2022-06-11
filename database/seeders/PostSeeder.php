@@ -24,6 +24,15 @@ class PostSeeder extends BaseSeeder
 
     public function run()
     {
-        //
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('posts')->insert([
+                'title' => 'title posts '.$i,
+                'content' => 'content posts '.$i,
+                'id_title_type' =>$i,
+                'id_user' =>$i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

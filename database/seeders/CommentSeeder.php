@@ -25,6 +25,71 @@ class CommentSeeder extends BaseSeeder
 
     public function run()
     {
-        //
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('comments')->insert([
+                'content' => 'content comments '.$i,
+                'parent' => NULL,
+                'id_post' => $i,
+                'image' => 'imageComment'. Str::random(40).',png',
+                'id_user' => $i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('comments')->insert([
+                'content' => 'content comments '.$i,
+                'parent' => 1,
+                'id_post' => $i,
+                'image' => 'imageComment'. Str::random(40).',png',
+                'id_user' => $i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('comments')->insert([
+                'content' => 'content comments '.$i,
+                'parent' => 2,
+                'id_post' => $i,
+                'image' => 'imageComment'. Str::random(40).',png',
+                'id_user' => $i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('comments')->insert([
+                'content' => 'content comments '.$i,
+                'parent' => 3,
+                'id_post' => $i,
+                'image' => 'imageComment'. Str::random(40).',png',
+                'id_user' => $i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('comments')->insert([
+                'content' => 'content comments '.$i,
+                'parent' => 4,
+                'id_post' => $i,
+                'image' => 'imageComment'. Str::random(40).',png',
+                'id_user' => $i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('comments')->insert([
+                'content' => 'content comments '.$i,
+                'parent' =>5,
+                'id_post' => $i,
+                'image' => 'imageComment'. Str::random(40).',png',
+                'id_user' => $i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

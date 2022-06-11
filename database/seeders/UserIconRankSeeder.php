@@ -17,8 +17,16 @@ class UserIconRankSeeder extends BaseSeeder
     // $table->id();
     // $table->bigInteger('id_user')->nullable();
     // $table->bigInteger('id_icon')->nullable();
+
     public function run()
     {
-        //
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('user_icon_ranks')->insert([
+                'id_user' =>$i,
+                'id_icon' =>$i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

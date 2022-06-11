@@ -21,6 +21,21 @@ class ReactSeeder extends BaseSeeder
 
     public function run()
     {
-        //
+        $textFeel = [
+            'Like',
+            'Love',
+            'Care',
+            'Haha',
+            'Wow',
+            'Sad',
+            'Angry'
+        ];
+        for ($i = 0; $i < count($textFeel); $i++) {
+            DB::table('reacts')->insert([
+                'text_feel' => $textFeel[$i],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

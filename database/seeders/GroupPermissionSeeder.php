@@ -21,6 +21,12 @@ class GroupPermissionSeeder extends BaseSeeder
 
     public function run()
     {
-        //
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('group_permissions')->insert([
+                'name' => 'name group_permissions '.$i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

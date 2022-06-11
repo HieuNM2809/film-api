@@ -27,14 +27,14 @@ class DatabaseSeeder extends BaseSeeder
             DonateSeeder::class,
             CreditCartSeeder::class,
             PermissionSeeder::class,
-            // HashTagSeeder::class,
-            // ReactSeeder::class,
-            // UserIconRankSeeder::class,
-            // UserSeeder::class,
-            // PostSeeder::class,
-            // CommentSeeder::class,
-            // UserFeelSeeder::class,
-            // GroupPermissionSeeder::class
+            HashTagSeeder::class,
+            ReactSeeder::class,
+            UserIconRankSeeder::class,
+            UserSeeder::class,
+            PostSeeder::class,
+            GroupPermissionSeeder::class,
+            UserFeelSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }

@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class HashTagSeeder extends BaseSeeder
 {
@@ -18,6 +21,12 @@ class HashTagSeeder extends BaseSeeder
 
     public function run()
     {
-        //
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('hashtags')->insert([
+                'title' => 'title hashtags '.$i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

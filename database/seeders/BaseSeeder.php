@@ -9,5 +9,5 @@ use Illuminate\Support\Facades\Hash;
 
 class BaseSeeder extends Seeder
 {
-    protected $amountRecord = 20;
+    protected $amountRecord = 40;
 }
