@@ -22,6 +22,14 @@ class SettingsSeeder extends Seeder
     // $table->softDeletes();
     public function run()
     {
-        //
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('settings')->insert([
+                'key' => 'key '.$i,
+                'value' => 'value ' . Str::random(10),
+                'id_user' => $i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

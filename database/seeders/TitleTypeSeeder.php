@@ -19,9 +19,16 @@ class TitleTypeSeeder extends Seeder
     // $table->text('description')->nullable();
     // $table->timestamps();
     // $table->softDeletes();
-    
+
     public function run()
     {
-        //
+        for ($i = 0; $i < $this->amountRecord; $i++) {
+            DB::table('title_types')->insert([
+                'type' => 'title_types type' . Str::random(10),
+                'description' => 'title_types type déscription' . Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

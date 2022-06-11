@@ -17,17 +17,24 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-         // Gọi class khởi tại dữ liệu
-        //  $this->call([
-        //     UserSeeder::class,
-        //     TypesSitesSeeder::class,
-        //     SitesSeeder::class,
-        //     ReactSeeder::class,
-        //     HotelSeeder::class,
-        //     RestaurantSeeder::class,
-        //     PostSeeder::class,
-        //     CommentSeeder::class,
-        //     ImageSeeder::class,
-        // ]);
+        // Gọi class khởi tại dữ liệu
+        $this->call([
+            TitleTypeSeeder::class,
+            IconRankSeeder::class,
+            RuleRankSeeder::class,
+            SettingsSeeder::class,
+            OrganizationSeeder::class,
+            DonateSeeder::class,
+            CreditCartSeeder::class,
+            PermissionSeeder::class,
+            // HashTagSeeder::class,
+            // ReactSeeder::class,
+            // UserIconRankSeeder::class,
+            // UserSeeder::class,
+            // PostSeeder::class,
+            // CommentSeeder::class,
+            // UserFeelSeeder::class,
+            // GroupPermissionSeeder::class
+        ]);
     }
 }

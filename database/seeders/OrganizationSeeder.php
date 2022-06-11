@@ -21,6 +21,12 @@ class OrganizationSeeder extends Seeder
 
     public function run()
     {
-        //
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('organizations')->insert([
+                'name' => 'name organizations '.$i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

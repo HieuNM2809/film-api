@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
-class DonateSeeder extends Seeder
+class RuleRankSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,17 +15,17 @@ class DonateSeeder extends Seeder
      * @return void
      */
     // $table->id();
-    // $table->string('link', 255)->nullable();
-    // $table->bigInteger('id_user')->nullable();
+    // $table->string('name')->nullable();
+    // $table->integer('value')->nullable();
     // $table->timestamps();
     // $table->softDeletes();
 
     public function run()
     {
         for ($i = 1; $i <= $this->amountRecord; $i++) {
-            DB::table('donates')->insert([
-                'link' => 'https://unghotoi.com/DoMiXi_'.$i,
-                'id_user' => $i,
+            DB::table('rule_ranks')->insert([
+                'name' => 'name icon_ranks '.$i,
+                'value' =>  rand(1,50),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

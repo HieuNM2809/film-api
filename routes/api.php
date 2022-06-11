@@ -66,6 +66,7 @@ Route::apiResource('donate', DonateController::class);
 Route::apiResource('react', ReactController::class);
 Route::apiResource('group-permission', GroupPermissionController::class);
 Route::apiResource('permission', PermissionController::class);
+Route::apiResource('rule-ranks', PermissionController::class);
 
 
 

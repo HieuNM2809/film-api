@@ -23,17 +23,13 @@ class IconRankSeeder extends Seeder
 
     public function run()
     {
-        $max = 20;
-        for ($i = 0; $i < $max; $i++) {
-            DB::table('users')->insert([
-                'name' => 'Nguyen ' . Str::random(10),
-                'user' => 'User' . Str::random(10),
-                'password' => Hash::make('password'),
-                'image' => $i.'.png',
-                'birthday' => now(),
-                'position' => 4,
-                'email' => Str::random(10) . '@gmail.com',
-                'phone' => Str::random(10)
+        for ($i = 1; $i <= $this->amountRecord; $i++) {
+            DB::table('icon_ranks')->insert([
+                'id_rule' => $i,
+                'icon' => 'icon' . Str::random(10).'.png',
+                'title' => 'title '. $i,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
         }
 
