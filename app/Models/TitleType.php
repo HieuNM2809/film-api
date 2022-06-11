@@ -14,6 +14,7 @@ class TitleType extends Base
     protected $fillable = [
         'type',
         'description',
+        'color',
     ];
 
 

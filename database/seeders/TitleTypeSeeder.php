@@ -22,10 +22,18 @@ class TitleTypeSeeder extends BaseSeeder
 
     public function run()
     {
+        $arrayColor =[
+            'red',
+            'blue',
+            'yellow',
+            'green',
+            'black'
+        ];
         for ($i = 0; $i < $this->amountRecord; $i++) {
             DB::table('title_types')->insert([
                 'type' => 'title_types type' . Str::random(10),
                 'description' => 'title_types type déscription' . Str::random(10),
+                'color' => $arrayColor[rand(0,4)],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
