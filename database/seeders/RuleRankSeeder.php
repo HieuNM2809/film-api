@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
-class RuleRankSeeder extends Seeder
+class RuleRankSeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.

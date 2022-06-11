@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class HashTagSeeder extends Seeder
+class HashTagSeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.

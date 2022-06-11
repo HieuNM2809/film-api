@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
-class PostSeeder extends Seeder
+class PostSeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.

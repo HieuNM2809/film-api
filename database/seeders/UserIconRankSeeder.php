@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
-class UserIconRankSeeder extends Seeder
+class UserIconRankSeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.

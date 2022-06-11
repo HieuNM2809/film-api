@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
-class CommentSeeder extends Seeder
+class CommentSeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.
@@ -22,7 +22,7 @@ class CommentSeeder extends Seeder
     // $table->bigInteger('id_user')->nullable();
     // $table->timestamps();
     // $table->softDeletes();
-    
+
     public function run()
     {
         //
