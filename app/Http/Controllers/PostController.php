@@ -8,6 +8,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 use App\Models\TitleType;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class PostController extends BaseController
 {
@@ -128,8 +129,8 @@ class PostController extends BaseController
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 
+    // phân trang bài viết
     public function getPostCustom(Request $request){
-        // post?limit={số bài viết trả về}?page={số trang} nhé
         $validator = Validator::make($request->all(), [
             'posts_on_page' => 'required|integer|min:0',
             'page' => 'required|integer|min:0'
@@ -144,5 +145,26 @@ class PostController extends BaseController
             return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
+    }
+
+    // Lấy bài viết mới nhất, cũ nhất
+    public function getPostCustomNew(Request $request){
+        $validator = Validator::make($request->all(), [
+            'posts_on_page' => 'required|integer|min:0',
+            'sort' => ['required', Rule::in(['DESC', 'ASC'])] ,
+            'page' => 'required|integer|min:0'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table
+                        ->with("titleType")->with("user")
+                        ->orderBy('created_at', $request->sort)
+                        ->paginate($request->posts_on_page);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
+
     }
 }
