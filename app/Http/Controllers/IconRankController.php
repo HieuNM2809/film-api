@@ -4,17 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
+use App\Models\IconRank;
+use Illuminate\Support\Facades\Validator;
 
 class IconRankController extends BaseController
 {
-   /**
+    private $table;
+    function __construct()
+    {
+        $this->table = new IconRank();
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.iconRank.list');
+        if ($request->expectsJson()) {
+            $data = $this->table->get();
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI'),  $data);
+        }
+        return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 
     /**
@@ -24,7 +35,7 @@ class IconRankController extends BaseController
      */
     public function create()
     {
-        return view('pages.iconRank.add');
+        return view('pages.post.add');
     }
 
     /**
@@ -35,7 +46,21 @@ class IconRankController extends BaseController
      */
     public function store(Request $request)
     {
-
+        // 'id_rule',
+        // 'icon',
+        // 'title',
+        $validator = Validator::make($request->all(), [
+            'id_rule' => 'required|numeric|exists:rule_ranks,id',
+            'title' => 'required|min:20',
+            'icon' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors(), []);
+        }
+        $data = $request->all();
+        $data['icon'] = uploadImage($request, 'icon', 'IconRank');
+        $data = $this->table->createByTable($this->table, $data);
+        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), []);
     }
 
     /**
@@ -44,9 +69,13 @@ class IconRankController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-        return view('pages.iconRank.detail');
+        if ($request->expectsJson()) {
+            $data = $this->table->getTitleTypeAndCountPostById($id);
+            return $this->dataResponse($data ? '200' : '404', $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),  $data);
+        }
+        return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 
     /**
@@ -57,7 +86,7 @@ class IconRankController extends BaseController
      */
     public function edit($id)
     {
-        return view('pages.iconRank.edit');
+        return view('pages.post.edit', ['typeSites' => $this->table->find($id)]);
     }
 
     /**
@@ -69,7 +98,20 @@ class IconRankController extends BaseController
      */
     public function update(Request $request, $id)
     {
+        $condition = [];
+        $validator = Validator::make($request->all(), [
+            'type' => 'required|min:5',
+            'description' => 'required|min:20'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors(), []);
+        }
+        $data =  $request->all();
+        unset($data['_method']);
 
+        $condition['id'] = $id;
+        $data = $this->table->updateCondition($this->table, $data, $condition);
+        return  $this->dataResponse($data ? '200' : '404',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'), []);
     }
 
     /**
@@ -78,8 +120,12 @@ class IconRankController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-
+        if ($request->expectsJson()) {
+            $data = $this->table->where('id', $id)->delete();
+            return $this->dataResponse($data ? '200' : '404', $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),  $data);
+        }
+        return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 }
