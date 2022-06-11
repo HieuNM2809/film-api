@@ -46,9 +46,6 @@ class IconRankController extends BaseController
      */
     public function store(Request $request)
     {
-        // 'id_rule',
-        // 'icon',
-        // 'title',
         $validator = Validator::make($request->all(), [
             'id_rule' => 'required|numeric|exists:rule_ranks,id',
             'title' => 'required|min:20',
@@ -72,7 +69,7 @@ class IconRankController extends BaseController
     public function show($id, Request $request)
     {
         if ($request->expectsJson()) {
-            $data = $this->table->getTitleTypeAndCountPostById($id);
+            $data = $this->table->find($id);
             return $this->dataResponse($data ? '200' : '404', $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),  $data);
         }
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
@@ -100,8 +97,8 @@ class IconRankController extends BaseController
     {
         $condition = [];
         $validator = Validator::make($request->all(), [
-            'type' => 'required|min:5',
-            'description' => 'required|min:20'
+            'id_rule' => 'required|numeric|exists:rule_ranks,id',
+            'title' => 'required|min:20'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
@@ -109,8 +106,13 @@ class IconRankController extends BaseController
         $data =  $request->all();
         unset($data['_method']);
 
+        if($request->hasFile('icon')) {
+            $data['icon'] = uploadImage($request, 'icon', 'IconRank');
+        }
+
         $condition['id'] = $id;
-        $data = $this->table->updateCondition($this->table, $data, $condition);
+        $data = $this->table->updateCondition($this->table, $data ,$condition);
+
         return  $this->dataResponse($data ? '200' : '404',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'), []);
     }
 
