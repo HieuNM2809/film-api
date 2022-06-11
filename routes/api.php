@@ -56,13 +56,13 @@ Route::apiResource('organization', OrganizationController::class); //ok
 Route::apiResource('hash-tag', HashtagController::class); //ok
 Route::apiResource('credit-cart', CreditCartController::class); //ok
 Route::apiResource('icon-rank', IconRankController::class); //ok
+Route::apiResource('donate', DonateController::class); // ok
 
 
 Route::apiResource('user-icon-rank', UserIconRankController::class);
 Route::apiResource('comment', CommentsController::class);
 Route::apiResource('user', UserController::class);
 Route::apiResource('user-feel', UserFeelController::class);
-Route::apiResource('donate', DonateController::class);
 Route::apiResource('react', ReactController::class);
 Route::apiResource('group-permission', GroupPermissionController::class);
 Route::apiResource('permission', PermissionController::class);
