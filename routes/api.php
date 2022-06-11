@@ -59,10 +59,10 @@ Route::apiResource('credit-cart', CreditCartController::class); //ok
 Route::apiResource('icon-rank', IconRankController::class); //ok
 Route::apiResource('donate', DonateController::class); // ok
 Route::apiResource('rule-ranks', RuleRankController::class);//ok
+Route::apiResource('comment', CommentsController::class);
 
 
 Route::apiResource('user-icon-rank', UserIconRankController::class);
-Route::apiResource('comment', CommentsController::class);
 Route::apiResource('user', UserController::class);
 Route::apiResource('user-feel', UserFeelController::class);
 Route::apiResource('react', ReactController::class);
