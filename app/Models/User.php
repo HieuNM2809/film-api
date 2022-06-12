@@ -9,11 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Models\Base;
 
 class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -35,6 +35,16 @@ class User extends Authenticatable implements JWTSubject
         'work',
         'education'
     ];
+    // public function createByTable($table, $data){
+    //     $model1 =  new Base();
+    //     return $model1->createByTable($table, $data);
+    // }
+    // public function getByCondition($table, $data){
+    //     $this->model->createByTable($table, $data);
+    // }
+    // public function updateCondition($table, $data){
+    //     $this->model->createByTable($table, $data);
+    // }
 
     public function getJWTIdentifier()
     {

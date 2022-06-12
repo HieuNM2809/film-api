@@ -64,10 +64,10 @@ Route::apiResource('donate', DonateController::class); // ok
 Route::apiResource('rule-ranks', RuleRankController::class);//ok
 Route::apiResource('comment', CommentsController::class);
 Route::apiResource('user-icon-rank', UserIconRankController::class);//Ok
+Route::apiResource('user', UserController::class);//ok
 
 
 
-Route::apiResource('user', UserController::class);
 Route::apiResource('user-feel', UserFeelController::class);
 Route::apiResource('react', ReactController::class);
 Route::apiResource('group-permission', GroupPermissionController::class);
