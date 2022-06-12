@@ -166,4 +166,5 @@ class PostController extends BaseController
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
+
 }

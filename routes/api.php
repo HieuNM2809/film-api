@@ -19,6 +19,7 @@ use App\Http\Controllers\UserFeelController;
 use App\Http\Controllers\UserIconRankController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RuleRankController;
+use App\Http\Controllers\ImageMessyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::get('test', function(){
     return 'test ok';
 });
 
+
+Route::post('upload-image-messy', [ImageMessyController::class,'uploadImageMessy']);  //ok
 Route::apiResource('post', PostController::class);  //ok
 Route::get('get-post-custom', [PostController::class,'getPostCustom']);  //ok  // phân trang bài viết
 Route::get('get-post-custom-new', [PostController::class,'getPostCustomNew']);  //ok  Lấy bài viết mới nhất, cũ nhất
@@ -60,6 +63,8 @@ Route::apiResource('icon-rank', IconRankController::class); //ok
 Route::apiResource('donate', DonateController::class); // ok
 Route::apiResource('rule-ranks', RuleRankController::class);//ok
 Route::apiResource('comment', CommentsController::class);
+
+
 
 
 Route::apiResource('user-icon-rank', UserIconRankController::class);
