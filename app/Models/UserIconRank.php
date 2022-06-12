@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class UserIconRank extends Model
+class UserIconRank extends Base
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [

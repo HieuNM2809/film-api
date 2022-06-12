@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
+use App\Models\UserIconRank;
+use Illuminate\Support\Facades\Validator;
+
 
 class UserIconRankController extends BaseController
 {
@@ -12,9 +15,25 @@ class UserIconRankController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    protected $table;
+    function __construct(){
+        $this->table = new UserIconRank();
+    }
+    public function index(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'id_user' => 'required|numeric|exists:users,id'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        $condition['id_user'] = $request->id_user;
+        if ($request->expectsJson()) {
+            $data = $this->table->getByCondition($this->table, $condition);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.donate.list');
     }
 
     /**
@@ -24,7 +43,7 @@ class UserIconRankController extends BaseController
      */
     public function create()
     {
-        //
+        return view('pages.donate.add');
     }
 
     /**
@@ -35,7 +54,17 @@ class UserIconRankController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'id_user' => 'required|numeric|exists:users,id',
+            'id_icon' => 'required|numeric|exists:icon_ranks,id'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table->createByTable($this->table,$request->all());
+            return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , []);
+        }
     }
 
     /**
@@ -44,9 +73,13 @@ class UserIconRankController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-        //
+        if ($request->expectsJson()) {
+            $data = $this->table->find($id);
+            return $this->dataResponse($data ? '200' : '404', $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),  $data);
+        }
+        return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 
     /**
@@ -57,7 +90,7 @@ class UserIconRankController extends BaseController
      */
     public function edit($id)
     {
-        //
+        return view('pages.donate.edit');
     }
 
     /**
@@ -69,7 +102,21 @@ class UserIconRankController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'id_user' => 'required|numeric|exists:users,id',
+            'id_icon' => 'required|numeric|exists:icon_ranks,id'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        $data = $request->all();
+        if(isset($data['_method'])){
+            unset($data['_method']);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table->updateCondition($this->table,$data, ['id'=>$id]);
+            return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , []);
+        }
     }
 
     /**
@@ -78,8 +125,11 @@ class UserIconRankController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->expectsJson()) {
+            $data = $this->table->where('id', $id)->delete();
+            return $this->dataResponse($data ?'200' :'404', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI'),  $data);
+        }
     }
 }
