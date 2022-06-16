@@ -1,41 +1,69 @@
-# To contribute improvements to CI/CD templates, please follow the Development guide at:
-# https://docs.gitlab.com/ee/development/cicd/templates.html
-# This specific template is located at:
-# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml
-
-# Select image from https://hub.docker.com/_/php/
-image: php:latest
-
-# Select what we should cache between builds
-cache:
-  paths:
-    - vendor/
-
-before_script:
-  - apt-get update -yqq
-  - apt-get install -yqq git libpq-dev libcurl4-gnutls-dev libicu-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev libonig-dev libzip-dev
-  # Install PHP extensions
-  - docker-php-ext-install mbstring pdo_pgsql curl intl gd xml zip bz2 opcache
-  # Install & enable Xdebug for code coverage reports
-  - pecl install xdebug
-  - docker-php-ext-enable xdebug
-  # Install and run Composer
-  - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar install
-
-# Bring in any services we need https://docs.gitlab.com/ee/ci/services/index.html
-# See http://docs.gitlab.com/ee/ci/services/README.html for examples.
-services:
-  - mysql:5.7
-
-# Set any variables we need
 variables:
-  # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
-  MYSQL_DATABASE: mysql_database
-  MYSQL_ROOT_PASSWORD: mysql_strong_password
+  GIT_STRATEGY: none
+  GIT_CHECKOUT: "false"
 
-# Run our tests
-# If Xdebug was installed you can generate a coverage report and see code coverage metrics.
-test:
+stages:
+  - build
+  - code-analysis
+  - deploy
+
+dev-build:
+  stage: build
+  tags:
+    - devenv
+  only:
+    - dev
   script:
-    - vendor/bin/phpunit --configuration phpunit.xml --coverage-text --colors=never
+    - trigger -h http://gitlab.fpt.net -u /api/v4/projects -a rd6ApchjALgm-d7uzkCA -p deb638fe6d902c968a4e8ca443ca60 -o 0 -e STAGE="build" -e DOCKER_TAG=$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA -t dev 2628
+dev-code-analysis:
+  stage: code-analysis
+  tags:
+    - devenv
+  only:
+    - dev
+  script:
+    - trigger -h http://gitlab.fpt.net -u /api/v4/projects -a rd6ApchjALgm-d7uzkCA -p deb638fe6d902c968a4e8ca443ca60 -o 1 -e STAGE="code-analysis" -e DOCKER_TAG=$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA -t dev 2628
+dev-deploy:
+  stage: deploy
+  tags:
+    - devenv
+  only:
+    - dev
+  script:
+    - trigger -h http://gitlab.fpt.net -u /api/v4/projects -a rd6ApchjALgm-d7uzkCA -p deb638fe6d902c968a4e8ca443ca60 -e STAGE="deploy" -e DOCKER_TAG=$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA -t dev 2628
+
+stg-build:
+  stage: build
+  tags:
+    - devenv
+  only:
+    - staging
+  script:
+    - trigger -h http://gitlab.fpt.net -u /api/v4/projects -a rd6ApchjALgm-d7uzkCA -p deb638fe6d902c968a4e8ca443ca60 -o 0 -e STAGE="build" -e DOCKER_TAG=$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA -t staging 2628
+stg-deploy:
+  stage: deploy
+  tags:
+    - devenv
+  only:
+    - staging
+  script:
+    - trigger -h http://gitlab.fpt.net -u /api/v4/projects -a rd6ApchjALgm-d7uzkCA -p deb638fe6d902c968a4e8ca443ca60 -e STAGE="deploy" -e DOCKER_TAG=$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA -t staging 2628
+
+prod-build:
+  stage: build
+  tags:
+    - devenv
+  only:
+    - tags
+  script:
+    - trigger -h http://gitlab.fpt.net -u /api/v4/projects -a rd6ApchjALgm-d7uzkCA -p deb638fe6d902c968a4e8ca443ca60 -o 0 -e STAGE="build" -e DOCKER_TAG=$CI_COMMIT_TAG -t main 2628
+
+prod-deploy:
+  stage: deploy
+  tags:
+    - devenv
+  script:
+    - trigger -h http://gitlab.fpt.net -u /api/v4/projects -a rd6ApchjALgm-d7uzkCA -p deb638fe6d902c968a4e8ca443ca60 -e STAGE="deploy" -e DOCKER_TAG=$CI_COMMIT_TAG -t main 2628
+  only:
+    refs:
+      - tags
