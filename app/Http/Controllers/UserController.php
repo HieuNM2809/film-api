@@ -142,7 +142,7 @@ class UserController extends BaseController
             $data['password'] = Hash::make($request->password);
         }
         if ($request->hasFile('avatar')) {
-            $data['icon'] = uploadImage($request, 'avatar', 'User');
+            $data['avatar'] = uploadImage($request, 'avatar', 'User');
         }
         $data = $this->table->where("id", $id)->update($data);
         return  $this->dataResponse($data ? '200' : '404',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'), []);
