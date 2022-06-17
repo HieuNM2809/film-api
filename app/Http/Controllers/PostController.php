@@ -166,5 +166,23 @@ class PostController extends BaseController
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
+    public function getPostWithUser(Request $request){
+        $validator = Validator::make($request->all(), [
+            'sort' => ['required', Rule::in(['DESC', 'ASC'])],
+            'id_user' =>'required|exists:users,id',
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table
+                        ->with("titleType")->with("user")
+                        ->orderBy('created_at', $request->sort)
+                        ->where('id_user', $request->id_user)
+                        ->get();
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
+    }
 
 }
