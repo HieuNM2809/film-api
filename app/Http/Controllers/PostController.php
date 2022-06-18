@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
 use App\Models\Post;
-use Illuminate\Support\Facades\DB;
-use App\Models\TitleType;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 

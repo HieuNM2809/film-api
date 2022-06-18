@@ -35,6 +35,7 @@ class DatabaseSeeder extends BaseSeeder
             GroupPermissionSeeder::class,
             UserFeelSeeder::class,
             CommentSeeder::class,
+            UserPostSeeder::class,
         ]);
     }
 }

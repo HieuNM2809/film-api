@@ -20,6 +20,7 @@ use App\Http\Controllers\UserIconRankController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RuleRankController;
 use App\Http\Controllers\ImageMessyController;
+use App\Http\Controllers\UserPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +49,6 @@ Route::get('test', function(){
     return 'test ok';
 });
 
-// tối cho tui xin post theo user_id với post theo id title type nhe
-
 Route::post('upload-image-messy', [ImageMessyController::class,'uploadImageMessy']);  //ok
 Route::apiResource('post', PostController::class);  //ok
 Route::get('get-post-custom', [PostController::class,'getPostCustom']);  //ok  // phân trang bài viết
@@ -68,6 +67,12 @@ Route::apiResource('rule-ranks', RuleRankController::class);//ok
 Route::apiResource('comment', CommentsController::class);
 Route::apiResource('user-icon-rank', UserIconRankController::class);//Ok
 Route::apiResource('user', UserController::class);//ok
+// post custom v2
+Route::prefix('post')->group(function () {
+    Route::post('save-post-by-user',  [UserPostController::class  , 'savePostByUser']);  //ok lưu bài viết
+    Route::post('un-save-post-by-user',  [UserPostController::class  , 'unSavePostByUser']);  //ok bỏ lưu bài viết
+    Route::post('list-post-by-user',  [UserPostController::class  , 'listPostByUser']);  //ok danh sách bài viết đã lưu theo user id
+});
 
 
 
