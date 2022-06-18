@@ -1,16 +1,556 @@
 {
 	"info": {
-		"_postman_id": "14fb6f2a-30cf-4d52-9bf6-22f2f979f952",
+		"_postman_id": "d45b0b1b-4966-4fbd-9fa3-fff8364d54d4",
 		"name": "DOAN",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16217054"
 	},
 	"item": [
 		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "{{host}}/api/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoangan7@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/api/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoangan@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/api/me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZmlsbS5sb2NhbC9hcGkvbG9naW4iLCJpYXQiOjE2NTQzNzE0NzQsImV4cCI6MTY1NDM3NTA3NCwibmJmIjoxNjU0MzcxNDc0LCJqdGkiOiJremR2UUx2UTJpcWVZRkluIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.YhyDfGbjB_1DvXzEWFQPCLp_HrN1BwGa3MPf0oHCeiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/me",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/api/refresh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZmlsbS5sb2NhbC9hcGkvbG9naW4iLCJpYXQiOjE2NTQzNzE0NzQsImV4cCI6MTY1NDM3NTA3NCwibmJmIjoxNjU0MzcxNDc0LCJqdGkiOiJremR2UUx2UTJpcWVZRkluIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.YhyDfGbjB_1DvXzEWFQPCLp_HrN1BwGa3MPf0oHCeiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/refresh",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "post",
 			"item": [
 				{
 					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/post",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"post"
+							]
+						},
+						"description": "cách su dung"
+					},
+					"response": []
+				},
+				{
+					"name": "get-post-custom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/get-post-custom?posts_on_page=3&page=1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"get-post-custom"
+							],
+							"query": [
+								{
+									"key": "posts_on_page",
+									"value": "3",
+									"description": "số bài viết trên trang"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "số trang"
+								}
+							]
+						},
+						"description": "cách su dung"
+					},
+					"response": []
+				},
+				{
+					"name": "get-post-custom-new",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/get-post-custom-new?posts_on_page=3&page=1&sort=DESC",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"get-post-custom-new"
+							],
+							"query": [
+								{
+									"key": "posts_on_page",
+									"value": "3",
+									"description": "số bài viết trên trang"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "số trang"
+								},
+								{
+									"key": "sort",
+									"value": "DESC",
+									"description": "ASC"
+								}
+							]
+						},
+						"description": "cách su dung"
+					},
+					"response": []
+				},
+				{
+					"name": "get-comment-by-id-post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idPost",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "from",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "to",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/post/get-comment-by-id-post",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"get-comment-by-id-post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-post-with-user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sort",
+									"value": "DESC",
+									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/get-post-with-user",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"get-post-with-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-post-with-title",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sort",
+									"value": "DESC",
+									"type": "text"
+								},
+								{
+									"key": "id_title_type",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/get-post-with-title",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"get-post-with-title"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save-post-by-user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_user",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "id_post",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/post/save-post-by-user",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"save-post-by-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "un-save-post-by-user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_user",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "id_post",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/post/un-save-post-by-user",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"un-save-post-by-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list-post-by-user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_user",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/post/list-post-by-user",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"list-post-by-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-like-all",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "key",
+									"value": "hello",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/post/search-like-all",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"search-like-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -21,13 +561,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/post",
+							"raw": "{{urlDoAn}}/api/post/1",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
-								"post"
+								"post",
+								"1"
 							]
 						}
 					},
@@ -58,43 +599,24 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
-									"value": "Đảo phú quốc 5",
-									"type": "default"
+									"key": "title",
+									"value": "12he title must be at least 10 characters",
+									"type": "text"
 								},
 								{
-									"key": "pointx",
-									"value": "12",
-									"type": "default",
-									"disabled": true
+									"key": "content",
+									"value": "he content field is required.\"",
+									"type": "text"
 								},
 								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "description",
-									"value": "Đẹp 2",
-									"type": "default"
-								},
-								{
-									"key": "status",
+									"key": "id_title_type",
 									"value": "1",
-									"type": "default"
+									"type": "text"
 								},
 								{
-									"key": "image",
-									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
-								},
-								{
-									"key": "id_types_sites",
+									"key": "id_user",
 									"value": "1",
-									"type": "default",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
@@ -106,31 +628,6 @@
 							"path": [
 								"api",
 								"post"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/post/12",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"post",
-								"12"
 							]
 						}
 					},
@@ -161,14 +658,29 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
-									"value": "123",
-									"type": "default"
-								},
-								{
 									"key": "_method",
 									"value": "PUT",
 									"type": "default"
+								},
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "id_title_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "",
+									"type": "text"
 								}
 							]
 						},
@@ -198,14 +710,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/post/24",
+							"raw": "{{urlDoAn}}/api/post/4",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"post",
-								"24"
+								"4"
 							]
 						}
 					},
@@ -265,43 +777,19 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
-									"value": "Đảo phú quốc 5",
-									"type": "default"
-								},
-								{
-									"key": "pointx",
-									"value": "12",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
+									"key": "type",
+									"value": "Công nghệ 1",
+									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Đẹp 2",
-									"type": "default"
+									"value": "Biểu tình bài Nhật tại Trung Quốc năm 2012Biểu tình Tây Nguyên 2004Biểu tình Thái Bình 1997Ronald ReaganTrưởng quan Bắt Chuột tại Văn phòng Nội các Anh QuốcVụ phát tán video Senkaku năm 2010Vụ Trần Trường 1",
+									"type": "text"
 								},
 								{
-									"key": "status",
-									"value": "1",
-									"type": "default"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
-								},
-								{
-									"key": "id_types_sites",
-									"value": "1",
-									"type": "default",
-									"disabled": true
+									"key": "color",
+									"value": "red",
+									"type": "text"
 								}
 							]
 						},
@@ -330,14 +818,197 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/title-type/12",
+							"raw": "{{urlDoAn}}/api/title-type/21",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"title-type",
-								"12"
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "default"
+								},
+								{
+									"key": "type",
+									"value": "test 123",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test 123test 123test 123test 123test 123",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "blue",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/title-type/41",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"title-type",
+								"41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/title-type/21",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"title-type",
+								"21"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "organization",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/organization",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"organization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tổ chức áo vàng",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/organization",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"organization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/organization/5",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"organization",
+								"5"
 							]
 						}
 					},
@@ -369,7 +1040,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "123",
+									"value": "1233",
 									"type": "default"
 								},
 								{
@@ -380,14 +1051,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{urlDoAn}}/api/title-type/26",
+							"raw": "{{urlDoAn}}/api/organization/1",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
-								"title-type",
-								"26"
+								"organization",
+								"1"
 							]
 						}
 					},
@@ -405,14 +1076,612 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/title-type/24",
+							"raw": "{{urlDoAn}}/api/organization/1",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
-								"title-type",
-								"24"
+								"organization",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hash-tag",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/hash-tag",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"hash-tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "#test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/hash-tag",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"hash-tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/hash-tag/3",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"hash-tag",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "123",
+									"type": "default"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/hash-tag/3",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"hash-tag",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/hash-tag/3",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"hash-tag",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "settings",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/settings?id_user=14",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"settings"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "key",
+									"value": "signout",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/settings",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/settings/2",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"settings",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "default"
+								},
+								{
+									"key": "key",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "123213",
+									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "14",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/settings/1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"settings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/settings/9",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"settings",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "credit-cart",
+			"item": [
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/credit-cart?id_user=1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"credit-cart"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cart_number",
+									"value": "tét12",
+									"type": "text"
+								},
+								{
+									"key": "date_expired",
+									"value": "2022-12-21",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/Administrator/Desktop/Untitled.png"
+								},
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "YP BANK tét12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/credit-cart",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"credit-cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/credit-cart/1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"credit-cart",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cart_number",
+									"value": "tét12 111",
+									"type": "text"
+								},
+								{
+									"key": "date_expired",
+									"value": "2022-12-11",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/Administrator/Desktop/Untitled.png"
+								},
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "YP BANK tét12111",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/credit-cart/1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"credit-cart",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/credit-cart/1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"credit-cart",
+								"1"
 							]
 						}
 					},
@@ -472,43 +1741,19 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
-									"value": "Đảo phú quốc 5",
-									"type": "default"
-								},
-								{
-									"key": "pointx",
-									"value": "12",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "description",
-									"value": "Đẹp 2",
-									"type": "default"
-								},
-								{
-									"key": "status",
-									"value": "1",
-									"type": "default"
-								},
-								{
-									"key": "image",
+									"key": "icon",
 									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
+									"src": "/C:/Users/Administrator/Desktop/585-5850261_on-phone-pointing-left-girl-phone-png-transparent.png"
 								},
 								{
-									"key": "id_types_sites",
+									"key": "id_rule",
 									"value": "1",
-									"type": "default",
-									"disabled": true
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "The title field is requir",
+									"type": "text"
 								}
 							]
 						},
@@ -537,14 +1782,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/icon-rank/12",
+							"raw": "{{urlDoAn}}/api/icon-rank/1",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"icon-rank",
-								"12"
+								"1"
 							]
 						}
 					},
@@ -558,7 +1803,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
 									"type": "string"
 								}
 							]
@@ -575,26 +1820,36 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
-									"value": "123",
-									"type": "default"
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/Administrator/Desktop/585-5850261_on-phone-pointing-left-girl-phone-png-transparent.png"
+								},
+								{
+									"key": "id_rule",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "The title field is requir",
+									"type": "text"
 								},
 								{
 									"key": "_method",
 									"value": "PUT",
-									"type": "default"
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{urlDoAn}}/api/icon-rank/26",
+							"raw": "{{urlDoAn}}/api/icon-rank/1",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"icon-rank",
-								"26"
+								"1"
 							]
 						}
 					},
@@ -612,14 +1867,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/icon-rank/24",
+							"raw": "{{urlDoAn}}/api/icon-rank/1",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"icon-rank",
-								"24"
+								"1"
 							]
 						}
 					},
@@ -628,7 +1883,7 @@
 			]
 		},
 		{
-			"name": "user-icon-rank",
+			"name": "donate",
 			"item": [
 				{
 					"name": "get",
@@ -642,13 +1897,202 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/user-icon-rank",
+							"raw": "{{urlDoAn}}/api/donate?id_user=1",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
-								"user-icon-rank"
+								"donate"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "link",
+									"value": "http://hello.vn",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/donate",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"donate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/donate/1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"donate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "link",
+									"value": "http://hello1.vn",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/donate/1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"donate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/donate/1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"donate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rule-rank",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/rule-ranks",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"rule-ranks"
 							]
 						}
 					},
@@ -684,38 +2128,205 @@
 									"type": "default"
 								},
 								{
-									"key": "pointx",
+									"key": "value",
 									"value": "12",
-									"type": "default",
-									"disabled": true
-								},
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/rule-ranks",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"rule-ranks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/rule-ranks/42",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"rule-ranks",
+								"42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
 								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
-								},
+									"key": "token",
+									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
 								{
-									"key": "description",
-									"value": "Đẹp 2",
+									"key": "name",
+									"value": "123456789",
 									"type": "default"
 								},
 								{
-									"key": "status",
-									"value": "1",
+									"key": "_method",
+									"value": "PUT",
 									"type": "default"
 								},
 								{
-									"key": "image",
-									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
+									"key": "value",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/rule-ranks/41",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"rule-ranks",
+								"41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/rule-ranks/40",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"rule-ranks",
+								"40"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user-icon-rank",
+			"item": [
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/user-icon-rank?id_user=1",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"user-icon-rank"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "text"
 								},
 								{
-									"key": "id_types_sites",
+									"key": "id_icon",
 									"value": "1",
-									"type": "default",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
@@ -782,14 +2393,19 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
-									"value": "123",
-									"type": "default"
-								},
-								{
 									"key": "_method",
 									"value": "PUT",
-									"type": "default"
+									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "id_icon",
+									"value": "2",
+									"type": "text"
 								}
 							]
 						},
@@ -826,213 +2442,6 @@
 							"path": [
 								"api",
 								"user-icon-rank",
-								"24"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "settings",
-			"item": [
-				{
-					"name": "get",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/settings",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"settings"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Đảo phú quốc 5",
-									"type": "default"
-								},
-								{
-									"key": "pointx",
-									"value": "12",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "description",
-									"value": "Đẹp 2",
-									"type": "default"
-								},
-								{
-									"key": "status",
-									"value": "1",
-									"type": "default"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
-								},
-								{
-									"key": "id_types_sites",
-									"value": "1",
-									"type": "default",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/settings",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"settings"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/settings/12",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"settings",
-								"12"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "edit",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "123",
-									"type": "default"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "default"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/settings/26",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"settings",
-								"26"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/settings/24",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"settings",
 								"24"
 							]
 						}
@@ -1263,13 +2672,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/post",
+							"raw": "{{host}}/api/user",
 							"host": [
-								"{{urlDoAn}}"
+								"{{host}}"
 							],
 							"path": [
 								"api",
-								"post"
+								"user"
 							]
 						}
 					},
@@ -1300,43 +2709,74 @@
 							"mode": "formdata",
 							"formdata": [
 								{
+									"key": "email",
+									"value": "minhhieu12@gmail.com",
+									"type": "text"
+								},
+								{
 									"key": "name",
-									"value": "Đảo phú quốc 5",
-									"type": "default"
+									"value": "minhhieu",
+									"type": "text"
 								},
 								{
-									"key": "pointx",
-									"value": "12",
-									"type": "default",
-									"disabled": true
+									"key": "password",
+									"value": "123456",
+									"type": "text"
 								},
 								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
+									"key": "location",
+									"value": "location 123",
+									"type": "text"
 								},
 								{
-									"key": "description",
-									"value": "Đẹp 2",
-									"type": "default"
+									"key": "bio",
+									"value": "bio123",
+									"type": "text"
 								},
 								{
-									"key": "status",
+									"key": "id_permission",
 									"value": "1",
-									"type": "default"
+									"type": "text"
 								},
 								{
-									"key": "image",
+									"key": "identity_card",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
 									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
+									"src": "/D:/Hình/2.png"
 								},
 								{
-									"key": "id_types_sites",
-									"value": "1",
-									"type": "default",
-									"disabled": true
+									"key": "url",
+									"value": "http://2.com",
+									"type": "text"
+								},
+								{
+									"key": "currently_learning",
+									"value": "currently_learning",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "skills",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "education",
+									"type": "text"
+								},
+								{
+									"key": "work",
+									"value": "work",
+									"type": "text"
 								}
 							]
 						},
@@ -1386,7 +2826,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
 									"type": "string"
 								}
 							]
@@ -1403,26 +2843,92 @@
 							"mode": "formdata",
 							"formdata": [
 								{
+									"key": "email",
+									"value": "minhhieu12345@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
 									"key": "name",
-									"value": "123",
-									"type": "default"
+									"value": "minhhieu1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234561",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "location 123",
+									"type": "text"
+								},
+								{
+									"key": "bio",
+									"value": "bio1231",
+									"type": "text"
+								},
+								{
+									"key": "id_permission",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "identity_card",
+									"value": "1234567891",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/D:/Hình/2.png"
+								},
+								{
+									"key": "url",
+									"value": "http://2.com",
+									"type": "text"
+								},
+								{
+									"key": "currently_learning",
+									"value": "currently_learning1",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "skills1",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "education",
+									"type": "text"
+								},
+								{
+									"key": "work",
+									"value": "work1",
+									"type": "text"
 								},
 								{
 									"key": "_method",
 									"value": "PUT",
-									"type": "default"
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{urlDoAn}}/api/user/26",
+							"raw": "{{urlDoAn}}/api/user/1",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"user",
-								"26"
+								"1"
 							]
 						}
 					},
@@ -1447,213 +2953,6 @@
 							"path": [
 								"api",
 								"user",
-								"24"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "organization",
-			"item": [
-				{
-					"name": "get",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/organization",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"organization"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Đảo phú quốc 5",
-									"type": "default"
-								},
-								{
-									"key": "pointx",
-									"value": "12",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "description",
-									"value": "Đẹp 2",
-									"type": "default"
-								},
-								{
-									"key": "status",
-									"value": "1",
-									"type": "default"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
-								},
-								{
-									"key": "id_types_sites",
-									"value": "1",
-									"type": "default",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/organization",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"organization"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/organization/12",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"organization",
-								"12"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "edit",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "123",
-									"type": "default"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "default"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/organization/26",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"organization",
-								"26"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/organization/24",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"organization",
 								"24"
 							]
 						}
@@ -1861,213 +3160,6 @@
 							"path": [
 								"api",
 								"user-feel",
-								"24"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "donate",
-			"item": [
-				{
-					"name": "get",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/donate",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"donate"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Đảo phú quốc 5",
-									"type": "default"
-								},
-								{
-									"key": "pointx",
-									"value": "12",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "description",
-									"value": "Đẹp 2",
-									"type": "default"
-								},
-								{
-									"key": "status",
-									"value": "1",
-									"type": "default"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
-								},
-								{
-									"key": "id_types_sites",
-									"value": "1",
-									"type": "default",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/donate",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"donate"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/donate/12",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"donate",
-								"12"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "edit",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "123",
-									"type": "default"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "default"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/donate/26",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"donate",
-								"26"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/donate/24",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"donate",
 								"24"
 							]
 						}
@@ -2491,213 +3583,6 @@
 			]
 		},
 		{
-			"name": "hash-tag",
-			"item": [
-				{
-					"name": "get",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/hash-tag",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"hash-tag"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Đảo phú quốc 5",
-									"type": "default"
-								},
-								{
-									"key": "pointx",
-									"value": "12",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "description",
-									"value": "Đẹp 2",
-									"type": "default"
-								},
-								{
-									"key": "status",
-									"value": "1",
-									"type": "default"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
-								},
-								{
-									"key": "id_types_sites",
-									"value": "1",
-									"type": "default",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/hash-tag",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"hash-tag"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/hash-tag/12",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"hash-tag",
-								"12"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "edit",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "123",
-									"type": "default"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "default"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/hash-tag/26",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"hash-tag",
-								"26"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/hash-tag/24",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"hash-tag",
-								"24"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "permission",
 			"item": [
 				{
@@ -2905,211 +3790,32 @@
 			]
 		},
 		{
-			"name": "credit-cart",
-			"item": [
-				{
-					"name": "get",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/credit-cart",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"credit-cart"
-							]
+			"name": "upload-image-messy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/Hình/2.png"
 						}
-					},
-					"response": []
+					]
 				},
-				{
-					"name": "create",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Đảo phú quốc 5",
-									"type": "default"
-								},
-								{
-									"key": "pointx",
-									"value": "12",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "pointy",
-									"value": "22",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "description",
-									"value": "Đẹp 2",
-									"type": "default"
-								},
-								{
-									"key": "status",
-									"value": "1",
-									"type": "default"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/D:/Hình/Untitled-2.png",
-									"disabled": true
-								},
-								{
-									"key": "id_types_sites",
-									"value": "1",
-									"type": "default",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/credit-cart",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"credit-cart"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/credit-cart/12",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"credit-cart",
-								"12"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "edit",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "123",
-									"type": "default"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "default"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{urlDoAn}}/api/credit-cart/26",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"credit-cart",
-								"26"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "{{urlDoAn}}/api/credit-cart/24",
-							"host": [
-								"{{urlDoAn}}"
-							],
-							"path": [
-								"api",
-								"credit-cart",
-								"24"
-							]
-						}
-					},
-					"response": []
+				"url": {
+					"raw": "{{urlDoAn}}/api/upload-image-messy",
+					"host": [
+						"{{urlDoAn}}"
+					],
+					"path": [
+						"api",
+						"upload-image-messy"
+					]
 				}
-			]
+			},
+			"response": []
 		},
 		{
 			"name": "test",
