@@ -200,5 +200,18 @@ class PostController extends BaseController
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
+    public function searchLikeAll(Request $request){
+        $validator = Validator::make($request->all(), [
+            'key' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table->searchLikeAll($request->key);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
+    }
 
 }

@@ -49,5 +49,11 @@ class Post extends Model
     public function updatePost($data, $id) {
         return $this->where('id',$id)->update($data);
     }
+    public function searchLikeAll($key) {
+        $sql = $this->with("titleType")->with("user");
+        $sql = $sql->where('title', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('content', 'LIKE', '%'.$key.'%');
+        return  $sql->get();
+    }
 
 }

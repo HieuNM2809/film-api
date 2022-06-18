@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\CreditCartController;
-use  App\Http\Controllers\DonateController;
+use App\Http\Controllers\DonateController;
 use App\Http\Controllers\GroupPermissionController;
 use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\IconRankController;
@@ -72,6 +72,7 @@ Route::prefix('post')->group(function () {
     Route::post('save-post-by-user',  [UserPostController::class  , 'savePostByUser']);  //ok lưu bài viết
     Route::post('un-save-post-by-user',  [UserPostController::class  , 'unSavePostByUser']);  //ok bỏ lưu bài viết
     Route::post('list-post-by-user',  [UserPostController::class  , 'listPostByUser']);  //ok danh sách bài viết đã lưu theo user id
+    Route::post('search-like-all',  [PostController::class  , 'searchLikeAll']);  //ok tìm kiếm
 });
 
 
