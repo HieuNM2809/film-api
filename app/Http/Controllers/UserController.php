@@ -49,19 +49,19 @@ class UserController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-            'id_permission'=> 'required|integer|exists:permissions,id',
-            'identity_card'=> 'required|min:9',
-            'birthday'=> 'required|date_format:Y-m-d|before:today',
-            'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
-            'url'=> 'required|url',
-            'location'=> 'required',
-            'bio'=> 'required',
-            'currently_learning'=> 'required',
-            'skills'=> 'required',
-            'work'=> 'required',
-            'education'=> 'required'
+            // 'email' => 'required|email|unique:users,email',
+            // 'password' => 'required|min:6',
+            // 'id_permission'=> 'required|integer|exists:permissions,id',
+            // 'identity_card'=> 'required|min:9',
+            // 'birthday'=> 'required|date_format:Y-m-d|before:today',
+            // 'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
+            // 'url'=> 'required|url',
+            // 'location'=> 'required',
+            // 'bio'=> 'required',
+            // 'currently_learning'=> 'required',
+            // 'skills'=> 'required',
+            // 'work'=> 'required',
+            // 'education'=> 'required'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
@@ -110,30 +110,29 @@ class UserController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'id_permission'=> 'required|integer|exists:permissions,id',
-            'identity_card'=> 'required|min:9',
-            'birthday'=> 'required|date_format:Y-m-d|before:today',
-            'url'=> 'required|url',
-            'location'=> 'required',
-            'bio'=> 'required',
-            'currently_learning'=> 'required',
-            'skills'=> 'required',
-            'work'=> 'required',
-            'education'=> 'required'
+            // 'id_permission'=> 'required|integer|exists:permissions,id',
+            // 'identity_card'=> 'required|min:9',
+            // 'birthday'=> 'required|date_format:Y-m-d|before:today',
+            // 'url'=> 'required|url',
+            // 'location'=> 'required',
+            // 'bio'=> 'required',
+            // 'currently_learning'=> 'required',
+            // 'skills'=> 'required',
+            // 'work'=> 'required',
+            // 'education'=> 'required'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
         }
-        if($request->has('email')){
-            $check = $this->table->where('email',$request->email)->first();
-            if($check){
-                $message =[
-                  'name' => "Email already in use."
-                ];
-                return $this->dataResponse('401', $message, []);
-            }
-            $data['email'] = Hash::make($request->email);
-        }
+        // if($request->has('email')){
+        //     $check = $this->table->where('email',$request->email)->first();
+        //     if($check){
+        //         $message =[
+        //           'name' => "Email already in use."
+        //         ];
+        //         return $this->dataResponse('401', $message, []);
+        //     }
+        // }
         $data =  $request->all();
         if(isset($data['_method'])){
             unset($data['_method']);
