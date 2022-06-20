@@ -29,6 +29,7 @@ class PostSeeder extends BaseSeeder
                 'title' => 'title posts '.$i,
                 'content' => 'content posts '.$i,
                 'id_title_type' =>$i,
+                'feature_image' =>'Hinh'.$i.'.png',
                 'id_user' =>$i,
                 'created_at' => now(),
                 'updated_at' => now(),

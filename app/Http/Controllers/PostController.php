@@ -50,13 +50,17 @@ class PostController extends BaseController
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:10',
             'content' => 'required|min:20',
+            'feature_image' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
             'id_title_type' => 'required|numeric|exists:title_types,id',
             'id_user' => 'required|numeric|exists:users,id',
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
         }
-        $data = $this->table->createPost($request->all());
+
+        $data = $request->all();
+        $data['feature_image'] = uploadImage($request, 'feature_image', 'Post');
+        $data = $this->table->createPost($data);
         return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , []);
     }
 
@@ -108,6 +112,11 @@ class PostController extends BaseController
         if(isset($data['_method'])){
             unset($data['_method']);
         }
+
+        if($request->hasFile('feature_image')) {
+            $data['feature_image'] = uploadImage($request, 'feature_image', 'Post');
+        }
+
         $data = $this->table->updatePost($data, $id);
         return  $this->dataResponse($data ?'200' :'404',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI') , []);
     }

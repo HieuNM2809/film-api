@@ -14,6 +14,7 @@ class Post extends Model
         'title',
         'content',
         'id_title_type',
+        'feature_image',
         'id_user',
     ];
     public function titleType()
