@@ -60,8 +60,15 @@ class Comment extends Base
         return $this->hasMany(Comment::class, 'parent')->select($this->fillable)->with('userComment');
     }
 
-    public function getListComment(){
-        return $this->select($this->fillable)->with("userComment")->with("repliesShort")->where('parent', null)->get();
+    public function getListComment($condition = []){
+        $sql = $this;
+        if(isset($condition['id_post'])){
+            $sql = $sql->where('id_post', $condition['id_post']);
+        }
+        if(isset($condition['id_user'])){
+            $sql = $sql->where('id_user', $condition['id_user']);
+        }
+        return  $sql->select($this->fillable)->with("userComment")->with("repliesShort")->where('parent', null)->get();
     }
 }
 

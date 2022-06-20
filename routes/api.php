@@ -74,7 +74,11 @@ Route::prefix('post')->group(function () {
     Route::post('list-post-by-user',  [UserPostController::class  , 'listPostByUser']);  //ok danh sách bài viết đã lưu theo user id
     Route::post('search-like-all',  [PostController::class  , 'searchLikeAll']);  //ok tìm kiếm
 });
-
+// comment custom v2
+Route::prefix('comment')->group(function () {
+    Route::post('comment-by-id-post',  [CommentsController::class  , 'commentByIdPost']);  //ok get comment by id post
+    Route::post('comment-by-id-user',  [CommentsController::class  , 'commentByIdUser']);  //ok get comment by id user
+});
 
 
 Route::apiResource('user-feel', UserFeelController::class);

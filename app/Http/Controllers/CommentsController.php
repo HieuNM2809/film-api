@@ -125,4 +125,36 @@ class CommentsController extends BaseController
     }
 
 
+    public function commentByIdPost(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'id_post' => 'required|exists:posts,id'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $condition['id_post'] = $request->id_post;
+            $data = $this->table->getListComment($condition);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.comment.list');
+    }
+    public function commentByIdUser(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'id_user' => 'required|exists:users,id'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $condition['id_user'] = $request->id_user;
+            $data = $this->table->getListComment($condition);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.comment.list');
+    }
+
+
 }
