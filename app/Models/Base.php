@@ -43,4 +43,8 @@ class Base extends Model{
         // }
         return $sql->create($data);
     }
+    public function toSqlString($sql){
+        $sqlJoin = str_replace(array('?'), array('\'%s\''), $sql->toSql());
+        return vsprintf($sqlJoin, $sql->getBindings());
+    }
 }

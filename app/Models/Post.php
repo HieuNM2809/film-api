@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
-class Post extends Model
+class Post extends Base
 {
     use HasFactory, SoftDeletes;
+    protected $table = 'posts';
     protected $fillable = [
         'title',
         'content',
@@ -56,5 +57,23 @@ class Post extends Model
         $sql = $sql->orWhere('content', 'LIKE', '%'.$key.'%');
         return  $sql->get();
     }
+
+    // search theo user + tiêu đề bài viết + chủ đề
+    public function searchUserPostTitletype($key) {
+        $sql = $this->with("titleType")->with("user");
+        $sql = $sql->join('users', 'users.id', $this->table.'.id_user');
+        $sql = $sql->join('title_types', 'title_types.id', $this->table.'.id_title_type');
+
+        $sql = $sql->where($this->table.'.title', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere($this->table.'.content', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('title_types.type', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('title_types.description', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('users.name', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('users.email', 'LIKE', '%'.$key.'%');
+
+        return  $sql->get();
+        // return  $this->toSqlString($sql);
+    }
+
 
 }

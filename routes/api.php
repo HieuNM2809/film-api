@@ -67,6 +67,7 @@ Route::apiResource('rule-ranks', RuleRankController::class);//ok
 Route::apiResource('comment', CommentsController::class);
 Route::apiResource('user-icon-rank', UserIconRankController::class);//Ok
 Route::apiResource('user', UserController::class);//ok
+Route::get('search-user-post-titletype',  [PostController::class  , 'searchUserPostTitletype']);  //ok multi search theo user + tiêu đề bài viết + chủ đề
 // post custom v2
 Route::prefix('post')->group(function () {
     Route::post('save-post-by-user',  [UserPostController::class  , 'savePostByUser']);  //ok lưu bài viết
