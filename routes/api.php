@@ -21,6 +21,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RuleRankController;
 use App\Http\Controllers\ImageMessyController;
 use App\Http\Controllers\UserPostController;
+use App\Http\Controllers\UserOrganizationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,10 @@ Route::prefix('comment')->group(function () {
     Route::post('comment-by-id-post',  [CommentsController::class  , 'commentByIdPost']);  //ok get comment by id post
     Route::post('comment-by-id-user',  [CommentsController::class  , 'commentByIdUser']);  //ok get comment by id user
 });
+//thêm thành viên vào tổ chức - xoá thành viên khỏi tổ chức
+Route::apiResource('user-organizations', UserOrganizationsController::class);//ok
+
+
 
 
 Route::apiResource('user-feel', UserFeelController::class);
