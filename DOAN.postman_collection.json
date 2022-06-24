@@ -179,6 +179,72 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "API 1: Send Mail get token forget pass",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "nmhieucoder@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/send-mail-forget-password",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"send-mail-forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API 2: Send Mail CONFIRM token forget pass",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "nmhieucoder@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password_new",
+									"value": "132123213",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "1312312",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/comfirm-token-forget-password",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"comfirm-token-forget-password"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
