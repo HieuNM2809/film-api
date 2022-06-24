@@ -161,4 +161,26 @@ class UserController extends BaseController
         }
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
+
+    public function registerGoogleMobile(Request $request){
+        $validation = Validator::make($request->all(),[
+            'email' => 'required|string|email|max:255',
+            'password' => 'required',
+        ]);
+
+        if($validation->fails()){
+            return $this->dataResponse('401', $validation->errors(), []);
+        }
+        $checkIssetUser =  (new User())->getCheckUserByMail($request->email,$request->password);
+        if(!$checkIssetUser){
+            $user = User::create([
+                'name' => '',
+                'email' => $request->email,
+                'id_permission' => 1,
+                'password' => Hash::make($request->password),
+            ]);
+            return $this->dataResponse('200', $user ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL'),$user);
+        }
+        return $this->dataResponse('200',  $checkIssetUser ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL'), $checkIssetUser);
+    }
 }

@@ -39,6 +39,8 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
     Route::post('me', 'me');
 });
+// đăng nhập google android
+Route::post('register-google-mobile',  [UserController::class,'registerGoogleMobile']);
 
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

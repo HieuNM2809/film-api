@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\Models\Base;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -62,7 +63,6 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -103,5 +103,15 @@ class User extends Authenticatable implements JWTSubject
     public function userFeel()
     {
         return $this->hasMany(UserFeel::class, 'id_user', 'id');
+    }
+
+    public function getCheckUserByMail($email, $password)
+    {
+        $user =  $this->where('email',$email)->first();
+        if($user && Hash::check($password , $user->password)){
+            return $user;
+        }
+
+        return false;
     }
 }
