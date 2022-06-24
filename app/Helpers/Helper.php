@@ -17,3 +17,17 @@ if(!function_exists('uploadImage'))
          }
     }
 }
+if(!function_exists('randomString'))
+{
+    function randomString($soLuong)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $soLuong; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+}
+

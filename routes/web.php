@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserFeelController;
 use App\Http\Controllers\UserIconRankController;
 use App\Http\Controllers\ImageMessyController;
+use App\Http\Controllers\MailController;
 
 
 
@@ -30,6 +31,8 @@ use App\Http\Controllers\ImageMessyController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('send-mail-forget-password',  [MailController::class  , 'sendMailForgetPassword']);  //ok sen mail forget password
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {

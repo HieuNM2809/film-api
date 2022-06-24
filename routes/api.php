@@ -22,6 +22,7 @@ use App\Http\Controllers\RuleRankController;
 use App\Http\Controllers\ImageMessyController;
 use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\UserOrganizationsController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +87,9 @@ Route::prefix('comment')->group(function () {
 });
 //thêm thành viên vào tổ chức - xoá thành viên khỏi tổ chức
 Route::apiResource('user-organizations', UserOrganizationsController::class);//ok
+
+Route::post('send-mail-forget-password',  [MailController::class  , 'sendMailForgetPassword']);  //ok sen mail forget password
+
 
 
 
