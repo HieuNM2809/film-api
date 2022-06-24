@@ -14,6 +14,7 @@ class Post extends Base
     protected $fillable = [
         'title',
         'content',
+        'number_bad_reports',
         'id_title_type',
         'feature_image',
         'id_user',
@@ -51,6 +52,10 @@ class Post extends Base
     public function updatePost($data, $id) {
         return $this->where('id',$id)->update($data);
     }
+    public function getPostById( $id) {
+        return $this->where('id',$id)->first();
+    }
+
     public function searchLikeAll($key) {
         $sql = $this->with("titleType")->with("user");
         $sql = $sql->where('title', 'LIKE', '%'.$key.'%');

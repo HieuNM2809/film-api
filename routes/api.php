@@ -74,6 +74,7 @@ Route::get('search-user-post-titletype',  [PostController::class  , 'searchUserP
 // post custom v2
 Route::prefix('post')->group(function () {
     Route::post('save-post-by-user',  [UserPostController::class  , 'savePostByUser']);  //ok lưu bài viết
+    Route::post('report-post',  [PostController::class  , 'reportPost']);  //ok report post
     Route::post('un-save-post-by-user',  [UserPostController::class  , 'unSavePostByUser']);  //ok bỏ lưu bài viết
     Route::post('list-post-by-user',  [UserPostController::class  , 'listPostByUser']);  //ok danh sách bài viết đã lưu theo user id
     Route::post('search-like-all',  [PostController::class  , 'searchLikeAll']);  //ok tìm kiếm

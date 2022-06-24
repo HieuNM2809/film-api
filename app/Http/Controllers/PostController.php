@@ -235,6 +235,19 @@ class PostController extends BaseController
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
+    public function reportPost(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id_post' => 'required|exists:posts,id'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        $post = $this->table->getPostById($request->id_post);
+        $numberBadReports = $post->number_bad_reports ??'';
+        $data = $this->table->updatePost(['number_bad_reports' =>($numberBadReports +1)] , $request->id_post);
+        return  $this->dataResponse($data ?'200' :'404',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI') , []);
+    }
+
 
 
 }

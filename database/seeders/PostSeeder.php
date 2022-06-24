@@ -17,6 +17,7 @@ class PostSeeder extends BaseSeeder
     // $table->id();
     // $table->text('title')->nullable();
     // $table->text('content')->nullable();
+    // $table->integer('number_bad_reports')->nullable();
     // $table->bigInteger('id_title_type')->nullable();
     // $table->bigInteger('id_user')->nullable();
     // $table->timestamps();
@@ -28,6 +29,7 @@ class PostSeeder extends BaseSeeder
             DB::table('posts')->insert([
                 'title' => 'title posts '.$i,
                 'content' => 'content posts '.$i,
+                'number_bad_reports' => $i,
                 'id_title_type' =>$i,
                 'feature_image' =>'Hinh'.$i.'.png',
                 'id_user' =>$i,
