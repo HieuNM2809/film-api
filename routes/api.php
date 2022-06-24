@@ -88,7 +88,8 @@ Route::prefix('comment')->group(function () {
 //thêm thành viên vào tổ chức - xoá thành viên khỏi tổ chức
 Route::apiResource('user-organizations', UserOrganizationsController::class);//ok
 
-Route::post('send-mail-forget-password',  [MailController::class  , 'sendMailForgetPassword']);  //ok sen mail forget password
+Route::post('send-mail-forget-password',  [MailController::class  , 'sendMailForgetPassword']);  //ok send mail forget password
+Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirmTokenForgetPassword']);  //ok confirm token forget password
 
 
 
