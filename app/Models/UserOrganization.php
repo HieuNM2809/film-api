@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class UserOrganization extends Model
+class UserOrganization extends Base
 {
-    use HasFactory;
-
+    use HasFactory, SoftDeletes;
+    protected $table = 'user_organizations';
     protected $fillable = [
         'id_user',
         'id_organization',
