@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoangan@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoangan7@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -132,6 +132,49 @@
 							"path": [
 								"api",
 								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register-google-mobile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZmlsbS5sb2NhbC9hcGkvbG9naW4iLCJpYXQiOjE2NTQzNzE0NzQsImV4cCI6MTY1NDM3NTA3NCwibmJmIjoxNjU0MzcxNDc0LCJqdGkiOiJremR2UUx2UTJpcWVZRkluIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.YhyDfGbjB_1DvXzEWFQPCLp_HrN1BwGa3MPf0oHCeiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "12345678@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/register-google-mobile",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"register-google-mobile"
 							]
 						}
 					},
@@ -515,6 +558,36 @@
 					"response": []
 				},
 				{
+					"name": "search-user-post-titletype",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/search-user-post-titletype?key=title_types typeIEp6EZvDBH",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"search-user-post-titletype"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "title_types typeIEp6EZvDBH"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "search-like-all",
 					"request": {
 						"method": "POST",
@@ -718,6 +791,51 @@
 								"api",
 								"post",
 								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "report-post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_post",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/post/report-post",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"report-post"
 							]
 						}
 					},
@@ -2953,6 +3071,85 @@
 							"path": [
 								"api",
 								"user",
+								"24"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user-organizations",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_organization",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/user-organizations",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"user-organizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/user-organizations/24",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"user-organizations",
 								"24"
 							]
 						}
