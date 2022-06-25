@@ -17,6 +17,7 @@ class UserOrganizationsController extends BaseController
         $this->table = new UserOrganization();
     }
 
+
     // public function index(Request $request)
     // {
     //     $validator = Validator::make($request->all(), [
@@ -32,6 +33,22 @@ class UserOrganizationsController extends BaseController
     //     }
     //     return view('pages.donate.list');
     // }
+
+    //Danh sách tổ chức by user
+    public function listOrganizationsByIdUser(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'id_user' => 'required|numeric|exists:users,id'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table->getlistOrganizationsByIdUser($request->id_user);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.donate.list');
+    }
 
     /**
      * Show the form for creating a new resource.

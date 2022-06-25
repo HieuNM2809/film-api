@@ -85,11 +85,17 @@ Route::prefix('comment')->group(function () {
     Route::post('comment-by-id-post',  [CommentsController::class  , 'commentByIdPost']);  //ok get comment by id post
     Route::post('comment-by-id-user',  [CommentsController::class  , 'commentByIdUser']);  //ok get comment by id user
 });
-//thêm thành viên vào tổ chức - xoá thành viên khỏi tổ chức
+//thêm thành viên vào tổ chức - xoá thành viên khỏi tổ chức -
 Route::apiResource('user-organizations', UserOrganizationsController::class);//ok
+// Danh sách tổ chức by user
+Route::post('list-organizations-by-id-user',  [UserOrganizationsController::class  , 'listOrganizationsByIdUser']);  //ok
 
 Route::post('send-mail-forget-password',  [MailController::class  , 'sendMailForgetPassword']);  //ok send mail forget password
 Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirmTokenForgetPassword']);  //ok confirm token forget password
+
+
+
+
 
 
 

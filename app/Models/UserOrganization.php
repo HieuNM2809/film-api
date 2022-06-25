@@ -22,4 +22,7 @@ class UserOrganization extends Base
     {
         return $this->belongsTo(Organization::class, 'id_organization');
     }
+    public function getlistOrganizationsByIdUser($id_user){
+        return $this->where('id_user', $id_user)->with('organization')->get();
+    }
 }
