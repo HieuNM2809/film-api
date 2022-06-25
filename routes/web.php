@@ -20,6 +20,8 @@ use App\Http\Controllers\ImageMessyController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\IndexController;
 
+use App\http\Controllers\Admin;
+
 
 
 /*
@@ -38,7 +40,7 @@ Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirm
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [IndexController::class,'index']);
-
+    Route::resource('comment', Admin\CommentController::class);
 
 
 
@@ -65,7 +67,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('icon-rank', IconRankController::class);
     Route::resource('user-icon-rank', UserIconRankController::class);
     Route::resource('settings', SettingsController::class);
-    Route::resource('comment', CommentsController::class);
+    // Route::resource('comment', CommentsController::class);
     Route::resource('post', PostController::class);
     Route::resource('user', UserController::class);
     Route::resource('organization', OrganizationController::class);
