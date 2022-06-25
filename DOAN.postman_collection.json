@@ -3199,6 +3199,50 @@
 					"response": []
 				},
 				{
+					"name": "list-organizations-by-id-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_user",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/list-organizations-by-id-user",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"list-organizations-by-id-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
