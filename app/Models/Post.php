@@ -79,6 +79,4 @@ class Post extends Base
         return  $sql->get();
         // return  $this->toSqlString($sql);
     }
-
-
 }

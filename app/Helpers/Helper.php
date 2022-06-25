@@ -31,3 +31,69 @@ if(!function_exists('randomString'))
     }
 }
 
+if(!function_exists('convertListMonth'))
+{
+    // [
+    //     {
+    //     "month": 3,
+    //     "year": 2022,
+    //     "count": 1
+    //     },
+    //     {
+    //     "month": 4,
+    //     "year": 2022,
+    //     "count": 1
+    //     },
+    // ]
+    function convertListMonth($data)
+    {
+        $arrayMonth = [];
+        for ($i= 0; $i < 12 ; $i++) {
+            $check = 0;
+            foreach ($data as $key => $value) {
+                if(isset($value['month']) &&  $value['month'] == ($i+1)){
+                    $check = 1;
+                    array_push( $arrayMonth, $value['count']);
+                    break;
+                }
+            }
+            if($check == 0)
+              array_push( $arrayMonth, 0);
+        }
+        return $arrayMonth;
+    }
+}
+if(!function_exists('convertListYear'))
+{
+    // {
+    //     "year": 2020,
+    //     "count": 1
+    //     },
+    //     {
+    //     "year": 2021,
+    //     "count": 1
+    //     },
+    //     {
+    //     "year": 2022,
+    //     "count": 40
+    //     }
+    function convertListYear($data)
+    {
+        $listYear = [date('Y') -3, date('Y')- 2, date('Y') - 1 , (int)date('Y')];
+        $arrayDataYear = [];
+        for ($i= (date('Y') -3); $i <= (int)date('Y') ; $i++) {
+            $check = 0;
+            foreach ($data as $key => $value) {
+                if(isset($value['year']) &&  $value['year'] == ($i)){
+                    $check = 1;
+                    array_push( $arrayDataYear, $value['count']);
+                    break;
+                }
+            }
+            if($check == 0)
+              array_push( $arrayDataYear, 0);
+        }
+        return $arrayDataYear;
+    }
+}
+

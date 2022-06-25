@@ -19,7 +19,7 @@
             <!--===================================================-->
             <div class="row">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Thống kế theo ngày</h3>
+                    <h3 class="panel-title">Thống kê theo ngày</h3>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <!--Registered User-->
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="media-body">
-                            <p class="text-2x mar-no text-thin">241</p>
+                            <p class="text-2x mar-no text-thin">{{$userNewDate ?? 0}}</p>
                             <p class="text-muted mar-no">Người dùng đăng ký mới</p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="media-body">
-                            <p class="text-2x mar-no text-thin">543</p>
+                            <p class="text-2x mar-no text-thin">{{$postNewDate ?? 0}}</p>
                             <p class="text-muted mar-no">Bài viết mới</p>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="media-body">
-                            <p class="text-2x mar-no text-thin">34</p>
+                            <p class="text-2x mar-no text-thin">{{$commentNewDate ?? 0}}</p>
                             <p class="text-muted mar-no">Bình luận mới</p>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="media-body">
-                            <p class="text-2x mar-no text-thin">654</p>
+                            <p class="text-2x mar-no text-thin">{{$reportNewData ?? 0}}</p>
                             <p class="text-muted mar-no">Báo cáo bài viết xấu</p>
                         </div>
                     </div>
@@ -301,19 +301,19 @@
             series: [{
                 type: 'column',
                 name: 'Đăng ký mới',
-                data: [3, 2, 1, 3, 4,3, 2, 1, 3, 4 , 4, 5 ]
+                data: <?php echo json_encode($chartMonth['userNew']) ?>
             }, {
                 type: 'column',
                 name: 'Bài viết mới',
-                data: [2, 3, 5, 7, 6 ,4 ,5 ,6 ,3 ,5 ,5 ,7 ]
+                data: <?php echo json_encode($chartMonth['postNew']) ?>
             }, {
                 type: 'column',
                 name: 'Bình luận mới',
-                data: [4, 3, 3, 9, 0 , 4, 3, 3, 9, 0 , 12, 8]
+                data: <?php echo json_encode($chartMonth['commentNew']) ?>
             }, {
                 type: 'column',
                 name: 'Báo xấu bài viết',
-                data: [  4, 3, 3,4, 3, 3, 9, 0, 9, 0 , 12, 8]
+                data: <?php echo json_encode($chartMonth['reportNew']) ?>
             } ]
         });
         Highcharts.chart('container-hightChart2', {
@@ -369,16 +369,16 @@
             },
             series: [{
               name: 'Năm 2019',
-              data: [107, 31, 635, 203]
+              data:  <?php echo json_encode($chartYear['userNew']) ?>
             }, {
               name: 'Năm 2020',
-              data: [133, 156, 947, 408]
+              data:  <?php echo json_encode($chartYear['postNew']) ?>
             }, {
               name: 'Năm 2021',
-              data: [814, 841, 3714, 727]
+              data:  <?php echo json_encode($chartYear['commentNew']) ?>
             }, {
               name: 'Năm 2022',
-              data: [1216, 1001, 4436, 738]
+              data:  <?php echo json_encode($chartYear['reportNew']) ?>
             }]
           });
     </script>
