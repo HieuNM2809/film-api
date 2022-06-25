@@ -114,4 +114,9 @@ class User extends Authenticatable implements JWTSubject
 
         return false;
     }
+    public function updatePasswordByEmail($email, $password)
+    {
+        return $this->where('email',$email)->update(['password' =>  $password]);
+
+    }
 }

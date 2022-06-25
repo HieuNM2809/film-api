@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\BaseController;
 use App\Models\UserToken;
+use App\Models\User;
 
 class MailController extends BaseController
 {
@@ -37,7 +38,7 @@ class MailController extends BaseController
                 $message->subject('Gửi mail xác nhận');
             });
             if (count(Mail::failures()) > 0) {
-                return  $this->dataResponse('500', config('statusCode.FAIL'), []);
+                return  $this->dataResponse('500', config('statusCode.FAIL_VI'), []);
             } else {
                 $data = [
                     'email'=> $emailUser,
@@ -52,6 +53,7 @@ class MailController extends BaseController
     }
     public function confirmTokenForgetPassword(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'email'    => 'required|email|exists:users,email',
             'token'    => 'required',
@@ -60,23 +62,19 @@ class MailController extends BaseController
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
         }
-        return 1;
-        // $token = randomString(10);
-        // $emailUser = $request->email;
-        // // send mail
-        // try {
-        //     Mail::send('email.sendToken', ['token' => $token], function ($message) use ($emailUser) {
-        //         $message->from(env('MAIL_USERNAME'), 'DEV | GỬI MÃ XÁC NHẬN ĐỔI MẬT KHẨU');
-        //         $message->to($emailUser, 'Hi bạn');
-        //         $message->subject('Gửi mail xác nhận');
-        //     });
-        //     if (count(Mail::failures()) > 0) {
-        //         return  $this->dataResponse('200',  config('statusCode.SUCCESS_VI'), []);
-        //     } else {
-        //         return  $this->dataResponse('500', config('statusCode.FAIL'), []);
-        //     }
-        // } catch (\Exception $e) {
-        //     return $this->dataResponse('500',  $e->getMessage() , []);
-        // }
+        $userToken =   $this->table->getTokenByMail($request->email);
+        if($userToken){
+            ///2022-06-25 08:05:00       ///2022-06-25 08:15:00
+            if(strtotime($userToken['created_at']) > time() - 60*5) {
+                if($request->token == $userToken['token']){
+                    $checkUpdate =  (new User())->updatePasswordByEmail($request->email,Hash::make($request->password_new));
+                    return  $this->dataResponse('200',  $checkUpdate ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL_VI'),$checkUpdate);
+                }
+                return  $this->dataResponse('200', 'Token sai token', []);
+            } else {
+                return  $this->dataResponse('200', 'Token Hết hạn hoặc sai', []);
+            }
+        }
+        return  $this->dataResponse('200', config('statusCode.FAIL_VI'), []);
     }
 }

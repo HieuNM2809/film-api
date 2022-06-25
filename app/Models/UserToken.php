@@ -22,8 +22,8 @@ class UserToken extends Base
     public function createToken($data){
         return $this->create($data);
     }
-    // // delete post
-    // public function deleteUserPost($id_user, $id_post){
-    //     return $this->where('id_user', $id_user)->where('id_post',$id_post)->delete();
-    // }
+    // get token sby mail
+    public function getTokenByMail($email){
+        return $this->where('email', $email)->orderBy('created_at','DESC')->first();
+    }
 }

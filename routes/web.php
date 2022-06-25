@@ -33,6 +33,7 @@ use App\Http\Controllers\MailController;
 */
 
 Route::get('send-mail-forget-password',  [MailController::class  , 'sendMailForgetPassword']);  //ok sen mail forget password
+Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirmTokenForgetPassword']);  //ok confirm token forget password
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
