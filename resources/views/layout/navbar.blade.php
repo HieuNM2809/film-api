@@ -514,9 +514,15 @@
 
                         <!-- Dropdown footer -->
                         <div class="pad-all text-right">
-                            <a href="{{url('logout')}}" class="btn btn-primary">
-                                <i class="fa fa-sign-out fa-fw"></i> Logout
-                            </a>
+                            {{
+                                Auth::user()
+                            }}
+                            <form action="{{url('admin/logout')}}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-sign-out fa-fw"></i> Đăng xuất
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </li>
