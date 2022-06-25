@@ -1,5 +1,5 @@
 <h4>DEV | GỬI MÃ XÁC NHẬN ĐỔI MẬT KHẨU</h4>
-{{$token}}
+Mã của bạn là: {{$token}}
 <br/>
 <i>Cảm ơn,</i><br/>
-<i>Form Dev</i>
+<i>From Dev</i>

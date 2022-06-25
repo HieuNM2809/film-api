@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\BaseController;
+use App\Models\UserToken;
 
 class MailController extends BaseController
 {
     private $table;
     function __construct()
     {
+        $this->table = new UserToken();
     }
 
     public function sendMailForgetPassword(Request $request)
@@ -35,9 +37,14 @@ class MailController extends BaseController
                 $message->subject('Gửi mail xác nhận');
             });
             if (count(Mail::failures()) > 0) {
-                return  $this->dataResponse('200',  config('statusCode.SUCCESS_VI'), []);
-            } else {
                 return  $this->dataResponse('500', config('statusCode.FAIL'), []);
+            } else {
+                $data = [
+                    'email'=> $emailUser,
+                    'token'=> $token
+                ];
+                $this->table->createToken($data);
+                return  $this->dataResponse('200',  config('statusCode.SUCCESS_VI'), []);
             }
         } catch (\Exception $e) {
             return $this->dataResponse('500',  $e->getMessage() , []);
@@ -70,6 +77,6 @@ class MailController extends BaseController
         //     }
         // } catch (\Exception $e) {
         //     return $this->dataResponse('500',  $e->getMessage() , []);
-        }
+        // }
     }
 }
