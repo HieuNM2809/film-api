@@ -111,12 +111,24 @@ class User extends Authenticatable implements JWTSubject
         if($user && Hash::check($password , $user->password)){
             return $user;
         }
-
         return false;
     }
     public function updatePasswordByEmail($email, $password)
     {
         return $this->where('email',$email)->update(['password' =>  $password]);
 
+    }
+    public function searchLikeAll($key) {
+        $sql = $this->where('name', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('email', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('identity_card', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('birthday', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('location', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('bio', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('currently_learning', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('skills', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('work', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('education', 'LIKE', '%'.$key.'%');
+        return  $sql->get();
     }
 }

@@ -43,4 +43,10 @@ class TitleType extends Base
         }
         return $dataReponse;
     }
+    public function searchLikeAll($key) {
+        $sql = $this->where('type', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('description', 'LIKE', '%'.$key.'%');
+        $sql = $sql->orWhere('color', 'LIKE', '%'.$key.'%');
+        return  $sql->get();
+    }
 }
