@@ -19,10 +19,8 @@ use App\Http\Controllers\UserIconRankController;
 use App\Http\Controllers\ImageMessyController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\IndexController;
-
 use App\http\Controllers\Admin;
-
-
+use App\Http\Controllers\Admin\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,18 +41,20 @@ Route::prefix('admin')->group(function () {
     Route::resource('comment', Admin\CommentController::class);
     Route::resource('credit_cart', Admin\CreditCartController::class);
 
+    Route::get('login', [AuthController::class , 'index']);
+    Route::post('login', [AuthController::class , 'login']);
+    Route::post('logout', [AuthController::class , 'logout']);
+
+    Route::get('forget-password', [AuthController::class , 'forgetPassword']);
+
+
+
 
 
 
 //====================  Chưa làm  ===============================
 
     Route::get('get-token', function () {
-        return view('pages.login');
-    });
-    Route::get('login', function () {
-        return view('pages.login');
-    });
-    Route::post('login', function () {
         return view('pages.login');
     });
     Route::get('register', function () {

@@ -53,7 +53,7 @@ class UserSeeder extends BaseSeeder
                 'name' => 'name user'. $i,
                 'email' =>'user'.$i.'@gmail.com',
                 'password' =>Hash::make('123456'),
-                'id_permission' => $i,
+                'id_permission' => rand(1,2),
                 'identity_card' => rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9),
                 'birthday' => $NewDate[rand(0,3)],
                 'avatar' =>'avatarUser'.$i.'.png',
