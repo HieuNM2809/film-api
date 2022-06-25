@@ -25,7 +25,7 @@ class AuthController extends BaseController
         ]);
 
         if($validation->fails()){
-            return $validation->errors();
+            return $this->dataResponse('401',$validation->errors(),  []);
         }
 
         $credentials = $request->only('email', 'password');
@@ -45,7 +45,7 @@ class AuthController extends BaseController
         ]);
 
         if($validation->fails()){
-            return $validation->errors();
+            return $this->dataResponse('401',$validation->errors(),  []);
         }
 
         $user = User::create([
