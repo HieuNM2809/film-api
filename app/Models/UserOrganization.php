@@ -16,7 +16,7 @@ class UserOrganization extends Base
     ];
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_comment');
+        return $this->belongsTo(User::class, 'id_user');
     }
     public function organization()
     {
@@ -25,4 +25,9 @@ class UserOrganization extends Base
     public function getlistOrganizationsByIdUser($id_user){
         return $this->where('id_user', $id_user)->with('organization')->get();
     }
+    public function getlistUserByIdOrganizations($id_organization){
+        return $this->where('id_user', $id_organization)->with('user')->get();
+    }
+
+
 }

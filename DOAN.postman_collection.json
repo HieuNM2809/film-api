@@ -636,7 +636,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/search-user-post-titletype?key=title_types typeIEp6EZvDBH",
+							"raw": "{{urlDoAn}}/api/search-user-post-titletype?key=title posts 1",
 							"host": [
 								"{{urlDoAn}}"
 							],
@@ -647,7 +647,7 @@
 							"query": [
 								{
 									"key": "key",
-									"value": "title_types typeIEp6EZvDBH"
+									"value": "title posts 1"
 								}
 							]
 						}
@@ -670,7 +670,7 @@
 							"formdata": [
 								{
 									"key": "key",
-									"value": "hello",
+									"value": "1",
 									"type": "text"
 								}
 							]
@@ -3237,6 +3237,50 @@
 							"path": [
 								"api",
 								"list-organizations-by-id-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list-user-by-id-organizations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_organization",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/list-user-by-id-organizations",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"list-user-by-id-organizations"
 							]
 						}
 					},

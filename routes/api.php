@@ -89,6 +89,8 @@ Route::prefix('comment')->group(function () {
 Route::apiResource('user-organizations', UserOrganizationsController::class);//ok
 // Danh sách tổ chức by user
 Route::post('list-organizations-by-id-user',  [UserOrganizationsController::class  , 'listOrganizationsByIdUser']);  //ok
+// danh sách user trong tổ chức
+Route::post('list-user-by-id-organizations',  [UserOrganizationsController::class  , 'listUserByIdOrganizations']);  //ok
 
 Route::post('send-mail-forget-password',  [MailController::class  , 'sendMailForgetPassword']);  //ok send mail forget password
 Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirmTokenForgetPassword']);  //ok confirm token forget password

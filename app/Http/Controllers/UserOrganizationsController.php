@@ -50,6 +50,21 @@ class UserOrganizationsController extends BaseController
         return view('pages.donate.list');
     }
 
+    // danh sách user trong tổ chức
+    public function listUserByIdOrganizations(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id_organization' => 'required|numeric|exists:organizations,id'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table->getlistUserByIdOrganizations($request->id_organization);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.donate.list');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
