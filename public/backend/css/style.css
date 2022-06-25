@@ -1,0 +1,310 @@
+.btnBackHome{
+    border: 1px solid #ccc!important;
+    font-weight: bold!important;
+}
+.btnBackHome:hover{
+    text-decoration: underline!important;
+}
+
+.pull-right .btn-group .dropdown-toggle{
+    font-size: 14px!important;
+    height: 34px!important;
+}
+.selectpicker-group .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){
+    width: 100%;
+}
+
+
+.logout{
+    color: #829E0D;
+    font-weight: bold;
+    margin-right: 45px;
+}
+.location_name {
+    height: 50px;
+    width: 50%;
+    float: left;
+}
+.block-item label {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.code1 .block-item {
+    float: left;
+    width: 23%;
+    background: #e4e1e1;
+    margin-right: 1%;
+    margin-top: 0px;
+    padding-top: 0px;
+    height: 70px;
+    font-weight: bolder;
+}
+
+.code2 .block-item {
+    float: left;
+    width: 18%;
+    background: #e4e1e1;
+    margin-right: 1%;
+    margin-top: 0px;
+    padding-top: 0px;
+    height: 70px;
+    font-weight: bolder;
+}
+.identify{
+    color: white !important;
+}
+
+.group4 .block-item{
+    width: 23%;
+}
+
+.Warning .info {
+    background: #F4FA58;
+    color: #000000 !important;
+}
+
+.Warning .info .identify {
+    color: #000 !important;
+}
+
+.Not_Ready .info, .Not_Readyoff .info, .Not_Readynot_ready .info {
+    background: red;
+    color: #FFF !important;
+}
+
+.Reserved .info {
+    background: #66F;
+    color: #FFF !important;
+}
+
+.Not_Readybusy .info, .Not_Readyupdateinside .info, .top_update_inside{
+    background: #ce2e2e;
+    color: #FFF !important;
+}
+
+.Not_Readytoilet .info, .top_toile {
+    background: #cc33cc;
+    color: #FFF !important;
+}
+
+.Logout .info{
+    background-color: orange;
+    color: white;
+    -webkit-animation: flash linear 1s infinite;
+    animation: flash linear 1s infinite;
+}
+
+.Not_Readylunch .info, .top_lunch {
+    background: #33ccff;
+    color: #FFF !important;
+}
+.Not_Readyoutbound .info, .Not_Readyoffhook .info, .top_outbound {
+    background: #ffcccc;
+    color: #FFF !important;
+}
+
+.Not_Readygo_out .info, .top_go_out {
+    background: #8ea9db;
+    color: #FFF !important;
+}
+
+.top_sos{
+    background: #ffd966;
+    color: #FFF !important;
+}
+
+.top_alarm{
+    /* background: #c00000; */
+    background-color: #F39C12;
+    color: #FFF !important;
+}
+
+.Not_Readyoff .info .identify, .Not_Ready .info .identify{
+    color: #FFF !important;
+}
+
+.Dropped .info {
+    background: red;
+    color: #FFF !important;
+}
+
+.Dropped .info .identify{
+    color: #FFF !important;
+}
+
+.Ready .info, .top_ready {
+    background: #44b800;
+    color: #FFF !important;
+}
+
+.Ready .info .identify{
+    color: #FFF !important;
+}
+.info .identify{
+    float: right;
+}
+.Answered .info, .top_talking {
+    background: #0016b8;
+    color: #FFF !important;
+}
+
+
+.Answered .info .identify{
+    color: #FFF !important;
+}
+
+.Ringing .info {
+    background: #6960EC;
+    color: #FFF !important;
+}
+
+.Ringing .info .identify{
+    color: #FFF !important;
+}
+
+
+.group {
+    width: 32%;
+    height: 173px;
+}
+
+
+.status {
+    display: block;
+    margin: 0 auto ;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.menu_status li{padding: 12px!important;}
+
+.box-time{position: relative;}
+.box-time .shift{position: absolute;left: 5px}
+.empty .shift,.empty .wfh, .empty .note{display: none;}
+.cl{clear: both;}
+.menu_status li.none{ border: 1px solid #ccc;margin-left:5px;}
+.menu_status li.none a{color: #000}
+.panel-primary .panel-heading, .panel-primary .panel-footer, .panel-primary.panel-colorful {
+    background-color: #5fa2dd;
+    border-color: #5fa2dd;
+    color: #fff;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.modal-header {
+    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #e0e0e0;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0.5em 1em;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #333 !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: slategrey;
+}
+
+.tb-bandwith th, .tb-bandwith td, .tb-recen-state th, .tb-recen-state td {
+    border: 1px solid #000;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+th{
+    text-align: center;
+}
+
+.tb-bandwith th{
+    background: #92d050;
+}
+
+table.tb-bandwith, .tb-recen-state {
+    width: 100%!important;
+}
+
+.tb-recen-state th, .frm-filter{
+    background: #4472c4;
+    color: #fff;
+}
+
+table.dataTable{
+    border-collapse: collapse!important ;
+}
+
+.tb-report th{
+    background: #92d050;
+}
+
+table.tb-report {
+    width: 100%!important;
+}
+
+table.dataTable thead th, table.dataTable thead td {padding: 3px;}
+
+.alarm{
+    -webkit-animation: flash linear 1s infinite;
+    animation: flash linear 1s infinite;
+}
+.alarmLogout{
+    -webkit-animation: flash linear 1s infinite;
+    animation: flash linear 1s infinite;
+
+}
+.alarmLogout .infoLogout{
+    background-color: orange;
+    color: white;
+}
+
+.total_off .number_people{color: #000}
+
+.fixed{
+    z-index: 9999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.fixed .logout, .header-fix .logout{ position: absolute;top: 23px;right: 10px;}
+.header-fix.fixed, .edit .header-fix{ height: 68px;overflow: hidden; border-bottom: 1px solid #ccc; background: #fff}
+
+.header.edit{height:auto;}
+
+@-webkit-keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: .1; }
+    100% { opacity: 1; }
+}
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: .1; }
+    100% { opacity: 1; }
+}
+
+
+@media (min-width: 1300px){
+    .container {
+        width: 100%;
+    }
+}
+.modal.fade.in:not(.animated) .modal-dialog{
+    margin: 30px auto;
+}
+

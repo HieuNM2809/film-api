@@ -11,6 +11,7 @@ class BaseController extends Controller
     protected $pagination = 10;
     protected $responseData = [];
     protected $requestData = [];
+    protected $rootView = 'pages';
     function __construct()
     {
     }

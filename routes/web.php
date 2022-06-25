@@ -18,6 +18,7 @@ use App\Http\Controllers\UserFeelController;
 use App\Http\Controllers\UserIconRankController;
 use App\Http\Controllers\ImageMessyController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\IndexController;
 
 
 
@@ -36,9 +37,14 @@ Route::get('send-mail-forget-password',  [MailController::class  , 'sendMailForg
 Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirmTokenForgetPassword']);  //ok confirm token forget password
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('pages.home');
-    });
+    Route::get('/', [IndexController::class,'index']);
+
+
+
+
+
+//====================  Chưa làm  ===============================
+
     Route::get('get-token', function () {
         return view('pages.login');
     });
