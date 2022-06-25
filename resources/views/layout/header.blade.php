@@ -48,3 +48,4 @@
 {{--  <link href="{{ asset('assets/plugins/pace/pace.min.css') }}" rel="stylesheet">
 <script src="{{ asset('backend/plugins/pace/pace.min.js') }}"></script>  --}}
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
