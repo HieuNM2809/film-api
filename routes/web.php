@@ -42,18 +42,21 @@ Route::prefix('admin')->group(function () {
     Route::get('/', [IndexController::class,'index']);
     Route::resource('comment', Admin\CommentController::class);
 
+    Route::get('login', function () {
+        return view('pages.login');
+    });
+    Route::post('login', function () {
+        return view('pages.login');
+    });
+
+
+
 
 
 
 //====================  Chưa làm  ===============================
 
     Route::get('get-token', function () {
-        return view('pages.login');
-    });
-    Route::get('login', function () {
-        return view('pages.login');
-    });
-    Route::post('login', function () {
         return view('pages.login');
     });
     Route::get('register', function () {

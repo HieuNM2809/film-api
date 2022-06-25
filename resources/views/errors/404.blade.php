@@ -1,96 +1,150 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
-    <!-- Bootstrap CSS -->
-    <base href="{{ asset('/') }}">
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Không tìm thấy 404 | DEV - Backend.</title>
+
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+
+    <!--Open Sans Font [ OPTIONAL ] -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="{{ asset('backend/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="{{ asset('backend/css/nifty.min.css') }}" rel="stylesheet">
+
+
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="{{ asset('backend/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
+
+
+
+    <!--SCRIPT-->
+    <!--=================================================-->
+
+    <!--Page Load Progress Bar [ OPTIONAL ]-->
+    <link href="{{ asset('backend/plugins/pace/pace.min.css')}}" rel="stylesheet">
+    <script src="{{ asset('backend/plugins/pace/pace.min.js')}}"></script>
+
+
+
+    <!--
+
+ REQUIRED
+ You must include this in your project.
+
+ RECOMMENDED
+ This category must be included but you may modify which plugins or components which should be included in your project.
+
+ OPTIONAL
+ Optional plugins. You may choose whether to include it in your project or not.
+
+ DEMONSTRATION
+ This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+ SAMPLE
+ Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+ Detailed information and more samples can be found in the document.
+
+ -->
+
+
 </head>
 
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
 <body>
-    <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
-    <div class="dashboard-main-wrapper p-0">
-        <!-- ============================================================== -->
-        <!-- navbar -->
-        <!-- ============================================================== -->
-        <nav class="navbar navbar-expand dashboard-top-header bg-white">
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- brand logo -->
-                <!-- ============================================================== -->
-                <div class="dashboard-nav-brand">
-                    <a class="dashboard-logo" href="index.html">Concept</a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end brand logo -->
-                <!-- ============================================================== -->
+    <div id="container" class="cls-container">
+
+        <!-- HEADER -->
+        <!--===================================================-->
+        <div class="cls-header">
+            <div class="cls-brand">
+                <a class="box-inline" href="index.html">
+                    <!-- <img alt="Nifty Admin" src="images/logo.png" class="brand-icon"> -->
+                    <span class="brand-title">DEV <span class="text-thin">Admin</span></span>
+                </a>
             </div>
-        </nav>
-        <!-- ============================================================== -->
-        <!-- end navbar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
-        <!-- ============================================================== -->
-        <div class="bg-light text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8 col-md-12 col-sm-12 col-12">
-                        <div class="error-section">
-                            <img src="assets/images/error-img.png" alt="" class="img-fluid">
-                            <div class="error-section-content">
-                                <h1 class="display-3">Page Not Found</h1>
-                                <p> The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-                                <a href="index.html" class="btn btn-secondary btn-lg">Back to homepage</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <div class="bg-white p-3">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-dark text-center">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- end wrapper -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
         </div>
+
+        <!-- CONTENT -->
+        <!--===================================================-->
+        <div class="cls-content">
+            <h1 class="error-code text-warning">404</h1>
+            <p class="h4 text-thin pad-btm mar-btm">
+                <i class="fa fa-exclamation-circle fa-fw"></i>
+                Xin lỗi, nhưng trang bạn đang tìm không được tìm thấy trên máy chủ của chúng tôi.
+            </p>
+            <div class="row mar-btm">
+                {{--  <form class="col-xs-12 col-sm-10 col-sm-offset-1" method="post" action="pages-search-results.html">
+                    <input type="text" placeholder="Search.." class="form-control input-lg error-search">
+                </form>  --}}
+            </div>
+            <br>
+            <div class="pad-top"><a class="btn-link" href="{{url('admin')}}">Quay lại trang chủ</a></div>
+        </div>
+
+
     </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- end main wrapper -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="assets/libs/js/main-js.js"></script>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+
+
+
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+
+    <!--jQuery [ REQUIRED ]-->
+    <script src="js/jquery-2.1.1.min.js"></script>
+
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="plugins/fast-click/fastclick.min.js"></script>
+
+
+    <!--Nifty Admin [ RECOMMENDED ]-->
+    <script src="js/nifty.min.js"></script>
+
+
+    <!--
+
+ REQUIRED
+ You must include this in your project.
+
+ RECOMMENDED
+ This category must be included but you may modify which plugins or components which should be included in your project.
+
+ OPTIONAL
+ Optional plugins. You may choose whether to include it in your project or not.
+
+ DEMONSTRATION
+ This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+ SAMPLE
+ Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+ Detailed information and more samples can be found in the document.
+
+ -->
+
+
 </body>
 
 </html>
