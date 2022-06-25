@@ -41,6 +41,7 @@ Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirm
 Route::prefix('admin')->group(function () {
     Route::get('/', [IndexController::class,'index']);
     Route::resource('comment', Admin\CommentController::class);
+    Route::resource('credit_cart', Admin\CreditCartController::class);
 
 
 

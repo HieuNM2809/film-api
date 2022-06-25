@@ -11,6 +11,16 @@
     <script type="text/javascript">
         var baseUrl = '{!! url('/') !!}';
     </script>
+    <script type="text/javascript">
+    // review file image
+        function LoadImage(_this, idImage) {
+            const [file] = _this.files;
+            if (file) {
+                $(idImage).attr('src', URL.createObjectURL(file));
+                $(idImage).show();
+            }
+        }
+    </script>
 </head>
 <body>
 
