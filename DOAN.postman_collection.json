@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoangan7@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoangan71@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1096,6 +1096,40 @@
 								"api",
 								"title-type",
 								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-title-type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "key",
+									"value": "typesUs5eG5blu",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/search-title-type",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"search-title-type"
 							]
 						}
 					},
@@ -3139,6 +3173,50 @@
 								"api",
 								"user",
 								"24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "key",
+									"value": "PHP, C",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/search-user",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"search-user"
 							]
 						}
 					},

@@ -183,4 +183,19 @@ class UserController extends BaseController
         }
         return $this->dataResponse('200',  $checkIssetUser ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL'), $checkIssetUser);
     }
+
+    // search user
+    public function searchUser(Request $request){
+        $validator = Validator::make($request->all(), [
+            'key' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table->searchLikeAll($request->key);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
+    }
 }
