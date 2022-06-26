@@ -15,8 +15,10 @@ class AdminController extends Controller
 
     protected $view;
     protected $data;
+    protected $user;
     function __construct()
     {
         $this->view = 'pages.';
+        $this->user = 1;
     }
 }

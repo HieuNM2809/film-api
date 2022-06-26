@@ -97,3 +97,50 @@ if(!function_exists('convertListYear'))
     }
 }
 
+if(!function_exists('insertTable')){
+    function insertTable($table = '', $param = []){
+        try {
+            $param['created_at'] = $param['updated_at'] = now();
+            $data = DB::table($table)->insert($param);
+            return $data;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+}
+
+if (!function_exists('updateTable')) {
+    function updateTable($table = '', $param = [], $where = ''){
+        try{
+            $param['updated_at'] = now();
+            $data = DB::table($table)->where('id', $where)->update($param);
+            return $data;
+        }catch(Exception $e){
+            return false;
+        }
+    }
+}
+
+if (!function_exists('deleteTable')) {
+    function deleteTable($table = '', $id = '')
+    {
+        try {
+            return DB::table($table)->where('id', $id)->delete();
+        } catch (Exception $e) {
+            return $e->getMessage();
+            return false;
+        }
+    }
+}
+
+if (!function_exists('selectByWhere')) {
+    function selectByWhere($table = '', $where = '')
+    {
+        try {
+            return DB::table($table)->where($where)->get();
+        } catch (Exception $e) {
+            // return $e->getMessage();
+            return false;
+        }
+    }
+}

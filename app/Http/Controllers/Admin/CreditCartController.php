@@ -4,16 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
-use App\Models\Comment;
-use App\Models\Post;
+use App\Models\CreditCart;
 
-class CommentController extends AdminController
+class CreditCartController extends AdminController
 {
     public function __construct()
     {
         parent::__construct();
-        $this->model = new Comment();
-        $this->table = "comment";
+        $this->model = new CreditCart();
+        $this->table = "credit_cart";
         $this->data = $this->model->withTrashed()->paginate($this->perPage);
     }
 
