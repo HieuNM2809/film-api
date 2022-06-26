@@ -44,6 +44,7 @@ Route::prefix('admin')->group(function () {
     Route::get('forget-password', [AuthController::class , 'forgetPassword']);
     Route::post('forget-password', [AuthController::class , 'postForgetPassword']);
     Route::get('confirm-forget-password', [AuthController::class , 'confirmForgetPassword']);
+    Route::post('confirm-forget-password', [AuthController::class , 'postConfirmForgetPassword']);
 
     Route::middleware(['BackendMiddleware'])->group(function () {
 

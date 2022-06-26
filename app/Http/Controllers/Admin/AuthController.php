@@ -14,6 +14,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use App\Models\UserToken;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends BaseController
 {
@@ -91,9 +92,38 @@ class AuthController extends BaseController
         }
     }
 
-
     public function confirmForgetPassword(Request $request){
-        return 1;
+        return view($this->rootView.'.Auth.confirmToken');
+    }
+    public function postConfirmForgetPassword(Request $request){
+
+        $this->validate($request, [
+            'email'    => 'required|email|exists:users,email',
+            'token'    => 'required',
+            'password_new' => 'required',
+        ], [
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Vui lòng nhập đúng định dạng email',
+            'email.exists' => 'Email không tồn tại',
+            'email.exists' => 'Email không tồn tại',
+            'token.required' => 'Vui lòng nhập token',
+            'password_new.required' => 'Vui lòng nhập mật khẩu mới',
+        ]);
+
+        $userToken =   $this->table->getTokenByMail($request->email);
+        if($userToken){
+            ///2022-06-25 08:05:00       ///2022-06-25 08:15:00
+            if(strtotime($userToken['created_at']) > time() - 60*5) {
+                if($request->token == $userToken['token']){
+                    $checkUpdate =  (new User())->updatePasswordByEmail($request->email,Hash::make($request->password_new));
+                    return redirect('admin/login')->with('thongbao', 'Đổi mật khẩu thành công!! ');
+                }
+                return redirect('admin/confirm-forget-password')->with('thongbao', 'Bạn đã nhập sai token, vui lòng nhập lại!! ');
+            } else {
+                return redirect('admin/confirm-forget-password')->with('thongbao', 'Bạn đã nhập sai token hoặc token đã hết hạn !! ');
+            }
+        }
+        return redirect('admin/confirm-forget-password')->with('thongbao', 'Bạn đã nhập sai token hoặc token đã hết hạn !! ');
     }
 
 
