@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class BaseController extends Controller
 {
@@ -17,9 +18,13 @@ class BaseController extends Controller
     protected $curentYear;
     public function __construct()
     {
+
         $this->curentDay = date('d');
         $this->curentMonth = date('m');
         $this->curentYear = date('Y');
+        $this->data['adminLogin'] = Session::get('logged_in_admin');
+        $this->data['controller'] = '123';
+        $this->data['action'] = '';
     }
 
     public function dataResponse($status, $message ,$data){

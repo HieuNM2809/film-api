@@ -105,11 +105,17 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(UserFeel::class, 'id_user', 'id');
     }
 
-    public function getCheckUserByMail($email, $password)
+    public function getCheckUserByMail($email, $password, $isAdmin = false)
     {
         $user =  $this->where('email',$email)->first();
-        if($user && Hash::check($password , $user->password)){
-            return $user;
+        if($isAdmin){
+            if($user && Hash::check($password , $user->password) && $user->id_permission == 2){
+                return $user;
+            }
+        }else{
+            if($user && Hash::check($password , $user->password)){
+                return $user;
+            }
         }
         return false;
     }

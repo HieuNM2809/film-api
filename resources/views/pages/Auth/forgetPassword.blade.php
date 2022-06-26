@@ -98,15 +98,16 @@
 				<div class="panel-body">
 					<p class="pad-btm">Nhập địa chỉ email của bạn để khôi phục mật khẩu của bạn. </p>
                     @include('layout.mesage')
-					<form action="pages-login.html">
+					<form action="{{url('admin/forget-password')}}" method="POST">
+                        @csrf
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-								<input type="email" class="form-control" placeholder="Email">
+								<input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="Email">
 							</div>
 						</div>
 						<div class="form-group text-right">
-							<button class="btn btn-success text-uppercase" type="submit">Đặt lại mật khẩu</button>
+							<button class="btn btn-success text-uppercase" type="submit">Gửi mã đổi mật khẩu về Email</button>
 						</div>
 					</form>
 				</div>
