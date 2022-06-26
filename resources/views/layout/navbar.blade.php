@@ -464,7 +464,7 @@
                             <img class="img-circle img-user media-object" src="{{ asset('backend/img/av1.png') }}"
                                 alt="Profile Picture">
                         </span>
-                        <div class="username hidden-xs">John Doe</div>
+                        <div class="username hidden-xs">{{Session::get('logged_in_admin')['name'] ?? 'Trống'}}</div>
                     </a>
 
 
@@ -514,9 +514,6 @@
 
                         <!-- Dropdown footer -->
                         <div class="pad-all text-right">
-                            {{
-                                Auth::user()
-                            }}
                             <form action="{{url('admin/logout')}}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-primary">
