@@ -1,6 +1,6 @@
 @extends('master')
 @section('title')
-    Bình luận
+    Hashtag
 @endsection
 @section('content')
     <div id="content-container">
@@ -9,7 +9,7 @@
 
         </div>
         <ol class="breadcrumb">
-            <li><a href="#">Bình luận</a></li>
+            <li><a href="#">Hashtag</a></li>
         </ol>
         <div id="page-content">
             <div class="dashboard-wrapper">
@@ -18,11 +18,11 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="background-color: #fff">
                             <div class="panel">
                                 <div class="panel-heading" style="display: flex; justify-content: space-between;">
-                                    <h5 class="panel-title">Bảng bình luận</h5>
+                                    <h5 class="panel-title">Bảng hastag</h5>
                                 </div>
                                 <div class="panel-body">
                                     <div class="col-sm-6 table-toolbar-left">
-										<a href="{{ route($table.'.create') }}" id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus">Thêm bình luận</a>
+										<a href="{{ route($table.'.create') }}" id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus">Thêm hastag</a>
 									</div>
                                     <div class="col-sm-6 table-toolbar-right">
                                         {{-- <label class="form-inline">Show
@@ -47,11 +47,7 @@
                                         <thead>
                                             <tr style="background-color: #32404e; color: #fff">
                                                 <th scope="col">STT</th>
-                                                <th scope="col">Tên người dùng</th>
-                                                <th scope="col">nội dung</th>
-                                                <th scope="col">Trả lời bình luận</th>
-                                                <th scope="col">Bài đăng</th>
-                                                <th scope="col">Ảnh</th>
+                                                <th scope="col">Tên hastag</th>
                                                 <th scope="col">Ngày tạo</th>
                                                 <th scope="col">Ngày sửa</th>
                                                 <th scope="col">Ngày xoá</th>
@@ -62,11 +58,7 @@
                                             @foreach ($data as $item)
                                             <tr>
                                                 <td>{{$item->id}}</td>
-                                                <td>{{$item->user->name}}</td>
-                                                <td>{{$item->content}}</td>
-                                                <td>{{$item->parent}}</td>
-                                                <td>{{$item->post->title}}</td>
-                                                <td style="background-size: 200px;width:200px; {{ $item->image ? "height:200px; background-position: center;" : "" }} background-repeat: no-repeat; background-image:url('../comment/{{ $item->image }}');"></td>
+                                                <td>{{$item->title}}</td>
                                                 <td>{{$item->created_at}}</td>
                                                 <td>{{$item->updated_at}}</td>
                                                 <td>{{$item->deleted_at}}</td>

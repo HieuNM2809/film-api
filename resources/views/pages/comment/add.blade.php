@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group" style="height:254px;">
-                                        <label for="">Ảnh đại diện</label>
+                                        <label for="">Ảnh</label>
                                         <div class="custom-file">
                                             <input type="file" class="form-control" id="image_input_Avatar"
                                                 onchange="LoadImage(this, '#image_Avatar')" name="image"

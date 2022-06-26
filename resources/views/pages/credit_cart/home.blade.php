@@ -54,7 +54,7 @@
                                                 <th scope="col">Ảnh</th>
                                                 <th scope="col">Ngày tạo</th>
                                                 <th scope="col">Ngày sửa</th>
-                                                <th scope="col">Ngày sửa</th>
+                                                <th scope="col">Ngày xoá</th>
                                                 <th scope="col">Hành động</th>
                                             </tr>
                                         </thead>
@@ -66,8 +66,7 @@
                                                 <td>{{$item->name}}</td>
                                                 <td>{{$item->cart_number}}</td>
                                                 <td>{{$item->date_expired}}</td>
-                                                <td><img height="150px"
-                                                    src="credit_cart/{{ $item->image }}" alt=""></td>
+                                                <td style="background-size: 200px;width:200px; {{ $item->avatar ? "height:200px; background-position: center;" : "" }} background-repeat: no-repeat; background-image:url('../credit_cart/{{ $item->avatar }}');"></td>
                                                 <td>{{$item->created_at}}</td>
                                                 <td>{{$item->updated_at}}</td>
                                                 <td>{{$item->deleted_at}}</td>

@@ -40,6 +40,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/', [IndexController::class,'index']);
     Route::resource('comment', Admin\CommentController::class);
     Route::resource('credit_cart', Admin\CreditCartController::class);
+    Route::resource('donate', Admin\DonateController::class);
+    Route::resource('group_permission', Admin\GroupPermissionController::class);
+    Route::resource('hashtag', Admin\HashtagController::class);
 
     Route::get('login', [AuthController::class , 'index']);
     Route::post('login', [AuthController::class , 'login']);
@@ -68,17 +71,12 @@ Route::prefix('admin')->group(function () {
     Route::resource('icon-rank', IconRankController::class);
     Route::resource('user-icon-rank', UserIconRankController::class);
     Route::resource('settings', SettingsController::class);
-    // Route::resource('comment', CommentsController::class);
     Route::resource('post', PostController::class);
     Route::resource('user', UserController::class);
     Route::resource('organization', OrganizationController::class);
     Route::resource('user-feel', UserFeelController::class);
-    Route::resource('donate', DonateController::class);
     Route::resource('react', ReactController::class);
-    Route::resource('group-permission', GroupPermissionController::class);
-    Route::resource('hash-tag', HashtagController::class);
     Route::resource('permission', PermissionController::class);
-    Route::resource('credit-cart', CreditCartController::class);
 
 });
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);

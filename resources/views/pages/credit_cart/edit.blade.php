@@ -1,6 +1,6 @@
 @extends('master')
 @section('title')
-    Sửa bình luận
+    Sửa thẻ
 @endsection
 @section('content')
     <div id="content-container">
@@ -8,13 +8,13 @@
             <h1 class="page-header text-overflow">DEV- Backend</h1>
         </div>
         <ol class="breadcrumb">
-            <li><a href="#">Sửa bình luận</a></li>
+            <li><a href="#">Sửa thẻ</a></li>
         </ol>
         <div class="row" style="display:flex; justify-content:center;">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Thêm bình luận</h3>
+                        <h3 class="panel-title">Thêm thẻ</h3>
                     </div>
 
                     <!--Block Styled Form -->
@@ -26,49 +26,51 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="idComment">Bình luận cha</label>
-                                        <select class="form-control" id="idComment" name="idComment">
-                                            <option></option>
-                                            @foreach ($dataForeign['comment'] as $item)
+                                        <label for="idUser">Tên người dùng</label>
+                                        <select required class="form-control" id="idUser" name="idUser">
+                                            @foreach ($dataForeign['user'] as $item)
                                                 <option value="{{ $item->id }}" {{ isset($id) && $data->parent == $item->id ? 'selected' : '' }}>
-                                                    {{ $item->content }}
+                                                    {{ $item->name }}
                                                 </option>
                                             @endforeach
                                         </select>
-                                      </div>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="idPost">Bài Viết</label>
-                                        <select class="form-control" id="idPost"  required name="idPost">
-                                            @foreach ($dataForeign['post'] as $item)
-                                                <option value="{{ $item->id }}" {{ isset($id) && $data->id_post == $item->id ? 'selected' : '' }}>
-                                                    {{ $item->title }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                      </div>
+                                        <label class="control-label">Tên thẻ</label>
+                                        <input type="text" class="form-control" name="name" required value="{{ isset($id) ? $data->name : '' }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Số thẻ</label>
+                                        <input type="number" class="form-control" name="cartNumber" required
+                                        required value="{{ isset($id) ? $data->cart_number : '' }}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Ngày hết hạn</label>
+                                        <input type="date" class="form-control" placeholder="dd-mm-yyyy"
+                                            name="dateExpired" required value="{{ isset($id) ? date_format(date_create($data->date_expired),"Y-m-d") : '' }}">
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group" style="height:254px;">
-                                        <label for="">Ảnh đại diện</label>
+                                        <label for="">Ảnh</label>
                                         <div class="custom-file">
                                             <input type="file" class="form-control" id="image_input_Avatar"
                                                 onchange="LoadImage(this, '#image_Avatar')" name="image"
                                                 accept="image/gif, image/jpeg, image/png">
                                             <img id="image_Avatar" alt="your image"
                                                 style="border: 2px solid; {{ isset($id) ? '' : 'display:none;' }} height:200px;"
-                                                src="{{ isset($id) ? 'comment/'.$data->image : ''}}"
-                                                >
+                                                src="{{ isset($id) ? '../../../credit_cart/' . $data->avatar : '' }}">
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Nội dung bình luận</label>
-                                        <textarea required name="content" placeholder="Nội dung" rows="13" class="form-control" style="width: 380px; height: 233px;" >{{ isset($id) ? $data->content : '' }}</textarea>
                                     </div>
                                 </div>
                             </div>
