@@ -31,13 +31,13 @@ class IndexController extends BaseController
         ];
     }
     public function index(){
-        $this->responseData['userNewDate']    = $this->userModel->countByCondition($this->userModel, $this->dateNow);
-        $this->responseData['postNewDate']    = $this->userModel->countByCondition($this->postModel, $this->dateNow);
-        $this->responseData['commentNewDate'] = $this->userModel->countByCondition($this->commentModel, $this->dateNow);
-        $this->responseData['reportNewData']  = $this->userModel->countByCondition($this->commentModel, $this->dateNow, 'updated_at');
+        $this->responseData['userNewDate']    = $this->postModel->countByCondition($this->userModel, $this->dateNow);
+        $this->responseData['postNewDate']    = $this->postModel->countByCondition($this->postModel, $this->dateNow);
+        $this->responseData['commentNewDate'] = $this->postModel->countByCondition($this->commentModel, $this->dateNow);
+        $this->responseData['reportNewData']  = $this->postModel->countByCondition($this->commentModel, $this->dateNow, 'updated_at');
 
-        $this->responseData['chartMonth'] =  $this->userModel->chartMonth($this->postModel , []);
-        $this->responseData['chartYear'] =$this->userModel->chartYear($this->postModel , []);
+        $this->responseData['chartMonth'] =  $this->postModel->chartMonth($this->postModel , []);
+        $this->responseData['chartYear'] =$this->postModel->chartYear($this->postModel , []);
 
         return view($this->rootView.'.index', $this->responseData);
     }

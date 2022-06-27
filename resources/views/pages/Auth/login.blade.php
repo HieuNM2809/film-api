@@ -119,7 +119,7 @@
 				</div>
 			</div>
 			<div class="pad-ver">
-				<a href="{{url('admin/forget-password')}}" class="btn-link mar-rgt">Quên mật khẩu ?</a>
+				<a href="{{url('admin/forget-password')}}" class="btn-link ">Quên mật khẩu ?</a>
 			</div>
 		</div>
 		<!--===================================================-->

@@ -125,14 +125,42 @@ class AuthController extends BaseController
         }
         return redirect('admin/confirm-forget-password')->with('thongbao', 'Bạn đã nhập sai token hoặc token đã hết hạn !! ');
     }
-
-
-
     public function logout(Request $request)
     {
         $request->session()->forget(['logged_in_admin']);
         Session::flash('error_message', 'Phiên đăng nhập của bạn đã hết hạn, vui lòng đăng nhập lại');
         return redirect('admin/login');
+    }
+    public function getChangePassword(){
+        return 1;
+    }
+
+    public function changePassword(Request $request){
+        if($request->isMethod('get')){
+            return view($this->rootView.'.Auth.changePassword');
+        }else{
+            $this->validate($request, [
+                'email'=> 'required|email|exists:users,email',
+                'password'=> 'required',
+                'password_new'=> 'required|different:password',
+            ], [
+                'email.required' => 'Vui lòng nhập email',
+                'email.email' => 'Vui lòng nhập đúng định dạng email',
+                'email.exists' => 'Email không tồn tại',
+                'password.required' => 'Vui lòng nhập password',
+                'password_new.required' => 'Vui lòng nhập mật khẩu mới',
+                'password_new.different' => 'Mật khẩu mới phải khác mật khẩu cũ',
+            ]);
+
+            $checkIssetUser =  (new User())->getCheckUserByMail($request->email,$request->password);
+            if($checkIssetUser){
+                $data =  (new User())->updateByEmail($request->email, ['password'=>Hash::make($request->password_new)]);
+                return redirect()->back()->with('thongbao', 'Đổi mật khẩu thành công!! ');
+            }else{
+                return redirect()->back()->with('thongbao', 'Nhập mật khẩu cũ sai!! ');
+            }
+
+        }
     }
 }
 

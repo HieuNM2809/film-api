@@ -478,20 +478,25 @@
                                     <span class="sr-only">70%</span>
                                 </div>
                             </div>
-                        </div>
+                        </div>  --}}
 
 
                         <!-- User dropdown menu -->
                         <ul class="head-list">
                             <li>
-                                <a href="#">
-                                    <i class="fa fa-user fa-fw fa-lg"></i> Profile
+                                <a href="{{url('admin')}}">
+                                    <i class="fa fa-user fa-fw fa-lg"></i> Thông tin cá nhân
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/change-password')}}">
+                                    <i class="fa fa-lock fa-fw fa-lg"></i> Thay đổi mật khẩu
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <span class="badge badge-danger pull-right">9</span>
-                                    <i class="fa fa-envelope fa-fw fa-lg"></i> Messages
+                                    <i class="fa fa-envelope fa-fw fa-lg"></i> Thông báo
                                 </a>
                             </li>
                             <li>
@@ -510,7 +515,7 @@
                                     <i class="fa fa-lock fa-fw fa-lg"></i> Lock screen
                                 </a>
                             </li>
-                        </ul>  --}}
+                        </ul>
 
                         <!-- Dropdown footer -->
                         <div class="pad-all text-right">

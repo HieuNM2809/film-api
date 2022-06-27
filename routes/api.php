@@ -109,7 +109,6 @@ Route::apiResource('group-post', OrganizationPostController::class);  //ok
 
 
 
-
 Route::apiResource('user-feel', UserFeelController::class);
 Route::apiResource('react', ReactController::class);
 Route::apiResource('group-permission', GroupPermissionController::class);

@@ -125,7 +125,7 @@
 				</div>
 			</div>
 			<div class="pad-ver">
-				<a href="{{url('admin/login')}}" class="btn-link mar-rgt">Trở về login?</a>
+				<a href="{{url('admin/login')}}" class="btn-link">Trở về login?</a>
 			</div>
 		</div>
 		<!--===================================================-->

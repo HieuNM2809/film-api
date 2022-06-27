@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Đăng nhập | DEV</title>
+	<title>Đổi mật khẩu | DEV</title>
 
     <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/practicaldev/image/fetch/s--E8ak4Hr1--/c_limit,f_auto,fl_progressive,q_auto,w_32/https://dev-to.s3.us-east-2.amazonaws.com/favicon.ico" />
 	<!--STYLESHEET-->
@@ -90,30 +90,42 @@
 		</div>
 		<!--===================================================-->
 
-
-		<!-- PASSWORD RESETTING FORM -->
+		@include('layout.mesage')
+		<!-- LOGIN FORM -->
 		<!--===================================================-->
 		<div class="cls-content">
 			<div class="cls-content-sm panel">
 				<div class="panel-body">
-					<p class="pad-btm">Nhập địa chỉ email của bạn để khôi phục mật khẩu của bạn. </p>
-                    @include('layout.mesage')
-					<form action="{{url('admin/forget-password')}}" method="POST">
+					<p class="pad-btm">Đổi mật khẩu</p>
+					<form action="{{url('admin/change-password')}}" method="POST">
                         @csrf
 						<div class="form-group">
 							<div class="input-group">
-								<div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+								<div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
 								<input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="Email">
 							</div>
 						</div>
-						<div class="form-group text-right">
-							<button class="btn btn-success text-uppercase" type="submit">Gửi mã đổi mật khẩu về Email</button>
+                        <div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+								<input type="text" name="password" class="form-control" placeholder="Password">
+							</div>
 						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+								<input type="text" name="password_new" class="form-control" placeholder="Password mới">
+							</div>
+						</div>
+						<div class="mar-btm"><em>- - -</em></div>
+						<button class="btn btn-primary btn-lg btn-block" type="submit">
+							Xác nhận
+						</button>
 					</form>
 				</div>
 			</div>
 			<div class="pad-ver">
-				<a href="{{url('admin/login')}}" class="btn-link">Quay lại đăng nhập</a>
+				<a href="{{url('admin')}}" class="btn-link">Trở về trang chủ?</a>
 			</div>
 		</div>
 		<!--===================================================-->
