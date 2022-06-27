@@ -563,7 +563,7 @@
 							"formdata": [
 								{
 									"key": "id_user",
-									"value": "2",
+									"value": "1",
 									"type": "text"
 								},
 								{
@@ -643,7 +643,7 @@
 							"formdata": [
 								{
 									"key": "id_user",
-									"value": "2",
+									"value": "1",
 									"type": "text"
 								}
 							]
@@ -708,7 +708,7 @@
 							"formdata": [
 								{
 									"key": "key",
-									"value": "1",
+									"value": "12he title must be at least 10 characters",
 									"type": "text"
 								}
 							]
@@ -795,6 +795,11 @@
 									"key": "id_user",
 									"value": "1",
 									"type": "text"
+								},
+								{
+									"key": "feature_image",
+									"type": "file",
+									"src": "/D:/ImageExample.jpg"
 								}
 							]
 						},
@@ -941,6 +946,242 @@
 								"api",
 								"post",
 								"report-post"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "group-post",
+			"item": [
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/api/group-post",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"group-post"
+							]
+						},
+						"description": "cách su dung"
+					},
+					"response": []
+				},
+				{
+					"name": "get post by id_organizations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/group-post/12",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"group-post",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8|7vplo91qSeapOvOlHwqxRGyELxgZiliFLAszDCwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "12he title must be at least 10 characters",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "he content field is required.\"",
+									"type": "text"
+								},
+								{
+									"key": "id_title_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "feature_image",
+									"type": "file",
+									"src": "/D:/ImageExample.jpg"
+								},
+								{
+									"key": "id_organizations",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/group-post",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"group-post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|Lx3hnMwRxPLzzBEQF0EXKtL8ZsZyqE3tVAFsxe50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "default"
+								},
+								{
+									"key": "title",
+									"value": "e title field is requ",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "e content field is requi",
+									"type": "text"
+								},
+								{
+									"key": "id_title_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_organizations",
+									"value": "14",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/group-post/26",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"group-post",
+								"26"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{urlDoAn}}/api/group-post/4",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"group-post",
+								"4"
 							]
 						}
 					},

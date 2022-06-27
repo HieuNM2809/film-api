@@ -16,6 +16,7 @@ class Post extends Base
         'content',
         'number_bad_reports',
         'id_title_type',
+        'id_organizations',
         'feature_image',
         'id_user',
     ];

@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->integer('number_bad_reports')->nullable();
             $table->string('feature_image', 255)->nullable();
             $table->bigInteger('id_title_type')->nullable();
+            $table->bigInteger('id_organizations')->nullable();
             $table->bigInteger('id_user')->nullable();
             $table->timestamps();
             $table->softDeletes();

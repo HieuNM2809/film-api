@@ -23,6 +23,7 @@ use App\Http\Controllers\ImageMessyController;
 use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\UserOrganizationsController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\OrganizationPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,7 +100,8 @@ Route::post('change-pass',  [UserController::class  , 'changePass']);  //ok Ä‘á»
 Route::post('search-user',  [UserController::class  , 'searchUser']);  //ok search theo user
 Route::post('search-title-type',  [TitleTypeController::class  , 'searchTitleType']);  //ok search title type
 
-
+// Group post
+Route::apiResource('group-post', OrganizationPostController::class);  //ok
 
 
 

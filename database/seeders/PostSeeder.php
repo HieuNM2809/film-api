@@ -19,6 +19,7 @@ class PostSeeder extends BaseSeeder
     // $table->text('content')->nullable();
     // $table->integer('number_bad_reports')->nullable();
     // $table->bigInteger('id_title_type')->nullable();
+    // $table->bigInteger('id_organizations')->nullable();
     // $table->bigInteger('id_user')->nullable();
     // $table->timestamps();
     // $table->softDeletes();
@@ -31,6 +32,7 @@ class PostSeeder extends BaseSeeder
                 'content' => 'content posts '.$i,
                 'number_bad_reports' => $i,
                 'id_title_type' =>$i,
+                'id_organizations' =>$i,
                 'feature_image' =>'Hinh'.$i.'.png',
                 'id_user' =>$i,
                 'created_at' => now(),
