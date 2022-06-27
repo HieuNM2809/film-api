@@ -94,6 +94,7 @@ Route::post('list-user-by-id-organizations',  [UserOrganizationsController::clas
 
 Route::post('send-mail-forget-password',  [MailController::class  , 'sendMailForgetPassword']);  //ok send mail forget password
 Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirmTokenForgetPassword']);  //ok confirm token forget password
+Route::post('change-pass',  [UserController::class  , 'changePass']);  //ok đổi mật khẩu
 
 Route::post('search-user',  [UserController::class  , 'searchUser']);  //ok search theo user
 Route::post('search-title-type',  [TitleTypeController::class  , 'searchTitleType']);  //ok search title type

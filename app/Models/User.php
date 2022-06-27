@@ -137,4 +137,10 @@ class User extends Authenticatable implements JWTSubject
         $sql = $sql->orWhere('education', 'LIKE', '%'.$key.'%');
         return  $sql->get();
     }
+
+    public function updateByEmail($email, $data)
+    {
+        return $this->where('email',$email)->update($data);
+    }
+
 }

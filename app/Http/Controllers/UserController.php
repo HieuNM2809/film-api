@@ -198,4 +198,25 @@ class UserController extends BaseController
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
+    // thay đổi mật khẩu
+    public function changePass(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email'=> 'required|email|exists:users,email',
+            'password'=> 'required',
+            'password_new'=> 'required|max:8|different:password',
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors(), []);
+        }
+
+        $checkIssetUser =  (new User())->getCheckUserByMail($request->email,$request->password);
+        if($checkIssetUser){
+            $data =  (new User())->updateByEmail($request->email, ['password'=>Hash::make($request->password_new)]);
+            return $this->dataResponse('200', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL_VI'),$data);
+        }else{
+            return $this->dataResponse('200', 'Mật khẩu cũ không đúng',[]);
+        }
+
+    }
 }

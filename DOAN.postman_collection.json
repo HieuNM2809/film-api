@@ -246,6 +246,44 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "change pasword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "password_new",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user13@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/change-pass",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"change-pass"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
