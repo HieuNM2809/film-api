@@ -461,7 +461,8 @@
                 <li id="dropdown-user" class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
                         <span class="pull-right">
-                            <img class="img-circle img-user media-object" src="{{ asset('backend/img/av1.png') }}"
+                            <img class="img-circle img-user media-object" src="{{ !empty(Session::get('logged_in_admin')['avatar'])?
+                                                    asset('User/'. Session::get('logged_in_admin')['avatar']):asset('backend/img/av1.png') }}"
                                 alt="Profile Picture">
                         </span>
                         <div class="username hidden-xs">{{Session::get('logged_in_admin')['name'] ?? 'Trống'}}</div>
@@ -484,7 +485,7 @@
                         <!-- User dropdown menu -->
                         <ul class="head-list">
                             <li>
-                                <a href="{{url('admin')}}">
+                                <a href="{{url('admin/edit-profile-me')}}">
                                     <i class="fa fa-user fa-fw fa-lg"></i> Thông tin cá nhân
                                 </a>
                             </li>

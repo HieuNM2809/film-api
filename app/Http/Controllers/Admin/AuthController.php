@@ -131,10 +131,6 @@ class AuthController extends BaseController
         Session::flash('error_message', 'Phiên đăng nhập của bạn đã hết hạn, vui lòng đăng nhập lại');
         return redirect('admin/login');
     }
-    public function getChangePassword(){
-        return 1;
-    }
-
     public function changePassword(Request $request){
         if($request->isMethod('get')){
             return view($this->rootView.'.Auth.changePassword');
@@ -160,6 +156,34 @@ class AuthController extends BaseController
                 return redirect()->back()->with('thongbao', 'Nhập mật khẩu cũ sai!! ');
             }
 
+        }
+    }
+
+    public function editProfileMe(Request $request){
+        if($request->isMethod('get')){
+            $dataReponse['logged_in_admin'] =  Session::get('logged_in_admin');
+            $dataReponse['adminLogin'] = User::findOrFail($dataReponse['logged_in_admin']['id']);
+            return view($this->rootView.'.profileMe.edit', $dataReponse);
+        }else{
+            $this->validate($request,[
+                'birthday'=> 'required|date_format:Y-m-d|before:today',
+            ],[
+                'birthday.required'     => 'Vui lòng chọn ngày sinh',
+                'birthday.before'           => 'Vui lòng chọn ngày sinh nhỏ hơn ngày hiện tại'
+            ]);
+
+            $data =  $request->all();
+            if(isset($data['_token'])){
+                unset($data['_token']);
+            }
+            if ($request->hasFile('avatar')) {
+                $data['avatar'] = uploadImage($request, 'avatar', 'User');
+            }
+            $data = User::where("id", $request->id)->update($data);
+            if($data){
+                return back()->with('success', 'Sửa thành công');
+            }
+            return back()->with('error', 'Sửa thất bại');
         }
     }
 }

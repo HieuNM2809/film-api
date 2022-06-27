@@ -18,7 +18,6 @@ class BaseController extends Controller
     protected $curentYear;
     public function __construct()
     {
-
         $this->curentDay = date('d');
         $this->curentMonth = date('m');
         $this->curentYear = date('Y');

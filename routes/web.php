@@ -59,6 +59,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('comment', Admin\CommentController::class);
         Route::get('change-password', [AuthController::class , 'getChangePassword']);
         Route::match(['GET', 'POST'],'change-password',[AuthController::class , 'changePassword']);
+        Route::match(['GET', 'POST'],'edit-profile-me',[AuthController::class , 'editProfileMe']);
 
         //====================  Chưa làm  ===============================
         Route::get('get-token', function () {
