@@ -460,10 +460,32 @@
     var btnFrmSendAlert = $('#frmSendAlert #btnSend');
     var title = $('#frmSendAlert #titleAlert');
     var content =  '';
+    var token = '{{csrf_token()}}';
+
     btnFrmSendAlert.click(function() {
         content =  CKEDITOR.instances['contentAlert'].getData();
         if ( title.val() && content) {
             socket.emit('client-send-alert', title.val(), content);
+
+            // insert data alert admin
+            $.ajax({
+                type: "POST",
+                url: baseUrl + "/admin/create-alert",
+                dataType: 'json',
+                data: {
+                    title: title.val() ,
+                    _token:token,
+                    content: content,
+                    id_user: {{Session::get('logged_in_admin')['id']}}
+                },
+                beforeSend: function() {
+                },
+                success: function(res){
+                },
+                complete: function() {
+                }
+            });
+
             title.val('');
             CKEDITOR.instances['contentAlert'].setData('');
         }else{

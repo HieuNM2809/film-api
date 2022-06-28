@@ -159,13 +159,13 @@
                 <!--Notification dropdown-->
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                    <a href="{{url('admin/show-alert')}}" class="dropdown-toggle">
                         <i class="fa fa-bell fa-lg"></i>
-                        <span class="badge badge-header badge-danger">5</span>
+                        <span class="badge badge-header badge-danger"></span>
                     </a>
 
                     <!--Notification dropdown menu-->
-                    <div class="dropdown-menu dropdown-menu-md with-arrow">
+                    {{--  <div class="dropdown-menu dropdown-menu-md with-arrow">
                         <div class="pad-all bord-btm">
                             <p class="text-lg text-muted text-thin mar-no">Bạn có 3 tin nhắn.</p>
                         </div>
@@ -224,7 +224,7 @@
                                 <i class="fa fa-angle-right fa-lg pull-right"></i>Hiển thị tất cả thông báo
                             </a>
                         </div>
-                    </div>
+                    </div>  --}}
                 </li>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <!--End notifications dropdown-->

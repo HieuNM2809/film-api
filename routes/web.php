@@ -22,6 +22,7 @@ use App\Http\Controllers\IndexController;
 use App\http\Controllers\Admin;
 use App\Http\Controllers\Admin\AuthController;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\AlertAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
         Route::get('change-password', [AuthController::class , 'getChangePassword']);
         Route::match(['GET', 'POST'],'change-password',[AuthController::class , 'changePassword']);
         Route::match(['GET', 'POST'],'edit-profile-me',[AuthController::class , 'editProfileMe']);
+        Route::post('create-alert', [AlertAdminController::class , 'createAlert']);
+        Route::get('show-alert', [AlertAdminController::class , 'showAlert']);
+
 
 
         //====================  Chưa làm  ===============================
