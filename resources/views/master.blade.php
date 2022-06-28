@@ -22,6 +22,33 @@
             }
         }
     </script>
+    <style>
+    /* css popup */
+        #myModalInfo {
+            padding-top: 100px;
+        }
+        #myModalInfo .modal-header {
+            background-color: #00A2FD;
+            color: white;
+        }
+        #myModalInfo button {
+            color: white;
+            opacity: 1;
+        }
+        #myModalInfo .modal-content {
+            border-radius: 5%;
+            overflow: hidden;
+        }
+        #myModalInfo .modal-title {
+            font-weight: 900;
+        }
+        #myModalInfo .modal-body {
+            overflow-y: scroll;
+            max-height: 300px;
+            font-size: 20px;
+            font-size: 15px;
+        }
+    </style>
 </head>
 <body>
 

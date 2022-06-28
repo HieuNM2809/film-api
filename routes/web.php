@@ -37,7 +37,12 @@ use Illuminate\Support\Facades\Session;
 Route::get('send-mail-forget-password',  [MailController::class  , 'sendMailForgetPassword']);  //ok sen mail forget password
 Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirmTokenForgetPassword']);  //ok confirm token forget password
 
-Route::prefix('admin')->group(function () {
+// Route::group(['prefix' => 'post', 'middleware' => ['auth']], function(){
+//     Route::get('all','Controller@post');
+//     Route::get('user','Controller@post');
+// })
+
+Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
     Route::get('/', [IndexController::class,'index']);
     Route::resource('comment', Admin\CommentController::class);
     Route::resource('credit_cart', Admin\CreditCartController::class);

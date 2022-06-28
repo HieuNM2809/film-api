@@ -158,7 +158,7 @@
 
                 <!--Notification dropdown-->
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                {{--  <li class="dropdown">
+                <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                         <i class="fa fa-bell fa-lg"></i>
                         <span class="badge badge-header badge-danger">5</span>
@@ -167,42 +167,11 @@
                     <!--Notification dropdown menu-->
                     <div class="dropdown-menu dropdown-menu-md with-arrow">
                         <div class="pad-all bord-btm">
-                            <p class="text-lg text-muted text-thin mar-no">You have 3 messages.</p>
+                            <p class="text-lg text-muted text-thin mar-no">Bạn có 3 tin nhắn.</p>
                         </div>
                         <div class="nano scrollable">
                             <div class="nano-content">
                                 <ul class="head-list">
-
-                                    <!-- Dropdown list-->
-                                    <li>
-                                        <a href="#">
-                                            <div class="clearfix">
-                                                <p class="pull-left">Database Repair</p>
-                                                <p class="pull-right">70%</p>
-                                            </div>
-                                            <div class="progress progress-sm">
-                                                <div style="width: 70%;" class="progress-bar">
-                                                    <span class="sr-only">70% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-
-                                    <!-- Dropdown list-->
-                                    <li>
-                                        <a href="#">
-                                            <div class="clearfix">
-                                                <p class="pull-left">Upgrade Progress</p>
-                                                <p class="pull-right">10%</p>
-                                            </div>
-                                            <div class="progress progress-sm">
-                                                <div style="width: 10%;" class="progress-bar progress-bar-warning">
-                                                    <span class="sr-only">10% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-
                                     <!-- Dropdown list-->
                                     <li>
                                         <a href="#" class="media">
@@ -217,65 +186,31 @@
                                             </div>
                                         </a>
                                     </li>
-
-                                    <!-- Dropdown list-->
-                                    <li>
-                                        <a href="#" class="media">
-                                            <span class="badge badge-success pull-right">90%</span>
-                                            <div class="media-left">
-                                                <span class="icon-wrap icon-circle bg-danger">
-                                                    <i class="fa fa-hdd-o fa-lg"></i>
-                                                </span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="text-nowrap">HDD is full</div>
-                                                <small class="text-muted">50 minutes ago</small>
-                                            </div>
-                                        </a>
-                                    </li>
-
                                     <!-- Dropdown list-->
                                     <li>
                                         <a href="#" class="media">
                                             <div class="media-left">
-                                                <span class="icon-wrap bg-info">
-                                                    <i class="fa fa-file-word-o fa-lg"></i>
-                                                </span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="text-nowrap">Write a news article</div>
-                                                <small class="text-muted">Last Update 8 hours ago</small>
-                                            </div>
-                                        </a>
-                                    </li>
-
-                                    <!-- Dropdown list-->
-                                    <li>
-                                        <a href="#" class="media">
-                                            <span class="label label-danger pull-right">New</span>
-                                            <div class="media-left">
-                                                <span class="icon-wrap bg-purple">
+                                                <span class="icon-wrap icon-circle bg-primary">
                                                     <i class="fa fa-comment fa-lg"></i>
                                                 </span>
                                             </div>
                                             <div class="media-body">
-                                                <div class="text-nowrap">Comment Sorting</div>
-                                                <small class="text-muted">Last Update 8 hours ago</small>
+                                                <div class="text-nowrap">New comments waiting approval</div>
+                                                <small class="text-muted">15 minutes ago</small>
                                             </div>
                                         </a>
                                     </li>
-
                                     <!-- Dropdown list-->
                                     <li>
                                         <a href="#" class="media">
                                             <div class="media-left">
-                                                <span class="icon-wrap bg-success">
-                                                    <i class="fa fa-user fa-lg"></i>
+                                                <span class="icon-wrap icon-circle bg-primary">
+                                                    <i class="fa fa-comment fa-lg"></i>
                                                 </span>
                                             </div>
                                             <div class="media-body">
-                                                <div class="text-nowrap">New User Registered</div>
-                                                <small class="text-muted">4 minutes ago</small>
+                                                <div class="text-nowrap">New comments waiting approval</div>
+                                                <small class="text-muted">15 minutes ago</small>
                                             </div>
                                         </a>
                                     </li>
@@ -286,11 +221,11 @@
                         <!--Dropdown footer-->
                         <div class="pad-all bord-top">
                             <a href="#" class="btn-link text-dark box-block">
-                                <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Notifications
+                                <i class="fa fa-angle-right fa-lg pull-right"></i>Hiển thị tất cả thông báo
                             </a>
                         </div>
                     </div>
-                </li>  --}}
+                </li>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <!--End notifications dropdown-->
 
@@ -298,7 +233,7 @@
 
                 <!--Mega dropdown-->
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                {{--  <li class="mega-dropdown">
+                <li class="mega-dropdown">
                     <a href="#" class="mega-dropdown-toggle">
                         <i class="fa fa-th-large fa-lg"></i>
                     </a>
@@ -340,7 +275,7 @@
                                 </ul>
 
                             </div>
-                            <div class="col-sm-4 col-md-3">
+                            {{--  <div class="col-sm-4 col-md-3">
 
                                 <!--Mega menu list-->
                                 <ul class="list-unstyled">
@@ -358,32 +293,34 @@
                                     <li><a href="#">Transition effects</a></li>
                                 </ul>
 
-                            </div>
-                            <div class="col-sm-4 col-md-3">
+                            </div>  --}}
+                            <div class="col-sm-8 col-md-6">
 
                                 <!--Mega menu list-->
                                 <ul class="list-unstyled">
-                                    <li class="dropdown-header">Components</li>
-                                    <li><a href="#">Tables</a></li>
-                                    <li><a href="#">Charts</a></li>
-                                    <li><a href="#">Forms</a></li>
-                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Gửi thông báo đến tất cả admin</li>
                                     <li>
-                                        <form role="form" class="form">
+                                        <form id="frmSendAlert" role="form" class="form">
                                             <div class="form-group">
-                                                <label class="dropdown-header"
-                                                    for="demo-megamenu-input">Newsletter</label>
-                                                <input id="demo-megamenu-input" type="email"
-                                                    placeholder="Enter email" class="form-control">
+                                                <label class="dropdown"
+                                                    for="demo-megamenu-input">Tiêu đề</label>
+                                                <input name="titleAlert" id="titleAlert" type="text"
+                                                    placeholder="Nhập tiêu đề" class="form-control">
                                             </div>
-                                            <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                                            <div class="form-group">
+                                                <label class="dropdown"
+                                                    for="demo-megamenu-input">Nội dung</label>
+                                                <textarea name="contentAlert" style="max-width: 290px;min-width: 290px;" id="contentAlert"  type="text"
+                                                    placeholder="Nhập nội dung" class="form-control"></textarea>
+                                            </div>
+                                            <button class="btn btn-primary btn-block" id="btnSend" type="button">Gửi</button>
                                         </form>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </li>  --}}
+                </li>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <!--End mega dropdown-->
 

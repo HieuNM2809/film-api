@@ -51,9 +51,21 @@
 <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
 <!--===================================================-->
 
-
-
-</div>
+<div class="modal fade" id="myModalInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="vertical-align: top;" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
 <!--===================================================-->
 <!-- END OF CONTAINER -->
 
@@ -440,3 +452,32 @@
  Detailed information and more samples can be found in the document.
 
  -->
+ <script src="<?php echo $LINK_NAME_SOCKET ?>/socket.io/socket.io.js"></script>
+ <script>
+    CKEDITOR.replace('contentAlert');
+    var socket = io("<?php echo $LINK_NAME_SOCKET ?>");
+
+    var btnFrmSendAlert = $('#frmSendAlert #btnSend');
+    var title = $('#frmSendAlert #titleAlert');
+    var content =  '';
+    btnFrmSendAlert.click(function() {
+        content =  CKEDITOR.instances['contentAlert'].getData();
+        if ( title.val() && content) {
+            socket.emit('client-send-alert', title.val(), content);
+            title.val('');
+            CKEDITOR.instances['contentAlert'].setData('');
+        }else{
+            alert('Vui lòng nhập đầy đủ thông tin !!');
+        }
+    });
+
+    socket.on('server-send-alert', function(data) {
+        var popupAlert = $('#popupAlert');
+        var modalTitle = $('#popupAlert .modal-title');
+        var modalBody  = $('#popupAlert .modal-body');
+
+        $('#myModalInfo .modal-title').html(data.title);
+        $('#myModalInfo .modal-body').html(data.content);
+        $("#myModalInfo").modal('show');
+    });
+</script>
