@@ -17,7 +17,12 @@ class BackendMiddleware
     public function handle(Request $request, Closure $next)
     {
         $loggedInAdmin = \Session::get('logged_in_admin');
+        $lockScreen = \Session::get('lockScreen');
         $admins = ['2'];
+
+        if ($lockScreen) {
+            return redirect('admin/lock-screen')->with('thongbao', 'Bạn đang Lock Screen !! ');
+        }
 
         if (empty($loggedInAdmin)) {
             if ($request->ajax() || $request->wantsJson()) {

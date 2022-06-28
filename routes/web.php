@@ -52,6 +52,7 @@ Route::prefix('admin')->group(function () {
     Route::post('forget-password', [AuthController::class , 'postForgetPassword']);
     Route::get('confirm-forget-password', [AuthController::class , 'confirmForgetPassword']);
     Route::post('confirm-forget-password', [AuthController::class , 'postConfirmForgetPassword']);
+    Route::match(['GET', 'POST'],'lock-screen',[UserController::class , 'lockScreen']);
 
     Route::middleware(['BackendMiddleware'])->group(function () {
 
@@ -60,6 +61,7 @@ Route::prefix('admin')->group(function () {
         Route::get('change-password', [AuthController::class , 'getChangePassword']);
         Route::match(['GET', 'POST'],'change-password',[AuthController::class , 'changePassword']);
         Route::match(['GET', 'POST'],'edit-profile-me',[AuthController::class , 'editProfileMe']);
+
 
         //====================  Chưa làm  ===============================
         Route::get('get-token', function () {

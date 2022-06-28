@@ -495,6 +495,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{url('admin/lock-screen')}}">
+                                    <i class="fa fa-lock fa-fw fa-lg"></i> Lock screen
+                                </a>
+                            </li>
+                            <li>
                                 <a href="#">
                                     <span class="badge badge-danger pull-right">9</span>
                                     <i class="fa fa-envelope fa-fw fa-lg"></i> Thông báo
@@ -509,11 +514,6 @@
                             <li>
                                 <a href="#">
                                     <i class="fa fa-question-circle fa-fw fa-lg"></i> Help
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-lock fa-fw fa-lg"></i> Lock screen
                                 </a>
                             </li>
                         </ul>

@@ -7,6 +7,7 @@ use App\Http\Controllers\BaseController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends BaseController
 {
@@ -134,10 +135,10 @@ class UserController extends BaseController
         //     }
         // }
         $data =  $request->all();
-        if(isset($data['_method'])){
+        if (isset($data['_method'])) {
             unset($data['_method']);
         }
-        if($request->has('password')){
+        if ($request->has('password')) {
             $data['password'] = Hash::make($request->password);
         }
         if ($request->hasFile('avatar')) {
@@ -162,39 +163,41 @@ class UserController extends BaseController
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
 
-    public function registerGoogleMobile(Request $request){
-        $validation = Validator::make($request->all(),[
+    public function registerGoogleMobile(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
             'email' => 'required|string|email|max:255',
             'password' => 'required',
         ]);
 
-        if($validation->fails()){
+        if ($validation->fails()) {
             return $this->dataResponse('401', $validation->errors(), []);
         }
-        $checkIssetUser =  (new User())->getCheckUserByMail($request->email,$request->password);
-        if(!$checkIssetUser){
+        $checkIssetUser =  (new User())->getCheckUserByMail($request->email, $request->password);
+        if (!$checkIssetUser) {
             $user = User::create([
                 'name' => '',
                 'email' => $request->email,
                 'id_permission' => 1,
                 'password' => Hash::make($request->password),
             ]);
-            return $this->dataResponse('200', $user ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL'),$user);
+            return $this->dataResponse('200', $user ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), $user);
         }
-        return $this->dataResponse('200',  $checkIssetUser ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL'), $checkIssetUser);
+        return $this->dataResponse('200',  $checkIssetUser ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), $checkIssetUser);
     }
 
     // search user
-    public function searchUser(Request $request){
+    public function searchUser(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'key' => 'required',
         ]);
         if ($validator->fails()) {
-            return $this->dataResponse('401', $validator->errors() , []);
+            return $this->dataResponse('401', $validator->errors(), []);
         }
         if ($request->expectsJson()) {
             $data = $this->table->searchLikeAll($request->key);
-            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI'),  $data);
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
     }
@@ -202,21 +205,49 @@ class UserController extends BaseController
     public function changePass(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email'=> 'required|email|exists:users,email',
-            'password'=> 'required',
-            'password_new'=> 'required|max:8|different:password',
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required',
+            'password_new' => 'required|max:8|different:password',
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
         }
 
-        $checkIssetUser =  (new User())->getCheckUserByMail($request->email,$request->password);
-        if($checkIssetUser){
-            $data =  (new User())->updateByEmail($request->email, ['password'=>Hash::make($request->password_new)]);
-            return $this->dataResponse('200', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL_VI'),$data);
-        }else{
-            return $this->dataResponse('200', 'Mật khẩu cũ không đúng',[]);
+        $checkIssetUser =  (new User())->getCheckUserByMail($request->email, $request->password);
+        if ($checkIssetUser) {
+            $data =  (new User())->updateByEmail($request->email, ['password' => Hash::make($request->password_new)]);
+            return $this->dataResponse('200', $data ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL_VI'), $data);
+        } else {
+            return $this->dataResponse('200', 'Mật khẩu cũ không đúng', []);
         }
+    }
 
+    public function lockScreen(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            if(!Session::get('lockScreen')){
+                $dataLock['email'] = Session::get('logged_in_admin')['email'];
+                $dataLock['avatar'] = Session::get('logged_in_admin')['avatar'];
+                $dataLock['name'] = Session::get('logged_in_admin')['name'];
+                $request->session()->put('lockScreen',$dataLock);
+                $request->session()->forget(['logged_in_admin']);
+            }
+            return view($this->rootView.'.Auth.lockScreen');
+        } else {
+            $this->validate($request, [
+                'password' => 'required'
+            ], [
+                'password.required' => 'Vui lòng nhập nhập khẩu'
+            ]);
+            $userModel = new User();
+            $admin = $userModel->getCheckUserByMail(Session::get('lockScreen')['email'], $request->password, true);
+            if($admin){
+                $request->session()->put('just-login', true);
+                $request->session()->put('logged_in_admin', $admin);
+                $request->session()->forget(['lockScreen']);
+                return redirect('admin');
+            }
+            return redirect('admin/lock-screen')->with('thongbao', 'Mật khẩu không đúng !! ');
+        }
     }
 }

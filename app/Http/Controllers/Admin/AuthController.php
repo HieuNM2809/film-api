@@ -128,6 +128,7 @@ class AuthController extends BaseController
     public function logout(Request $request)
     {
         $request->session()->forget(['logged_in_admin']);
+        $request->session()->forget(['lockScreen']);
         Session::flash('error_message', 'Phiên đăng nhập của bạn đã hết hạn, vui lòng đăng nhập lại');
         return redirect('admin/login');
     }
