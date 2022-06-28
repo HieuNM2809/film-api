@@ -36,7 +36,8 @@ class DatabaseSeeder extends BaseSeeder
             UserFeelSeeder::class,
             CommentSeeder::class,
             UserPostSeeder::class,
-            UserOrganizationSeeder::class
+            UserOrganizationSeeder::class,
+            AlertAdminSeeder::class
         ]);
     }
 }
