@@ -48,12 +48,20 @@ class AuthController extends BaseController
             return $this->dataResponse('401',$validation->errors(),  []);
         }
 
-        $user = User::create([
+        $data =   [
             'name' => $request->name,
             'email' => $request->email,
             'id_permission' => 1,
             'password' => Hash::make($request->password),
-        ]);
+        ];
+        if(isset($request->avatar)){
+            $data['avatar'] = $request->avatar;
+        }
+        if(isset($request->birthday)){
+            $data['birthday'] = $request->birthday;
+        }
+
+        $user = User::create($data);
 
         return $this->login($request);
     }

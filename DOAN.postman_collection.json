@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoangan71@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoangan7111@gmail.com\",\r\n    \"password\":\"123456\",\r\n    // Hai trường này không truyền cũng đc \r\n    \"avatar\" :\"https://avatar.com/hinh1.png\",\r\n    \"birthday\" :\"2022-03-20\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3384,7 +3384,7 @@
 								{
 									"key": "avatar",
 									"type": "file",
-									"src": "/D:/Hình/2.png"
+									"src": "/D:/ImageExample.jpg"
 								},
 								{
 									"key": "url",
@@ -3419,14 +3419,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{urlDoAn}}/api/user/1",
+							"raw": "{{urlDoAn}}/api/user/2",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"user",
-								"1"
+								"2"
 							]
 						}
 					},

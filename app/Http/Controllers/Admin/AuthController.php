@@ -171,7 +171,6 @@ class AuthController extends BaseController
                 'birthday.required'     => 'Vui lòng chọn ngày sinh',
                 'birthday.before'           => 'Vui lòng chọn ngày sinh nhỏ hơn ngày hiện tại'
             ]);
-
             $data =  $request->all();
             if(isset($data['_token'])){
                 unset($data['_token']);
