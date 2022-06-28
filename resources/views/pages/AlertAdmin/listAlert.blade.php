@@ -134,7 +134,7 @@
                     <table id="table-data" class="add-niftycheck" data-toggle="table" data-locale="vi-VN"
                         data-toolbar="#table-toolbar" data-url='{{url('admin/show-alert')}}'
                         data-search="true" data-show-refresh="false" data-show-columns="true" data-pagination="true"
-                         data-page-size="25" data-query-params="queryParams" >
+                         data-page-size="5" data-query-params="queryParams" >
                         {{--  data-side-pagination="server" data-page-size="25" data-query-params="queryParams" >  --}}
                         <thead style="background: #5fa2dd; color: white;">
                             <tr>
