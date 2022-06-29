@@ -239,7 +239,7 @@
                     </a>
                     <div class="dropdown-menu mega-dropdown-menu">
                         <div class="clearfix">
-                            <div class="col-sm-12 col-md-3">
+                            {{--  <div class="col-sm-12 col-md-3">
 
                                 <!--Mega menu widget-->
                                 <div class="text-center bg-purple pad-all">
@@ -256,22 +256,15 @@
                                     <a href="#" class="btn btn-purple">Learn More...</a>
                                 </div>
 
-                            </div>
+                            </div>  --}}
                             <div class="col-sm-4 col-md-3">
 
                                 <!--Mega menu list-->
                                 <ul class="list-unstyled">
-                                    <li class="dropdown-header">Pages</li>
-                                    <li><a href="#">Profile</a></li>
-                                    <li><a href="#">Search Result</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="#">Sreen Lock</a></li>
-                                    <li><a href="#" class="disabled">Disabled</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Icons</li>
-                                    <li><a href="#"><span class="pull-right badge badge-purple">479</span> Font
-                                            Awesome</a></li>
-                                    <li><a href="#">Skycons</a></li>
+                                    <li class="dropdown-header">Các trang</li>
+                                    <li><a href="{{url('admin/edit-profile-me')}}">Thông tin cá nhân</a></li>
+                                    <li><a href="{{url('admin/change-password')}}">Thay đổi mật khẩu</a></li>
+                                    <li><a href="{{url('admin/lock-screen')}}">Khoá màn hình</a></li>
                                 </ul>
 
                             </div>
@@ -433,10 +426,10 @@
                             </li>
                             <li>
                                 <a href="{{url('admin/lock-screen')}}">
-                                    <i class="fa fa-lock fa-fw fa-lg"></i> Lock screen
+                                    <i class="fa fa-lock fa-fw fa-lg"></i>Khoá màn hình
                                 </a>
                             </li>
-                            <li>
+                            {{--  <li>
                                 <a href="#">
                                     <span class="badge badge-danger pull-right">9</span>
                                     <i class="fa fa-envelope fa-fw fa-lg"></i> Thông báo
@@ -452,7 +445,7 @@
                                 <a href="#">
                                     <i class="fa fa-question-circle fa-fw fa-lg"></i> Help
                                 </a>
-                            </li>
+                            </li>  --}}
                         </ul>
 
                         <!-- Dropdown footer -->

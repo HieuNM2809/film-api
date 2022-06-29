@@ -103,7 +103,7 @@
 
 
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-12">
                     <div class="row">
                         <div class="col-12"><div id="container-hightChart"></div></div>
                     </div>
@@ -113,7 +113,7 @@
                       </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                {{--  <div class="col-lg-5">
                     <!--Chat Widget-->
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <div class="panel">
@@ -266,7 +266,7 @@
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <!--End Chat Widget-->
 
-                </div>
+                </div>  --}}
             </div>
         </div>
         <!--===================================================-->
