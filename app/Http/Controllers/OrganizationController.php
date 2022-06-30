@@ -49,7 +49,8 @@ class OrganizationController extends BaseController
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required'
+            'name' => 'required',
+            'id_user' => 'required|numeric|exists:users,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
@@ -97,11 +98,21 @@ class OrganizationController extends BaseController
     {
         $condition = [];
         $validator = Validator::make($request->all(), [
-            'name' => 'required'
+            'name' => 'required',
+            'id_user' => 'required|numeric|exists:users,id'
+
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
         }
+        $organ  = $this->table->find($id);
+        if(!$organ){
+            return $this->dataResponse('401', 'Không tìm thấy', []);
+        }
+        if($request->id_user != $organ->id_user){
+            return $this->dataResponse('401', 'Bạn Không thể sửa', []);
+        }
+
         $data =  $request->all();
         unset($data['_method']);
 
@@ -118,7 +129,22 @@ class OrganizationController extends BaseController
      */
     public function destroy($id, Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'id_user' => 'required|numeric|exists:users,id'
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors(), []);
+        }
+
         if ($request->expectsJson()) {
+            $organ  = $this->table->find($id);
+            if(!$organ){
+                return $this->dataResponse('401', 'Không tìm thấy', []);
+            }
+            if($request->id_user != $organ->id_user){
+                return $this->dataResponse('401', 'Bạn Không thể sửa', []);
+            }
+
             $data = $this->table->where('id', $id)->delete();
             return $this->dataResponse($data ?'200' :'404', $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),  $data);
         }

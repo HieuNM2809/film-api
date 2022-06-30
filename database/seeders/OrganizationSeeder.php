@@ -16,6 +16,7 @@ class OrganizationSeeder extends BaseSeeder
      */
     // $table->id();
     // $table->string('name', 255)->nullable();
+    // $table->bigInteger('id_user')->nullable();
     // $table->timestamps();
     // $table->softDeletes();
 
@@ -24,6 +25,7 @@ class OrganizationSeeder extends BaseSeeder
         for ($i = 1; $i <= $this->amountRecord; $i++) {
             DB::table('organizations')->insert([
                 'name' => 'name organizations '.$i,
+                'id_user' => $i,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

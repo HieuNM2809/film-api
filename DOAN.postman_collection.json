@@ -1471,6 +1471,11 @@
 									"key": "name",
 									"value": "Tổ chức áo vàng",
 									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "text"
 								}
 							]
 						},
@@ -1545,18 +1550,23 @@
 									"key": "_method",
 									"value": "PUT",
 									"type": "default"
+								},
+								{
+									"key": "id_user",
+									"value": "2",
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{urlDoAn}}/api/organization/1",
+							"raw": "{{urlDoAn}}/api/organization/1000",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"organization",
-								"1"
+								"1000"
 							]
 						}
 					},
@@ -1573,6 +1583,16 @@
 								"type": "default"
 							}
 						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_user",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
 							"raw": "{{urlDoAn}}/api/organization/1",
 							"host": [
