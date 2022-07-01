@@ -59,7 +59,7 @@ class CreditCartController extends BaseController
             'cart_number' => 'required',
             'date_expired' => 'required|date_format:Y-m-d',
             'avatar' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-            'id_user' => 'required|exists:users,id'
+            'id_user' => 'required|numeric|exists:users,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
@@ -119,7 +119,7 @@ class CreditCartController extends BaseController
             'name' => 'required',
             'cart_number' => 'required',
             'date_expired' => 'required|date_format:Y-m-d',
-            'id_user' => 'required|exists:users,id'
+            'id_user' => 'required|numeric|exists:users,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);

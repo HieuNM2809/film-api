@@ -57,7 +57,7 @@ class SettingsController extends BaseController
         $validator = Validator::make($request->all(), [
             'key' => 'required',
             'value' => 'required',
-            'id_user' => 'required|exists:users,id'
+            'id_user' => 'required|numeric|exists:users,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
@@ -107,7 +107,7 @@ class SettingsController extends BaseController
         $validator = Validator::make($request->all(), [
             'key' => 'required',
             'value' => 'required',
-            'id_user' => 'required|exists:users,id'
+            'id_user' => 'required|numeric|exists:users,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);

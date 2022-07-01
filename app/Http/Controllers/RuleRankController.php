@@ -48,7 +48,7 @@ class RuleRankController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'value' => 'required'
+            'value' => 'required|numeric'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
@@ -96,7 +96,7 @@ class RuleRankController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'value' => 'required'
+            'value' => 'required|numeric'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);

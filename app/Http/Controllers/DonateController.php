@@ -22,7 +22,7 @@ class DonateController extends BaseController
     public function index(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_user' => 'required|exists:users,id'
+            'id_user' => 'required|numeric|exists:users,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
@@ -53,7 +53,7 @@ class DonateController extends BaseController
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_user' => 'required|exists:users,id',
+            'id_user' => 'required|numeric|exists:users,id',
             'link' => 'required|url|unique:donates'
         ]);
         if ($validator->fails()) {
@@ -101,7 +101,7 @@ class DonateController extends BaseController
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'id_user' => 'required|exists:users,id',
+            'id_user' => 'required|numeric|exists:users,id',
             'link' => 'required|url|unique:donates'
         ]);
         if ($validator->fails()) {
