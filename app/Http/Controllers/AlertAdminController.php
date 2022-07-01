@@ -22,7 +22,7 @@ class AlertAdminController extends BaseController
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'content' => 'required',
-            'id_user' => 'required|numeric|exists:users,id',
+            'id_user' => 'required|exists:users,id',
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);

@@ -48,9 +48,9 @@ class CommentsController extends BaseController
             return  $this->dataResponse('200',  config('statusCode.FAIL') , []);
         }
         $validator = Validator::make($request->all(), [
-            'id_post' => 'required|numeric|exists:posts,id',
-            'parent' => 'required|numeric|exists:comments,id',
-            'id_user' => 'required|numeric|exists:users,id',
+            'id_post' => 'required|exists:posts,id',
+            'parent' => 'required|exists:comments,id',
+            'id_user' => 'required|exists:users,id',
             'content' => 'required',
         ]);
         if ($validator->fails()) {

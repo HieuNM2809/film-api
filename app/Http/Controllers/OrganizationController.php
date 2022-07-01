@@ -50,7 +50,7 @@ class OrganizationController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'id_user' => 'required|numeric|exists:users,id'
+            'id_user' => 'required|exists:users,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
@@ -99,7 +99,7 @@ class OrganizationController extends BaseController
         $condition = [];
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'id_user' => 'required|numeric|exists:users,id'
+            'id_user' => 'required|exists:users,id'
 
         ]);
         if ($validator->fails()) {
@@ -130,7 +130,7 @@ class OrganizationController extends BaseController
     public function destroy($id, Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_user' => 'required|numeric|exists:users,id'
+            'id_user' => 'required|exists:users,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);

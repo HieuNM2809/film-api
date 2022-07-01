@@ -47,7 +47,7 @@ class IconRankController extends BaseController
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_rule' => 'required|numeric|exists:rule_ranks,id',
+            'id_rule' => 'required|exists:rule_ranks,id',
             'title' => 'required|min:20',
             'icon' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
         ]);
@@ -97,7 +97,7 @@ class IconRankController extends BaseController
     {
         $condition = [];
         $validator = Validator::make($request->all(), [
-            'id_rule' => 'required|numeric|exists:rule_ranks,id',
+            'id_rule' => 'required|exists:rule_ranks,id',
             'title' => 'required|min:20'
         ]);
         if ($validator->fails()) {

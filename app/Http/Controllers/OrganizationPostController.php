@@ -51,9 +51,9 @@ class OrganizationPostController extends BaseController
             'title' => 'required|min:10',
             'content' => 'required|min:20',
             'feature_image' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
-            'id_organizations' => 'required|numeric|exists:organizations,id',
-            'id_title_type' => 'required|numeric|exists:title_types,id',
-            'id_user' => 'required|numeric|exists:users,id',
+            'id_organizations' => 'required|exists:organizations,id',
+            'id_title_type' => 'required|exists:title_types,id',
+            'id_user' => 'required|exists:users,id',
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
@@ -103,9 +103,9 @@ class OrganizationPostController extends BaseController
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:10',
             'content' => 'required|min:20',
-            'id_title_type' => 'required|numeric|exists:title_types,id',
-            'id_organizations' => 'required|numeric|exists:organizations,id',
-            'id_user' => 'required|numeric|exists:users,id',
+            'id_title_type' => 'required|exists:title_types,id',
+            'id_organizations' => 'required|exists:organizations,id',
+            'id_user' => 'required|exists:users,id',
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);

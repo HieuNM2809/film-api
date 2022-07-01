@@ -16,8 +16,8 @@ class UserPostController extends BaseController
     }
     public function savePostByUser(Request $request){
         $validator = Validator::make($request->all(), [
-            'id_user' => 'required|numeric|exists:users,id',
-            'id_post' => 'required|numeric|exists:posts,id'
+            'id_user' => 'required|exists:users,id',
+            'id_post' => 'required|exists:posts,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
@@ -31,8 +31,8 @@ class UserPostController extends BaseController
     }
     public function unSavePostByUser(Request $request){
         $validator = Validator::make($request->all(), [
-            'id_user' => 'required|numeric|exists:users,id',
-            'id_post' => 'required|numeric|exists:posts,id'
+            'id_user' => 'required|exists:users,id',
+            'id_post' => 'required|exists:posts,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
@@ -46,7 +46,7 @@ class UserPostController extends BaseController
     }
     public function listPostByUser(Request $request){
         $validator = Validator::make($request->all(), [
-            'id_user' => 'required|numeric|exists:users,id'
+            'id_user' => 'required|exists:users,id'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
