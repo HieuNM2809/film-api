@@ -305,31 +305,6 @@
                     return '';
                 }
 
-                function loginAs(items, e) {
-                    if (e) e.preventDefault();
-                    if (confirm('Đăng nhập vào thành viên này?')) {
-                        var url = 'http://omniagent.fpt.net/backend/login-as';
-                        var data = {
-                            '_token': '{{ csrf_token() }}',
-                            'id': items[0]
-                        };
-                        $.ajax({
-                            type: "POST",
-                            url: url,
-                            async: false,
-                            data: data,
-                            dataType: "json",
-                            success: function(data) {
-                                if (data.status === 0) {
-                                    notifyMsg(data.msg);
-                                } else {
-                                    location.reload();
-                                }
-                            }
-                        });
-                    }
-                }
-
                 function formGo() {
                     /*$('#status_filter').val('').selectpicker('refresh');
                     $('#role_filter').val('').selectpicker('refresh');*/
