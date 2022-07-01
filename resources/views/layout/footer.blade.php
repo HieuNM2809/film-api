@@ -456,12 +456,13 @@
  <script>
     CKEDITOR.replace('contentAlert');
     var socket = io("<?php echo $LINK_NAME_SOCKET ?>");
-
-    var btnFrmSendAlert = $('#frmSendAlert #btnSend');
-    var title = $('#frmSendAlert #titleAlert');
-    var content =  '';
-    var token = '{{csrf_token()}}';
-
+    var btnFrmSendAlert  = $('#frmSendAlert #btnSend');
+    var title            = $('#frmSendAlert #titleAlert');
+    var content          =  '';
+    var token            = '{{csrf_token()}}';
+    var clickAudio        =  $('#clickAudioPost');
+    var audioPost        =  $('#audioPost');
+    console.log(clickAudio);
     btnFrmSendAlert.click(function() {
         content =  CKEDITOR.instances['contentAlert'].getData();
         if ( title.val() && content) {
@@ -491,6 +492,26 @@
         }else{
             alert('Vui lòng nhập đầy đủ thông tin !!');
         }
+    });
+
+    clickAudio.click(function(e) {
+        var value =  CKEDITOR.instances.contentAlert.document.getBody().getText();
+        $.ajax({
+            type: "GET",
+            url: "<?php echo url('/api/text_to_speech'); ?>" + '/'+value,
+            success: function(res) {
+                var data = JSON.parse(res);
+                if (data.error == 0){
+                   var html =  `<audio controls autoplay>
+                    <source src="`+data.async+`" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                   </audio>`;
+                   audioPost.html(html);
+                }else{
+                    alert('Có lỗi xảy ra, vui lòng thử lại !!');
+                }
+            }
+        });
     });
 
     socket.on('server-send-alert', function(data) {

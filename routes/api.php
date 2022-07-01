@@ -24,6 +24,7 @@ use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\UserOrganizationsController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrganizationPostController;
+use App\Http\Controllers\ExtensionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +103,11 @@ Route::post('search-title-type',  [TitleTypeController::class  , 'searchTitleTyp
 
 // Group post
 Route::apiResource('group-post', OrganizationPostController::class);  //ok
+
+// text to speech
+Route::get('text-to-speech/{text?}',[ExtensionController::class , 'textToSpeech']);
+Route::get('get-api-text-to-speech/{text?}',[ExtensionController::class,'get_api_text_to_speech'] );
+
 
 
 
