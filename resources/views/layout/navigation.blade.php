@@ -60,6 +60,21 @@
                                 </span>
                             </a>
                         </li>
+                        <!-- Quản lý User-->
+                        <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý User</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['UserController2'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách User</a></li>
+                            </ul>
+                        </li>
                         <!-- Báo cáo-->
                         <li class="{!! (in_array($controllerName, ['ReportController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
@@ -96,23 +111,6 @@
                                 <li class="{{ Request::is('admin/change-filter-condition') ? 'active-link' : '' }}"><a href="{{url('admin/change-filter-condition')}}">Thay đổi điều kiện lọc</a></li>
                             </ul>
                         </li>
-                        <!-- Quản lý User-->
-                        <li class="{!! (in_array($controllerName, ['UserController'])) ? 'active-sub active' : '' !!}">
-                            <a href="#">
-                                <i class="fa fa-user"></i>
-                                <span class="menu-title">
-                                    <strong>Quản lý User</strong>
-                                </span>
-                                <i class="arrow"></i>
-                            </a>
-
-                            <!--Submenu-->
-                            <ul class="collapse {!! (in_array($controllerName, ['UserController'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/add-user') ? 'active-link' : '' }}"><a href="{{url('admin/add-user')}}">Thêm User</a></li>
-                                <li class="{{ Request::is('admin/list-user') ? 'active-link' : '' }}"><a href="{{url('admin/list-user')}}">Danh sách User</a></li>
-                            </ul>
-                        </li>
-
                         {{--  <!--Menu list item-->
                         <li>
                             <a href="widgets.html">

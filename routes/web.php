@@ -23,6 +23,7 @@ use App\http\Controllers\Admin;
 use App\Http\Controllers\Admin\AuthController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AlertAdminController;
+use App\Http\Controllers\Admin\UserController2;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
         Route::post('create-alert', [AlertAdminController::class , 'createAlert']);
         Route::get('show-alert', [AlertAdminController::class , 'showAlert']);
         Route::match(['GET', 'POST'],'send-mail',[AlertAdminController::class , 'sendMail']);
+        //user
+        Route::resource('user-v2', UserController2::class);
 
 
 

@@ -498,7 +498,7 @@
         var value =  CKEDITOR.instances.contentAlert.document.getBody().getText();
         $.ajax({
             type: "GET",
-            url: "<?php echo url('/api/text_to_speech'); ?>" + '/'+value,
+            url: "<?php echo url('/api/text-to-speech'); ?>" + '/'+value,
             success: function(res) {
                 var data = JSON.parse(res);
                 if (data.error == 0){

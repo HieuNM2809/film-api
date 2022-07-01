@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\Models\Base;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -141,6 +142,27 @@ class User extends Authenticatable implements JWTSubject
     public function updateByEmail($email, $data)
     {
         return $this->where('email',$email)->update($data);
+    }
+
+    public function getDataUserByCondition($condition){
+        $sql = DB::table('users');
+
+        $sql->where('deleted_at' ,null);
+
+        if(isset($condition['name']) && !empty($condition['name'])){
+            $sql =  $sql->where('name',$condition['name']);
+        }
+        if(isset($condition['email']) && !empty($condition['email'])){
+            $sql =  $sql->where('email',$condition['email']);
+        }
+        if(isset($condition['identity_card']) && !empty($condition['identity_card'])){
+            $sql =  $sql->where('identity_card',$condition['identity_card']);
+        }
+        if(isset($condition['skills']) && !empty($condition['skills'])){
+            $sql =  $sql->where('skills',$condition['skills']);
+        }
+        // return $this->toSqlString($sql);
+        return $sql->get();
     }
 
 }
