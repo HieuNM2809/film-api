@@ -52,7 +52,7 @@ class UserController extends BaseController
             'name' => 'required',
             // 'email' => 'required|email|unique:users,email',
             // 'password' => 'required|min:6',
-            // 'id_permission'=> 'required|exists:permissions,id',
+            // 'id_permission'=> 'required|integer|exists:permissions,id',
             // 'identity_card'=> 'required|min:9',
             // 'birthday'=> 'required|date_format:Y-m-d|before:today',
             // 'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
@@ -111,7 +111,7 @@ class UserController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            // 'id_permission'=> 'required|exists:permissions,id',
+            // 'id_permission'=> 'required|integer|exists:permissions,id',
             // 'identity_card'=> 'required|min:9',
             // 'birthday'=> 'required|date_format:Y-m-d|before:today',
             // 'url'=> 'required|url',
