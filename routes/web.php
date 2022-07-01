@@ -69,6 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
         Route::match(['GET', 'POST'],'edit-profile-me',[AuthController::class , 'editProfileMe']);
         Route::post('create-alert', [AlertAdminController::class , 'createAlert']);
         Route::get('show-alert', [AlertAdminController::class , 'showAlert']);
+        Route::match(['GET', 'POST'],'send-mail',[AlertAdminController::class , 'sendMail']);
 
 
 

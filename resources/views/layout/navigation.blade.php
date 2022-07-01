@@ -50,6 +50,16 @@
                                 </span>
                             </a>
                         </li>
+                        <!--Menu list item-->
+                        <li  class="{{ Request::is('admin/send-mail') ? 'active-link' : '' }}"  >
+                            <a href="{{url('admin/send-mail')}}">
+                                <i class="fa-solid fa-rectangle-ad"></i>
+                                <span class="menu-title">
+                                    <strong>Gửi quảng cáo</strong>
+                                    <span class="label label-success pull-right">New</span>
+                                </span>
+                            </a>
+                        </li>
                         <!-- Báo cáo-->
                         <li class="{!! (in_array($controllerName, ['ReportController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">

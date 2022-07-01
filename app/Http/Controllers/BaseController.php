@@ -16,6 +16,8 @@ class BaseController extends Controller
     protected $curentDay ;
     protected $curentMonth;
     protected $curentYear;
+    protected $listIdPermissionUser = [1];
+
     public function __construct()
     {
         $this->curentDay = date('d');
