@@ -139,8 +139,8 @@ class PostController extends BaseController
     // phân trang bài viết
     public function getPostCustom(Request $request){
         $validator = Validator::make($request->all(), [
-            'posts_on_page' => 'required|integer|min:0',
-            'page' => 'required|integer|min:0'
+            'posts_on_page' => 'required|min:0',
+            'page' => 'required|min:0'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
@@ -157,9 +157,9 @@ class PostController extends BaseController
     // Lấy bài viết mới nhất, cũ nhất
     public function getPostCustomNew(Request $request){
         $validator = Validator::make($request->all(), [
-            'posts_on_page' => 'required|integer|min:0',
+            'posts_on_page' => 'required|min:0',
             'sort' => ['required', Rule::in(['DESC', 'ASC'])] ,
-            'page' => 'required|integer|min:0'
+            'page' => 'required|min:0'
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
