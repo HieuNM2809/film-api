@@ -134,12 +134,12 @@
                         {{--  data-side-pagination="server" data-page-size="25" data-query-params="queryParams" >  --}}
                         <thead style="background: #5fa2dd; color: white;">
                             <tr>
-                                <th scope="col" data-field="id" data-sortable="true">ID</th>
+                                <th scope="col" data-field="id" >ID</th>
                                 <th scope="col" data-field="name" data-sortable="true">Tên</th>
                                 <th scope="col" data-field="email" data-sortable="true">Email</th>
                                 <th scope="col" data-field="identity_card" data-sortable="true">CNND</th>
                                 <th scope="col" data-field="birthday" data-sortable="true">Ngày sinh</th>
-                                <th scope="col" data-field="avatar" data-sortable="true">Hình ảnh</th>
+                                <th scope="col" data-field="avatar" data-sortable="true" data-formatter="formatImage">Hình ảnh</th>
                                 <th scope="col" data-field="skills" data-sortable="true">Kỹ năng</th>
                                 <th scope="col" data-field="created_at" data-sortable="true">Ngày tham gia</th>
                                 <th scope="col" data-field="id" data-align="center" data-formatter="actionColumnEdit"> Công cụ</th>
@@ -216,9 +216,14 @@
                         'class="add-tooltip btn btn-danger btn-icon icon-lg btn-xs" data-placement="top" data-original-title="Xóa">',
                         '<i class="fa fa-trash-o"></i></a>'
                     ].join('');
-
-
                     return [editBtn , removeBtn].join(' ');
+                }
+                function formatImage(value, row, index) {
+                    var img = [
+                        '<img src="{{  asset("User/") }}/' + value + '" ',
+                        ' width="50" height="50" >'
+                    ].join('');
+                    return [img].join(' ');
                 }
 
                 function formatProcessStatus(value, row, index) {
