@@ -54,6 +54,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
     Route::resource('donate', Admin\DonateController::class);
     Route::resource('group_permission', Admin\GroupPermissionController::class);
     Route::resource('hashtag', Admin\HashtagController::class);
+    Route::resource('title_type', Admin\TitleTypeController::class);
+    Route::resource('icon_rank', Admin\IconRankController::class);
+
 
     Route::get('login', [AuthController::class , 'index']);
     Route::post('login', [AuthController::class , 'login']);
@@ -93,8 +96,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
             return view('pages.register');
         });
 
-        Route::resource('title-type', TitleTypeController::class);
-        Route::resource('icon-rank', IconRankController::class);
         Route::resource('user-icon-rank', UserIconRankController::class);
         Route::resource('settings', SettingsController::class);
         // Route::resource('comment', CommentsController::class);
