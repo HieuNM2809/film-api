@@ -1,6 +1,6 @@
 @extends('master')
 @section('title')
-    Sửa thẻ
+    Hashtag
 @endsection
 @section('content')
     <div id="content-container">
@@ -8,31 +8,30 @@
             <h1 class="page-header text-overflow">DEV- Backend</h1>
         </div>
         <ol class="breadcrumb">
-            <li><a href="#">Sửa thẻ</a></li>
+            <li><a href="#">Hashtag</a></li>
         </ol>
         <div class="row" style="display:flex; justify-content:center;">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Thêm thẻ</h3>
+                        <h3 class="panel-title">hashtag</h3>
                     </div>
 
                     <!--Block Styled Form -->
                     <!--===================================================-->
-                    <form action="{{ isset($id) ? route($table . '.update', $id) : '' }}" method="POST"
-                        enctype="multipart/form-data">
+                    <form action="{{ isset($id) ? route($table . '.update', $id) : ''}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="idUser">Tên người dùng</label>
-                                        <select required class="form-control" id="idUser" name="idUser">
-                                            @foreach ($dataForeign['user'] as $item)
-                                                <option value="{{ $item->id }}"
-                                                    {{ isset($id) && $data->parent == $item->id ? 'selected' : '' }}>
-                                                    {{ $item->name }}
+                                        <label for="id_rule">Điều kiện đạt được danh hiệu</label>
+                                        <select required class="form-control" id="id_rule" name="id_rule">
+                                            <option></option>
+                                            @foreach ($dataForeign['ruleRank'] as $item)
+                                                <option value="{{ $item->id }}">
+                                                    Tên điều kiện: {{ $item->name }}. Số lượng: {{ $item->value }}.
                                                 </option>
                                             @endforeach
                                         </select>
@@ -40,26 +39,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="control-label">Tên thẻ</label>
-                                        <input type="text" class="form-control" name="name" required
-                                            value="{{ isset($id) ? $data->name : '' }}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Số thẻ</label>
-                                        <input type="number" class="form-control" name="cartNumber" required required
-                                            value="{{ isset($id) ? $data->cart_number : '' }}">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Ngày hết hạn</label>
-                                        <input type="date" class="form-control" placeholder="dd-mm-yyyy"
-                                            name="dateExpired" required
-                                            value="{{ isset($id) ? date_format(date_create($data->date_expired), 'Y-m-d') : '' }}">
+                                        <label class="control-label">Tên danh hiệu</label>
+                                        <input type="text" class="form-control" name="title" required value="{{$data->title}}">
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +54,7 @@
                                                 accept="image/gif, image/jpeg, image/png">
                                             <img id="image_Avatar" alt="your image"
                                                 style="border: 2px solid; {{ isset($id) ? '' : 'display:none;' }} height:200px;"
-                                                src="{{ isset($id) ? '../../../credit_cart/' . $data->avatar : '' }}">
+                                                src="{{ isset($id) ? '../../../icon_rank/' . $data->icon : '' }}">
                                         </div>
                                     </div>
                                 </div>
