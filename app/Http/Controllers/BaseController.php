@@ -29,7 +29,7 @@ class BaseController extends Controller
     }
 
     public function dataResponse($status, $message ,$data){
-        $dataResponse['status'] = $status;
+        $dataResponse['status'] = (string)$status;
         $dataResponse['message'] = $message;
         $dataResponse['data'] = $data;
         return response()->json($dataResponse);

@@ -83,7 +83,7 @@ class AuthController extends BaseController
     {
         $data = auth()->user();
         $data['message'] = 'success';
-        $data['status'] = "200";
+        $data['status'] = '200';
         return response()->json($data);
     }
 
