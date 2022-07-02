@@ -25,12 +25,12 @@ class CheckApiToken
                     return $next($request);
                 }
                 return response()->json([
-                    'status' => 401,
+                    'status' => '401',
                     'message' => 'Mã token không hợp lệ'
                 ], 401);
         }
         return response()->json([
-            'status' => 401,
+            'status' => '401',
             'message' => 'chưa truyền mã token'
         ], 401);
     }
