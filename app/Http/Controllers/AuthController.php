@@ -81,7 +81,10 @@ class AuthController extends BaseController
 
     public function me()
     {
-        return response()->json(auth()->user());
+        $data = auth()->user();
+        $data['message'] = 'success';
+        $data['status'] = "200";
+        return response()->json($data);
     }
 
     protected function respondWithToken($token)
