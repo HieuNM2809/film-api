@@ -306,6 +306,10 @@
                                                 <textarea name="contentAlert" style="max-width: 290px;min-width: 290px;" id="contentAlert"  type="text"
                                                     placeholder="Nhập nội dung" class="form-control"></textarea>
                                             </div>
+                                            <div class="form-group d-flex">
+                                                <button class="btn btn-primary" id="clickAudioPost" type="button">Nghe thử</button>
+                                                <div id="audioPost"></div>
+                                            </div>
                                             <button class="btn btn-primary btn-block" id="btnSend" type="button">Gửi</button>
                                         </form>
                                     </li>

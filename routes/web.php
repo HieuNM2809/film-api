@@ -23,6 +23,10 @@ use App\http\Controllers\Admin;
 use App\Http\Controllers\Admin\AuthController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AlertAdminController;
+use App\Http\Controllers\Admin\UserController2;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UserExport;
+use App\Http\Controllers\Admin\ExcelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +76,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
         Route::match(['GET', 'POST'],'edit-profile-me',[AuthController::class , 'editProfileMe']);
         Route::post('create-alert', [AlertAdminController::class , 'createAlert']);
         Route::get('show-alert', [AlertAdminController::class , 'showAlert']);
+        Route::match(['GET', 'POST'],'send-mail',[AlertAdminController::class , 'sendMail']);
+        //user
+        Route::resource('user-v2', UserController2::class);
+        Route::get('export-user',[ExcelController::class , 'exportUser']);
+    
+
 
 
 
