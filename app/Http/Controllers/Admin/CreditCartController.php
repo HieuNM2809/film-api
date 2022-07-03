@@ -15,6 +15,7 @@ class CreditCartController extends AdminController
         $this->model = new CreditCart();
         $this->table = "credit_cart";
         $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->controllerName = 'CreditCartController';
     }
 
     public function index()
@@ -23,7 +24,7 @@ class CreditCartController extends AdminController
         return view($this->view . $this->table . '.home')->with([
             'data' => $this->data,
             'table' => $this->table,
-            'controllerName' => $this->controllerName
+            'controllerName' => $this->controllerName,
         ]);
     }
 

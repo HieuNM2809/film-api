@@ -90,49 +90,94 @@
                                 <li class="{{ Request::is('admin/icon_rank') ? 'active-link' : '' }}"><a href="{{url('admin/icon_rank')}}">Danh sách icon rank</a></li>
                             </ul>
                         </li>
-                        <!-- Quản lý User-->
-                        <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
+                        <!-- Quản lý title_type-->
+                        <li class="{!! (in_array($controllerName, ['TitleTypeController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
                                 <i class="fa fa-user"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý User</strong>
+                                    <strong>Quản lý Title Type</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
-                            <ul class="collapse {!! (in_array($controllerName, ['UserController2'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách User</a></li>
+                            <ul class="collapse {!! (in_array($controllerName, ['TitleTypeController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/title_type') ? 'active-link' : '' }}"><a href="{{url('admin/title_type')}}">Danh sách Title Type</a></li>
                             </ul>
                         </li>
-                        <!-- Quản lý User-->
-                        <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
+                        <!-- Quản lý hashtag-->
+                        <li class="{!! (in_array($controllerName, ['HashtagController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
                                 <i class="fa fa-user"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý User</strong>
+                                    <strong>Quản lý hashtag</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
-                            <ul class="collapse {!! (in_array($controllerName, ['UserController2'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách User</a></li>
+                            <ul class="collapse {!! (in_array($controllerName, ['HashtagController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/hashtag') ? 'active-link' : '' }}"><a href="{{url('admin/hashtag')}}">Danh sách hashtag</a></li>
                             </ul>
                         </li>
-                        <!-- Quản lý User-->
-                        <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
+                        <!-- Quản lý group_permission-->
+                        <li class="{!! (in_array($controllerName, ['GroupPermissionController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
                                 <i class="fa fa-user"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý User</strong>
+                                    <strong>Quản lý group permission</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
-                            <ul class="collapse {!! (in_array($controllerName, ['UserController2'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách User</a></li>
+                            <ul class="collapse {!! (in_array($controllerName, ['GroupPermissionController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/group_permission') ? 'active-link' : '' }}"><a href="{{url('admin/group_permission')}}">Danh sách group permission</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý donate-->
+                        <li class="{!! (in_array($controllerName, ['DonateController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý donate</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['DonateController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/donate') ? 'active-link' : '' }}"><a href="{{url('admin/donate')}}">Danh sách donate</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý credit_cart-->
+                        <li class="{!! (in_array($controllerName, ['CreditCartController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý credit cart</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['CreditCartController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/credit_cart') ? 'active-link' : '' }}"><a href="{{url('admin/credit_cart')}}">Danh sách credit cart</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý comment-->
+                        <li class="{!! (in_array($controllerName, ['CommentController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý credit cart</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['CommentController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/comment') ? 'active-link' : '' }}"><a href="{{url('admin/comment')}}">Danh sách comment</a></li>
                             </ul>
                         </li>
                         <!-- Báo cáo-->
