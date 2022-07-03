@@ -103,7 +103,7 @@ class AlertAdminController extends BaseController
             }
              // send mail
             try {
-                Mail::send('mail.thongbaotinmoi',$data , function ($message) use ($email){
+                Mail::send('email.adMail', $data , function ($message) use ($email){
                     $message->from(env('MAIL_USERNAME'), 'DEV');
                     $message->to($email, 'Bạn');
                     $message->subject('DEV thông báo');
