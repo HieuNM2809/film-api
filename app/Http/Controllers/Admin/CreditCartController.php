@@ -22,7 +22,8 @@ class CreditCartController extends AdminController
         // return $this->data;
         return view($this->view . $this->table . '.home')->with([
             'data' => $this->data,
-            'table' => $this->table
+            'table' => $this->table,
+            'controllerName' => $this->controllerName
         ]);
     }
 
@@ -32,7 +33,8 @@ class CreditCartController extends AdminController
         $dataForeign["user"] = $data->withTrashed()->get();
         return view($this->view . $this->table . '.add')->with([
             'table' => $this->table,
-            'dataForeign' => $dataForeign
+            'dataForeign' => $dataForeign,
+            'controllerName' => $this->controllerName
         ]);
     }
 
@@ -83,7 +85,8 @@ class CreditCartController extends AdminController
             'data' => $data,
             'id' => $id,
             'table' => $this->table,
-            'dataForeign' => $dataForeign
+            'dataForeign' => $dataForeign,
+            'controllerName' => $this->controllerName
         ]);
     }
 

@@ -15,6 +15,7 @@ class CommentController extends AdminController
         $this->model = new Comment();
         $this->table = "comment";
         $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->controllerName = 'CommentController';
     }
 
     public function index()
@@ -22,7 +23,8 @@ class CommentController extends AdminController
         // return $this->data;
         return view($this->view . $this->table . '.home')->with([
             'data' => $this->data,
-            'table' => $this->table
+            'table' => $this->table,
+            'controllerName' => $this->controllerName
         ]);
     }
 
@@ -33,7 +35,8 @@ class CommentController extends AdminController
         $dataForeign["comment"] = $this->model->getListComment();
         return view($this->view . $this->table . '.add')->with([
             'table' => $this->table,
-            'dataForeign' => $dataForeign
+            'dataForeign' => $dataForeign,
+            'controllerName' => $this->controllerName
         ]);
     }
 
@@ -85,7 +88,8 @@ class CommentController extends AdminController
             'data' => $data,
             'id' => $id,
             'table' => $this->table,
-            'dataForeign' => $dataForeign
+            'dataForeign' => $dataForeign,
+            'controllerName' => $this->controllerName
         ]);
     }
 

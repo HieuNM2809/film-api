@@ -60,6 +60,66 @@
                                 </span>
                             </a>
                         </li>
+                         <!-- Quản lý User-->
+                         <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý User</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['UserController2'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách User</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý icon rank-->
+                        <li class="{!! (in_array($controllerName, ['IconRankController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý icon rank</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['IconRankController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/icon_rank') ? 'active-link' : '' }}"><a href="{{url('admin/icon_rank')}}">Danh sách icon rank</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý User-->
+                        <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý User</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['UserController2'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách User</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý User-->
+                        <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý User</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['UserController2'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách User</a></li>
+                            </ul>
+                        </li>
                         <!-- Quản lý User-->
                         <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
