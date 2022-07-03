@@ -78,7 +78,7 @@
                         <!-- Quản lý icon rank-->
                         <li class="{!! (in_array($controllerName, ['IconRankController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
-                                <i class="fa fa-user"></i>
+                                <i class="fas fa-code"></i>
                                 <span class="menu-title">
                                     <strong>Quản lý icon rank</strong>
                                 </span>
@@ -93,7 +93,7 @@
                         <!-- Quản lý title_type-->
                         <li class="{!! (in_array($controllerName, ['TitleTypeController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
-                                <i class="fa fa-user"></i>
+                                <i class="fas fa-heading"></i>
                                 <span class="menu-title">
                                     <strong>Quản lý Title Type</strong>
                                 </span>
@@ -108,7 +108,7 @@
                         <!-- Quản lý hashtag-->
                         <li class="{!! (in_array($controllerName, ['HashtagController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
-                                <i class="fa fa-user"></i>
+                                <i class="fas fa-hashtag"></i>
                                 <span class="menu-title">
                                     <strong>Quản lý hashtag</strong>
                                 </span>
@@ -123,7 +123,7 @@
                         <!-- Quản lý group_permission-->
                         <li class="{!! (in_array($controllerName, ['GroupPermissionController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
-                                <i class="fa fa-user"></i>
+                                <i class="fas fa-layer-group"></i>
                                 <span class="menu-title">
                                     <strong>Quản lý group permission</strong>
                                 </span>
@@ -138,7 +138,7 @@
                         <!-- Quản lý donate-->
                         <li class="{!! (in_array($controllerName, ['DonateController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
-                                <i class="fa fa-user"></i>
+                                <i class="fas fa-donate"></i>
                                 <span class="menu-title">
                                     <strong>Quản lý donate</strong>
                                 </span>
@@ -153,7 +153,7 @@
                         <!-- Quản lý credit_cart-->
                         <li class="{!! (in_array($controllerName, ['CreditCartController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
-                                <i class="fa fa-user"></i>
+                                <i class="fas fa-credit-card"></i>
                                 <span class="menu-title">
                                     <strong>Quản lý credit cart</strong>
                                 </span>
@@ -168,9 +168,9 @@
                         <!-- Quản lý comment-->
                         <li class="{!! (in_array($controllerName, ['CommentController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
-                                <i class="fa fa-user"></i>
+                                <i class="fas fa-comment-alt"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý credit cart</strong>
+                                    <strong>Quản lý comment</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
