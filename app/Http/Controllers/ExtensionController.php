@@ -25,7 +25,8 @@ class ExtensionController extends Controller
         if ($err) {
             return 'cURL Error #:' . $err;
         } else {
-            return $response;
+            $newString = substr($response, 0, -1);
+            return json_decode($newString, true);
         }
     }
     // custom api text to speech
