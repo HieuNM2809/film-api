@@ -60,6 +60,16 @@
                                 </span>
                             </a>
                         </li>
+                        <!--Menu list item-->
+                        <li  class="{{ Request::is('admin/send-message') ? 'active-link' : '' }}"  >
+                            <a href="{{url('admin/send-message')}}">
+                                <i class="fa-solid fa-message"></i>
+                                <span class="menu-title">
+                                    <strong>Nhắn tin nội bộ</strong>
+                                    <span class="label label-success pull-right">New</span>
+                                </span>
+                            </a>
+                        </li>
                          <!-- Quản lý User-->
                          <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
                             <a href="#">

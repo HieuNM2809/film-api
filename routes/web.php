@@ -80,6 +80,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
         //user
         Route::resource('user-v2', UserController2::class);
         Route::get('export-user',[ExcelController::class , 'exportUser']);
+        Route::match(['GET', 'POST'],'send-message',[AlertAdminController::class , 'sendMessage']);
+
 
 
 

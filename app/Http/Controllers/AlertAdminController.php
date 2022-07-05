@@ -118,4 +118,11 @@ class AlertAdminController extends BaseController
             }
         }
     }
+    public function sendMessage(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            return view('message.sendMessage');
+        } else {
+        }
+    }
 }
