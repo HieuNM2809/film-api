@@ -16,6 +16,9 @@ class CreateOrganizationsTable extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255)->nullable();
+            $table->string('image', 255)->nullable();
+            $table->string('website', 255)->nullable();
+            $table->text('description')->nullable();
             $table->bigInteger('id_user')->nullable();
             $table->timestamps();
             $table->softDeletes();

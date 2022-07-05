@@ -7,6 +7,30 @@
 	},
 	"item": [
 		{
+			"name": "Extension",
+			"item": [
+				{
+					"name": "test to speech",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/text-to-speech/hello",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"text-to-speech",
+								"hello"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Auth",
 			"item": [
 				{
@@ -16,7 +40,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoangan71111@gmail.com\",\r\n    \"password\":\"123456\",\r\n\r\n    \"avatar\" :\"https://avatar.com/hinh1.png\",\r\n    \"birthday\" :\"2022-03-20\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoanan1@gmail.com\",\r\n    \"password\":\"123456\",\r\n\r\n    \"avatar\" :\"https://avatar.com/hinh1.png\",\r\n    \"birthday\" :\"2022-03-20\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -71,7 +95,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZmlsbS5sb2NhbC9hcGkvbG9naW4iLCJpYXQiOjE2NTQzNzE0NzQsImV4cCI6MTY1NDM3NTA3NCwibmJmIjoxNjU0MzcxNDc0LCJqdGkiOiJremR2UUx2UTJpcWVZRkluIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.YhyDfGbjB_1DvXzEWFQPCLp_HrN1BwGa3MPf0oHCeiI",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNjU2NzM4MTYzLCJleHAiOjE2NTY3NDE3NjMsIm5iZiI6MTY1NjczODE2MywianRpIjoiY0N6S0NDZVhFejJmQ2lvNCIsInN1YiI6IjQzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.Kzmo_PHL8qzDdOEvwp5kHYvxKdz83eHmLoaE9TphA-s",
 									"type": "string"
 								}
 							]
@@ -108,7 +132,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZmlsbS5sb2NhbC9hcGkvbG9naW4iLCJpYXQiOjE2NTQzNzE0NzQsImV4cCI6MTY1NDM3NTA3NCwibmJmIjoxNjU0MzcxNDc0LCJqdGkiOiJremR2UUx2UTJpcWVZRkluIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.YhyDfGbjB_1DvXzEWFQPCLp_HrN1BwGa3MPf0oHCeiI",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNjU2ODQyMzk0LCJleHAiOjE2NTY4NDU5OTQsIm5iZiI6MTY1Njg0MjM5NCwianRpIjoicmdkUkY2NmsxQ3FKYlVGTSIsInN1YiI6IjQ1IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.YG9LaBrqQeTyQFviHcFGMjVfzXm2cipg0OlfkS6DoIQ",
 									"type": "string"
 								}
 							]
@@ -788,7 +812,7 @@
 								},
 								{
 									"key": "id_title_type",
-									"value": "1",
+									"value": "\"1\"",
 									"type": "text"
 								},
 								{
@@ -799,7 +823,7 @@
 								{
 									"key": "feature_image",
 									"type": "file",
-									"src": "/D:/ImageExample.jpg"
+									"src": "/D:/Hình/Đồng Hồ Custom2.png"
 								}
 							]
 						},
@@ -1476,6 +1500,27 @@
 									"key": "id_user",
 									"value": "1",
 									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "Trường không bắt buộc",
+									"type": "file",
+									"src": "/D:/ImageExample.jpg",
+									"disabled": true
+								},
+								{
+									"key": "website",
+									"value": "http://hello.com",
+									"description": "Trường không bắt buộc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "http://hello.com",
+									"description": "Trường không bắt buộc",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
@@ -1504,14 +1549,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlDoAn}}/api/organization/5",
+							"raw": "{{urlDoAn}}/api/organization/44",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"organization",
-								"5"
+								"44"
 							]
 						}
 					},
@@ -1543,7 +1588,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "1233",
+									"value": "12335",
 									"type": "default"
 								},
 								{
@@ -1553,20 +1598,38 @@
 								},
 								{
 									"key": "id_user",
-									"value": "2",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "Trường không bắt buộc",
+									"type": "file",
+									"src": "/D:/photo-1453728013993-6d66e9c9123a.jpg"
+								},
+								{
+									"key": "website",
+									"value": "http:://website.com",
+									"description": "Trường không bắt buộc",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "http:://website.com",
+									"description": "Trường không bắt buộc",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{urlDoAn}}/api/organization/1000",
+							"raw": "{{urlDoAn}}/api/organization/44",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"organization",
-								"1000"
+								"44"
 							]
 						}
 					},

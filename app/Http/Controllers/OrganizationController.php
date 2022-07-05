@@ -55,7 +55,16 @@ class OrganizationController extends BaseController
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
         }
-        $data = $this->table->createByTable($this->table, $request->all());
+        $data=  $request->all();
+        if(isset($data['_method'])){
+            unset($data['_method']);
+        }
+
+        if($request->hasFile('image')) {
+            $data['image'] = uploadImage($request, 'image', 'Organization');
+        }
+
+        $data = $this->table->createByTable($this->table, $data);
         return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), []);
     }
 
@@ -115,6 +124,10 @@ class OrganizationController extends BaseController
 
         $data =  $request->all();
         unset($data['_method']);
+
+        if($request->hasFile('image')) {
+            $data['image'] = uploadImage($request, 'image', 'Organization');
+        }
 
         $condition['id'] = $id;
         $data = $this->table->updateCondition($this->table, $data ,$condition);

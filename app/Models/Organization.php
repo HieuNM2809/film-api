@@ -12,7 +12,10 @@ class Organization extends Base
     use HasFactory, SoftDeletes;
     protected $fillable = [
         'name',
-        'id_user'
+        'id_user',
+        'image',
+        'website' ,
+        'description'
     ];
 
     public function userOrganization()
