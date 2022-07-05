@@ -65,7 +65,7 @@ class OrganizationController extends BaseController
         }
 
         $data = $this->table->createByTable($this->table, $data);
-        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), []);
+        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), $data);
     }
 
     /**
@@ -131,7 +131,7 @@ class OrganizationController extends BaseController
 
         $condition['id'] = $id;
         $data = $this->table->updateCondition($this->table, $data ,$condition);
-        return  $this->dataResponse($data ?'200' :'404',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'), []);
+        return  $this->dataResponse($data ?'200' :'404',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),$data);
     }
 
     /**

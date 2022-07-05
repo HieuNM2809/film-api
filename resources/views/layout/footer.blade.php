@@ -574,15 +574,28 @@
         if(valSend.val()){
             socket.emit('client-send-messge', valSend.val());
             valSend.val('');
+
+            {{--  var scrollTo = $('.main-message .other-message').last();
+            var container = $('.listMessage');
+            var position = scrollTo.offset().top - container.offset().top + container.scrollTop();
+            container.animate({
+                scrollTop: position
+            });  --}}
         }
     });
 
     // nhận messge
     socket.on('server-send-messge-to-me',(data)=>{
         listMessage.append(itemMessageToMe(data.user , data.message));
+
+        {{--  var element = $('.main-message .other-message').last();
+        element.scrollTo(0, $('.listMessage').scrollHeight);  --}}
     });
     socket.on('server-send-messge-broadcast',(data)=>{
         listMessage.append(itemMessgeBroadcast(data.user , data.message));
+
+        {{--  const element = $('.main-message .other-message').last();
+        element.scrollTo(0, $('.listMessage').scrollHeight);  --}}
     });
 
     // nhấn vào input gửi
