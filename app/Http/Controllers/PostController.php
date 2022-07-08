@@ -23,7 +23,8 @@ class PostController extends BaseController
     public function index(Request $request)
     {
         if ($request->expectsJson()) {
-            $data = $this->table->with("titleType")->with("user")->get();
+            // $data = $this->table->with("titleType")->withCount('comment')->with('comment')->with("user")->get();
+            $data = $this->table->with("titleType")->withCount('comment')->with("user")->get();
             return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
         }
         return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
