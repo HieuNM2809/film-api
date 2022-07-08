@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
 use App\Models\Organization;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\DB;
 
 class OrganizationController extends BaseController
 {
@@ -159,6 +159,7 @@ class OrganizationController extends BaseController
             }
 
             $data = $this->table->where('id', $id)->delete();
+            DB::table('user_organizations')->where('id_organization', $id)->delete();
             return $this->dataResponse($data ?'200' :'404', $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),  $data);
         }
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
