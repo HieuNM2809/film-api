@@ -190,7 +190,7 @@
                                 <li class="{{ Request::is('admin/comment') ? 'active-link' : '' }}"><a href="{{url('admin/comment')}}">Danh sách comment</a></li>
                             </ul>
                         </li>
-                        <!-- Báo cáo-->
+                        {{-- <!-- Báo cáo-->
                         <li class="{!! (in_array($controllerName, ['ReportController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
                                 <i class="fa fa-briefcase"></i>
@@ -225,7 +225,7 @@
                             <ul class="collapse {!! (in_array($controllerName, ['SettingController'])) ? 'in' : '' !!}">
                                 <li class="{{ Request::is('admin/change-filter-condition') ? 'active-link' : '' }}"><a href="{{url('admin/change-filter-condition')}}">Thay đổi điều kiện lọc</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         {{--  <!--Menu list item-->
                         <li>
                             <a href="widgets.html">
