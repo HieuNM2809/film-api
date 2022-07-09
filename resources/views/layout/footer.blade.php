@@ -575,9 +575,17 @@
         if(valSend.val()){
             socket.emit('client-send-messge', valSend.val());
             valSend.val('');
-
         }
     });
+    function enterKeyPressed(e){
+        console.log(event);
+        if (event.keyCode == 13) {
+            if(valSend.val()){
+                socket.emit('client-send-messge', valSend.val());
+                valSend.val('');
+            }
+        }
+    }
 
     // nhận messge
     socket.on('server-send-messge-to-me',(data)=>{

@@ -162,9 +162,10 @@
                                                             width="40px;" src="LoadEllipsis.gif" alt=""> Hiếu
                                                         đang gõ chữ</div>
                                                     <div class="input-group mb-0" style="display:flex;">
-                                                        <input id="valSend" type="text" class="form-control"
+                                                        <input id="valSend"  onkeypress="return enterKeyPressed(event)" type="text" class="form-control"
                                                             placeholder="Nhập văn bản ở đây...">
-                                                        <div id="btnSend" class="input-group-prepend" style="font-size: 20px;margin: 2px;">
+                                                        <div id="btnSend"
+                                                          class="input-group-prepend" style="font-size: 20px;margin: 2px;">
                                                             <span class="input-group-text"><i
                                                                     class="fa fa-send"></i></span>
                                                         </div>
