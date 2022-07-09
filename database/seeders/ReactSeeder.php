@@ -23,6 +23,7 @@ class ReactSeeder extends BaseSeeder
     {
         $textFeel = [
             'Like',
+            'Follow',
             'Love',
             'Care',
             'Haha',

@@ -15,12 +15,14 @@ class GroupPermissionController extends AdminController
         $this->model = new GroupPermission();
         $this->table = "group_permission";
         $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->controllerName = 'GroupPermissionController';
     }
 
     public function index()
     {
         // return $this->data;
         return view($this->view . $this->table . '.home')->with([
+            'controllerName' => $this->controllerName,
             'data' => $this->data,
             'table' => $this->table
         ]);
@@ -29,6 +31,7 @@ class GroupPermissionController extends AdminController
     public function create()
     {
         return view($this->view . $this->table . '.add')->with([
+            'controllerName' => $this->controllerName,
             'table' => $this->table
         ]);
     }
@@ -61,6 +64,7 @@ class GroupPermissionController extends AdminController
     {
         $data = $this->model->withTrashed()->find($id);
         return view($this->view . $this->table . '.edit')->with([
+            'controllerName' => $this->controllerName,
             'data' => $data,
             'id' => $id,
             'table' => $this->table

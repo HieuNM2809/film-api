@@ -103,7 +103,7 @@ class AlertAdminController extends BaseController
             }
              // send mail
             try {
-                Mail::send('mail.thongbaotinmoi',$data , function ($message) use ($email){
+                Mail::send('email.adMail', $data , function ($message) use ($email){
                     $message->from(env('MAIL_USERNAME'), 'DEV');
                     $message->to($email, 'Bạn');
                     $message->subject('DEV thông báo');
@@ -116,6 +116,13 @@ class AlertAdminController extends BaseController
             } catch (\Exception $e) {
                 return back()->with('error', 'Hệ thống đang bảo trì, vui lòng thử lại sau !! ');
             }
+        }
+    }
+    public function sendMessage(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            return view('message.sendMessage');
+        } else {
         }
     }
 }

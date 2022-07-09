@@ -45,7 +45,8 @@ class UserController2 extends BaseController
      */
     public function create()
     {
-        return view('pages.post.add');
+        $today = date('Y-m-d');
+        return view($this->controllerView.'.addUser' , ['today'=>$today]);
     }
 
     /**
@@ -56,30 +57,33 @@ class UserController2 extends BaseController
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $this->validate($request,[
+            'birthday'=> 'required|date_format:Y-m-d|before:today',
             'name' => 'required',
-            // 'email' => 'required|email|unique:users,email',
-            // 'password' => 'required|min:6',
-            // 'id_permission'=> 'required|integer|exists:permissions,id',
-            // 'identity_card'=> 'required|min:9',
-            // 'birthday'=> 'required|date_format:Y-m-d|before:today',
-            // 'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
-            // 'url'=> 'required|url',
-            // 'location'=> 'required',
-            // 'bio'=> 'required',
-            // 'currently_learning'=> 'required',
-            // 'skills'=> 'required',
-            // 'work'=> 'required',
-            // 'education'=> 'required'
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:5',
+            'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
+        ],[
+            'birthday.before'           => 'Vui lòng chọn ngày sinh nhỏ hơn ngày hiện tại',
+            'birthday.required'           => 'Vui lòng chọn ngày sinh',
+            'name.required'     => 'Vui lòng nhập tên',
+            'email.required'     => 'Vui lòng nhập email',
+            'email.email'     => 'Sai định dạng email',
+            'emai.unique'     => 'Email đã tồn tại',
+            'avatar.required'     => 'Vui lòng chọn ảnh',
+            'password.required'     => 'Vui lòng nhập mật khẩu',
+            'password.min'     => 'Độ dài mật khẩu lớn hơn 6 6 ký tự',
+            'avatar.mimes'     => 'Vui lòng chọn đúng định dạng ảnh jpeg,jpg,png,gif ',
         ]);
-        if ($validator->fails()) {
-            return $this->dataResponse('401', $validator->errors(), []);
-        }
         $data = $request->all();
+        $data['id_permission'] = 2;
         $data['avatar'] = uploadImage($request, 'avatar', 'User');
         $data['password'] = Hash::make($request->password);
         $data = $this->table->create($data);
-        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), []);
+        if($data){
+            return back()->with('success', 'Sửa thành công');
+        }
+        return back()->with('error', 'Sửa thất bại');
     }
 
     /**

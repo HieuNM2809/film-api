@@ -15,12 +15,14 @@ class DonateController extends AdminController
         $this->model = new Donate();
         $this->table = "donate";
         $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->controllerName = 'DonateController';
     }
 
     public function index()
     {
         // return $this->data;
         return view($this->view . $this->table . '.home')->with([
+            'controllerName' => $this->controllerName,
             'data' => $this->data,
             'table' => $this->table
         ]);
@@ -31,6 +33,7 @@ class DonateController extends AdminController
         $data = new User();
         $dataForeign["user"] = $data->withTrashed()->get();
         return view($this->view . $this->table . '.add')->with([
+            'controllerName' => $this->controllerName,
             'table' => $this->table,
             'dataForeign' => $dataForeign
         ]);
@@ -70,6 +73,7 @@ class DonateController extends AdminController
         $dataForeign["user"] = $data->withTrashed()->get();
         $data = $this->model->withTrashed()->find($id);
         return view($this->view . $this->table . '.edit')->with([
+            'controllerName' => $this->controllerName,
             'data' => $data,
             'id' => $id,
             'table' => $this->table,

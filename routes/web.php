@@ -80,7 +80,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
         //user
         Route::resource('user-v2', UserController2::class);
         Route::get('export-user',[ExcelController::class , 'exportUser']);
-    
+        Route::match(['GET', 'POST'],'send-message',[AlertAdminController::class , 'sendMessage']);
+
+
 
 
 
@@ -103,7 +105,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
         Route::resource('user', UserController::class);
         Route::resource('organization', OrganizationController::class);
         Route::resource('user-feel', UserFeelController::class);
-        Route::resource('donate', DonateController::class);
         Route::resource('react', ReactController::class);
         Route::resource('group-permission', GroupPermissionController::class);
         Route::resource('hash-tag', HashtagController::class);

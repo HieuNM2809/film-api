@@ -124,7 +124,7 @@
             <div class="panel">
                 <div class="panel-body">
                     <div id="table-toolbar" class="fixed-table-toolbar">
-                        <a href='{{url('admin/add-user')}}'  class="btn btn-primary btn-labeled fa fa-plus" style="background-color: green;">Thêm</a>
+                        <a href='{{url("admin/user-v2/create")}}'  class="btn btn-primary btn-labeled fa fa-plus" style="background-color: green;">Thêm</a>
                         <a href="{{ url('admin/export-user') }}" class="btn btn-primary btn-labeled fa  fa-file-arrow-down" title="Xuất Excel">Xuất Excel</a>
                     </div>
                     <div class="fixed-table-toolbar"><span><b>Tổng số dòng:</b></span> <span id="rowTotal"></span></div>

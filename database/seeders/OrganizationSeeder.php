@@ -25,6 +25,9 @@ class OrganizationSeeder extends BaseSeeder
         for ($i = 1; $i <= $this->amountRecord; $i++) {
             DB::table('organizations')->insert([
                 'name' => 'name organizations '.$i,
+                'image' => 'hinh'.$i.'.png',
+                'website' => 'https://websiteme.com/'.$i,
+                'description' => 'description '.$i,
                 'id_user' => $i,
                 'created_at' => now(),
                 'updated_at' => now(),

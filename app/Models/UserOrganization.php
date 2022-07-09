@@ -26,7 +26,7 @@ class UserOrganization extends Base
         return $this->where('id_user', $id_user)->with('organization')->get();
     }
     public function getlistUserByIdOrganizations($id_organization){
-        return $this->where('id_user', $id_organization)->with('user')->get();
+        return $this->where('id_organization', $id_organization)->with('user')->get();
     }
 
 

@@ -44,6 +44,8 @@ class UserPostController extends BaseController
         $data = $this->table->deleteUserPost($request->id_user, $request->id_post);
         return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , []);
     }
+
+    // Trả về user đăng bài, k phải user lưu
     public function listPostByUser(Request $request){
         $validator = Validator::make($request->all(), [
             'id_user' => 'required|numeric|exists:users,id'
@@ -51,7 +53,8 @@ class UserPostController extends BaseController
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
         }
-        $data = $this->table->with("user")->with("post")->where('id_user', $request->id_user)->get();
+        // $data = $this->table->with("user")->with("post")->where('id_user', $request->id_user)->get();
+        $data = $this->table->getPostByUser($request->id_user);
         return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
     }
 

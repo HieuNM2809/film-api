@@ -49,7 +49,7 @@ class CommentsController extends BaseController
         }
         $validator = Validator::make($request->all(), [
             'id_post' => 'required|numeric|exists:posts,id',
-            'parent' => 'required|numeric|exists:comments,id',
+            // 'parent' => 'required|numeric|exists:comments,id',
             'id_user' => 'required|numeric|exists:users,id',
             'content' => 'required',
         ]);
@@ -59,7 +59,7 @@ class CommentsController extends BaseController
 
         if ($request->expectsJson()) {
             $data = $this->table->createByTable($this->table,$request->all());
-            return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , []);
+            return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , $data);
         }
     }
 

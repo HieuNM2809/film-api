@@ -523,4 +523,134 @@
         $('#myModalInfo .modal-body').html(data.content);
         $("#myModalInfo").modal('show');
     });
+
+   {{--  ==========================  nhắn tin   ================================== --}}
+    var lisUserOnline = $('.main-message .lisUserOnline');
+    var logout = $('.main-message #logout');
+    var btnSend = $('.main-message #btnSend');
+    var valSend = $('.main-message #valSend');
+    var listMessage = $('.main-message .listMessage');
+    const chatMessages = document.querySelector('.chat-history');
+    $('.main-message .home').hide();
+    $('.main-message .login').show();
+
+    // click login
+    $('.main-message #login_m').click((e)=>{
+        // gửi user cho serve để kiểm tra trùng, nếu ko trùng thì hiển thị màn hình message
+        if($('.main-message #name').val()){
+            socket.emit('client-send-Username', $('.main-message #name').val());
+        }else{
+            alert('Vui lòng nhập username');
+        }
+    });
+
+    // lắng nghe sự kiện thông báo
+    socket.on('server-send-dki-thatbai', (data)=>{
+        alert(data.messge);
+    });
+
+    //lắng nghe danh sách user thay đổi
+    socket.on('server-send-danhsach-Users', (data)=>{
+        // data.listUser
+        lisUserOnline.html('');
+        data.listUser.forEach(item => {
+            lisUserOnline.append(itemUserOnline(item));
+        });
+    });
+
+    //lắng nge sự kiện đăng ký thành công
+    socket.on('server-send-dki-thanhcong', (data)=>{
+        $('.main-message #nameMe').text(data.user);
+        $('.main-message .login').hide();
+        $('.main-message .home').show();
+    });
+
+    {{--  // logout
+    logout.click(()=>{
+        socket.emit('logout');
+        location.reload();
+    });  --}}
+
+    btnSend.click(()=>{
+        if(valSend.val()){
+            socket.emit('client-send-messge', valSend.val());
+            valSend.val('');
+        }
+    });
+    function enterKeyPressed(e){
+        console.log(event);
+        if (event.keyCode == 13) {
+            if(valSend.val()){
+                socket.emit('client-send-messge', valSend.val());
+                valSend.val('');
+            }
+        }
+    }
+
+    // nhận messge
+    socket.on('server-send-messge-to-me',(data)=>{
+        listMessage.append(itemMessageToMe(data.user , data.message));
+        // scroll down
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    });
+    socket.on('server-send-messge-broadcast',(data)=>{
+        listMessage.append(itemMessgeBroadcast(data.user , data.message));
+        // scroll down
+        {{--  chatMessages.scrollTop = chatMessages.scrollHeight;  --}}
+
+    });
+
+    // nhấn vào input gửi
+    $('.main-message #valSend').focusin((e)=>{
+        socket.emit('typing');
+    });
+    socket.on('server-send-typing', (data)=>{
+        if(data.listUserTyping.length !=0){
+            var html = '<img width="40px;" src="LoadEllipsis.gif" alt="">';
+            data.listUserTyping.forEach(item => {
+                html += item + ', ';
+            });
+            html+= 'đang gõ chữ';
+            $('.main-message #typing').html(html);
+            $('.main-message #typing').show();
+        }else{
+            $('.main-message #typing').hide();
+        }
+
+    });
+
+    $('.main-message #valSend').focusout((e)=>{
+        socket.emit('typing-close');
+    });
+
+    function itemUserOnline(userName) {
+        return  `<li class="clearfix">
+        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+            <div class="about">
+                <div class="name">${userName}</div>
+                <div class="status"> <i class="fa fa-circle online"></i> online </div>
+            </div>
+        </li>`;
+    }
+
+    function itemMessageToMe(username, message) {
+       return ` <li class="clearfix">
+                    <div class="message-data text-right">
+                        <span class="message-data-time">${username}</span>
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+                    </div>
+                    <div class="message other-message float-right">${message}</div>
+                </li>`;
+    }
+    function itemMessgeBroadcast(username, message) {
+        return `<li class="clearfix">
+                    <div class="message-data">
+                        <span class="message-data-time">${username}</span>
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+                    </div>
+                    <div class="message my-message">${message}</div>
+                </li>`;
+    }
 </script>
+

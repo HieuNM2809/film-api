@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\UserOrganization;
+use Illuminate\Support\Facades\DB;
 
 class UserOrganizationsController extends BaseController
 {
@@ -89,6 +90,11 @@ class UserOrganizationsController extends BaseController
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors() , []);
+        }
+
+        $check =  DB::table('organizations')->where('id',$request->id_organization)->where('deleted_at',NULL)->get();
+        if($check->isEmpty()){
+            return $this->dataResponse('401', 'Không tìm thấy organization' , []);
         }
         if ($request->expectsJson()) {
             $data = $this->table->createByTable($this->table,$request->all());

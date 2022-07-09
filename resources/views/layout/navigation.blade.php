@@ -60,8 +60,18 @@
                                 </span>
                             </a>
                         </li>
-                        <!-- Quản lý User-->
-                        <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
+                        <!--Menu list item-->
+                        <li  class="{{ Request::is('admin/send-message') ? 'active-link' : '' }}"  >
+                            <a href="{{url('admin/send-message')}}">
+                                <i class="fa-solid fa-message"></i>
+                                <span class="menu-title">
+                                    <strong>Nhắn tin nội bộ</strong>
+                                    <span class="label label-success pull-right">New</span>
+                                </span>
+                            </a>
+                        </li>
+                         <!-- Quản lý User-->
+                         <li class="{!! (in_array($controllerName, ['UserController2'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
                                 <i class="fa fa-user"></i>
                                 <span class="menu-title">
@@ -75,7 +85,112 @@
                                 <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách User</a></li>
                             </ul>
                         </li>
-                        <!-- Báo cáo-->
+                        <!-- Quản lý icon rank-->
+                        <li class="{!! (in_array($controllerName, ['IconRankController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-code"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý icon rank</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['IconRankController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/icon_rank') ? 'active-link' : '' }}"><a href="{{url('admin/icon_rank')}}">Danh sách icon rank</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý title_type-->
+                        <li class="{!! (in_array($controllerName, ['TitleTypeController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-heading"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý Title Type</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['TitleTypeController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/title_type') ? 'active-link' : '' }}"><a href="{{url('admin/title_type')}}">Danh sách Title Type</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý hashtag-->
+                        <li class="{!! (in_array($controllerName, ['HashtagController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-hashtag"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý hashtag</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['HashtagController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/hashtag') ? 'active-link' : '' }}"><a href="{{url('admin/hashtag')}}">Danh sách hashtag</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý group_permission-->
+                        <li class="{!! (in_array($controllerName, ['GroupPermissionController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-layer-group"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý group permission</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['GroupPermissionController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/group_permission') ? 'active-link' : '' }}"><a href="{{url('admin/group_permission')}}">Danh sách group permission</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý donate-->
+                        <li class="{!! (in_array($controllerName, ['DonateController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-donate"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý donate</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['DonateController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/donate') ? 'active-link' : '' }}"><a href="{{url('admin/donate')}}">Danh sách donate</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý credit_cart-->
+                        <li class="{!! (in_array($controllerName, ['CreditCartController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-credit-card"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý credit cart</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['CreditCartController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/credit_cart') ? 'active-link' : '' }}"><a href="{{url('admin/credit_cart')}}">Danh sách credit cart</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý comment-->
+                        <li class="{!! (in_array($controllerName, ['CommentController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-comment-alt"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý comment</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['CommentController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/comment') ? 'active-link' : '' }}"><a href="{{url('admin/comment')}}">Danh sách comment</a></li>
+                            </ul>
+                        </li>
+                        {{-- <!-- Báo cáo-->
                         <li class="{!! (in_array($controllerName, ['ReportController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
                                 <i class="fa fa-briefcase"></i>
@@ -110,7 +225,7 @@
                             <ul class="collapse {!! (in_array($controllerName, ['SettingController'])) ? 'in' : '' !!}">
                                 <li class="{{ Request::is('admin/change-filter-condition') ? 'active-link' : '' }}"><a href="{{url('admin/change-filter-condition')}}">Thay đổi điều kiện lọc</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         {{--  <!--Menu list item-->
                         <li>
                             <a href="widgets.html">
@@ -363,301 +478,6 @@
 <!--END MAIN NAVIGATION-->
 
 <!--ASIDE-->
-<!--===================================================-->
-<aside id="aside-container">
-    <div id="aside">
-        <div class="nano">
-            <div class="nano-content">
 
-                <!--Nav tabs-->
-                <!--================================-->
-                <ul class="nav nav-tabs nav-justified">
-                    <li class="active">
-                        <a href="#demo-asd-tab-1" data-toggle="tab">
-                            <i class="fa fa-comments"></i>
-                            <span class="badge badge-purple">7</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#demo-asd-tab-2" data-toggle="tab">
-                            <i class="fa fa-info-circle"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#demo-asd-tab-3" data-toggle="tab">
-                            <i class="fa fa-wrench"></i>
-                        </a>
-                    </li>
-                </ul>
-                <!--================================-->
-                <!--End nav tabs-->
-
-
-
-                <!-- Tabs Content -->
-                <!--================================-->
-                <div class="tab-content">
-
-                    <!--First tab (Contact list)-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <div class="tab-pane fade in active" id="demo-asd-tab-1">
-                        <h4 class="pad-hor text-thin">
-                            <span class="pull-right badge badge-warning">3</span> Family
-                        </h4>
-
-                        <!--Family-->
-                        <div class="list-group bg-trans">
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="{{ asset('backend/img/av2.png')}}" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Stephen Tran</div>
-                                    <span class="text-muted">Availabe</span>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="{{ asset('backend/img/av4.png')}}" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Brittany Meyer</div>
-                                    <span class="text-muted">I think so</span>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="{{ asset('backend/img/av3.png')}}" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Donald Brown</div>
-                                    <span class="text-muted">Lorem ipsum dolor sit amet.</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <hr>
-                        <h4 class="pad-hor text-thin">
-                            <span class="pull-right badge badge-info">4</span> Friends
-                        </h4>
-
-                        <!--Friends-->
-                        <div class="list-group bg-trans">
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="{{ asset('backend/img/av5.png')}}" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Betty Murphy</div>
-                                    <span class="text-muted">Bye</span>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="{{ asset('backend/img/av6.png')}}" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Olivia Spencer</div>
-                                    <span class="text-muted">Thank you!</span>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="{{ asset('backend/img/av4.png')}}" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Sarah Ruiz</div>
-                                    <span class="text-muted">2 hours ago</span>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="{{ asset('backend/img/av3.png')}}" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Paul Aguilar</div>
-                                    <span class="text-muted">2 hours ago</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <hr>
-                        <h4 class="pad-hor text-thin">
-                            <span class="pull-right badge badge-success">Offline</span> Works
-                        </h4>
-
-                        <!--Works-->
-                        <div class="list-group bg-trans">
-                            <a href="#" class="list-group-item">
-                                <span class="badge badge-purple badge-icon badge-fw pull-left"></span> Joey K.
-                                Greyson
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge badge-info badge-icon badge-fw pull-left"></span> Andrea
-                                Branden
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge badge-pink badge-icon badge-fw pull-left"></span> Lucy Moon
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge badge-success badge-icon badge-fw pull-left"></span> Johny
-                                Juan
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge badge-danger badge-icon badge-fw pull-left"></span> Susan
-                                Sun
-                            </a>
-                        </div>
-
-                    </div>
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <!--End first tab (Contact list)-->
-
-
-                    <!--Second tab (Custom layout)-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <div class="tab-pane fade" id="demo-asd-tab-2">
-
-                        <!--Monthly billing-->
-                        <div class="pad-all">
-                            <h4 class="text-lg mar-no">Monthly Billing</h4>
-                            <p class="text-sm">January 2015</p>
-                            <button class="btn btn-block btn-success mar-top">Pay Now</button>
-                        </div>
-
-
-                        <hr>
-
-                        <!--Information-->
-                        <div class="text-center clearfix pad-top">
-                            <div class="col-xs-6">
-                                <span class="h4">4,327</span>
-                                <p class="text-muted text-uppercase"><small>Sales</small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <span class="h4">$ 1,252</span>
-                                <p class="text-muted text-uppercase"><small>Earning</small></p>
-                            </div>
-                        </div>
-
-
-                        <hr>
-
-                        <!--Simple Menu-->
-                        <div class="list-group bg-trans">
-                            <a href="#" class="list-group-item"><span
-                                    class="label label-danger pull-right">Featured</span>Edit Password</a>
-                            <a href="#" class="list-group-item">Email</a>
-                            <a href="#" class="list-group-item"><span
-                                    class="label label-success pull-right">New</span>Chat</a>
-                            <a href="#" class="list-group-item">Reports</a>
-                            <a href="#" class="list-group-item">Transfer Funds</a>
-                        </div>
-
-
-                        <hr>
-
-                        <div class="text-center">Questions?
-                            <p class="text-lg text-semibold"> (415) 234-53454 </p>
-                            <small><em>We are here 24/7</em></small>
-                        </div>
-                    </div>
-                    <!--End second tab (Custom layout)-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
-
-                    <!--Third tab (Settings)-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <div class="tab-pane fade" id="demo-asd-tab-3">
-                        <ul class="list-group bg-trans">
-                            <li class="list-header">
-                                <h4 class="text-thin">Account Settings</h4>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="pull-right">
-                                    <input class="demo-switch" type="checkbox" checked>
-                                </div>
-                                <p>Show my personal status</p>
-                                <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer
-                                    adipiscing elit.</small>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="pull-right">
-                                    <input class="demo-switch" type="checkbox" checked>
-                                </div>
-                                <p>Show offline contact</p>
-                                <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer
-                                    adipiscing elit.</small>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="pull-right">
-                                    <input class="demo-switch" type="checkbox">
-                                </div>
-                                <p>Invisible mode </p>
-                                <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer
-                                    adipiscing elit.</small>
-                            </li>
-                        </ul>
-
-
-                        <hr>
-
-                        <ul class="list-group bg-trans">
-                            <li class="list-header">
-                                <h4 class="text-thin">Public Settings</h4>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="pull-right">
-                                    <input class="demo-switch" type="checkbox" checked>
-                                </div>
-                                Online status
-                            </li>
-                            <li class="list-group-item">
-                                <div class="pull-right">
-                                    <input class="demo-switch" type="checkbox" checked>
-                                </div>
-                                Show offline contact
-                            </li>
-                            <li class="list-group-item">
-                                <div class="pull-right">
-                                    <input class="demo-switch" type="checkbox">
-                                </div>
-                                Show my device icon
-                            </li>
-                        </ul>
-
-
-
-                        <hr>
-
-                        <h4 class="pad-hor text-thin">Task Progress</h4>
-                        <div class="pad-all">
-                            <p>Upgrade Progress</p>
-                            <div class="progress progress-sm">
-                                <div class="progress-bar progress-bar-success" style="width: 15%;"><span
-                                        class="sr-only">15%</span></div>
-                            </div>
-                            <small class="text-muted">15% Completed</small>
-                        </div>
-                        <div class="pad-hor">
-                            <p>Database</p>
-                            <div class="progress progress-sm">
-                                <div class="progress-bar progress-bar-danger" style="width: 75%;"><span
-                                        class="sr-only">75%</span></div>
-                            </div>
-                            <small class="text-muted">17/23 Database</small>
-                        </div>
-
-                    </div>
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <!--Third tab (Settings)-->
-
-                </div>
-            </div>
-        </div>
-    </div>
-</aside>
 <!--===================================================-->
 <!--END ASIDE-->

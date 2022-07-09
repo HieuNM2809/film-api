@@ -15,12 +15,14 @@ class HashtagController extends AdminController
         $this->model = new Hashtag();
         $this->table = "hashtag";
         $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->controllerName = 'HashtagController';
     }
 
     public function index()
     {
         // return $this->data;
         return view($this->view . $this->table . '.home')->with([
+            'controllerName' => $this->controllerName,
             'data' => $this->data,
             'table' => $this->table
         ]);
@@ -29,6 +31,7 @@ class HashtagController extends AdminController
     public function create()
     {
         return view($this->view . $this->table . '.add')->with([
+            'controllerName' => $this->controllerName,
             'table' => $this->table
         ]);
     }
@@ -61,6 +64,7 @@ class HashtagController extends AdminController
     {
         $data = $this->model->withTrashed()->find($id);
         return view($this->view . $this->table . '.edit')->with([
+            'controllerName' => $this->controllerName,
             'data' => $data,
             'id' => $id,
             'table' => $this->table

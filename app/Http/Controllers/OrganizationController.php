@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
 use App\Models\Organization;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\DB;
 
 class OrganizationController extends BaseController
 {
@@ -55,8 +55,17 @@ class OrganizationController extends BaseController
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
         }
-        $data = $this->table->createByTable($this->table, $request->all());
-        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), []);
+        $data=  $request->all();
+        if(isset($data['_method'])){
+            unset($data['_method']);
+        }
+
+        if($request->hasFile('image')) {
+            $data['image'] = uploadImage($request, 'image', 'Organization');
+        }
+
+        $data = $this->table->createByTable($this->table, $data);
+        return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.FAIL'), $data);
     }
 
     /**
@@ -116,9 +125,13 @@ class OrganizationController extends BaseController
         $data =  $request->all();
         unset($data['_method']);
 
+        if($request->hasFile('image')) {
+            $data['image'] = uploadImage($request, 'image', 'Organization');
+        }
+
         $condition['id'] = $id;
         $data = $this->table->updateCondition($this->table, $data ,$condition);
-        return  $this->dataResponse($data ?'200' :'404',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'), []);
+        return  $this->dataResponse($data ?'200' :'404',  $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),$data);
     }
 
     /**
@@ -146,6 +159,7 @@ class OrganizationController extends BaseController
             }
 
             $data = $this->table->where('id', $id)->delete();
+            DB::table('user_organizations')->where('id_organization', $id)->delete();
             return $this->dataResponse($data ?'200' :'404', $data ? config('statusCode.SUCCESS_VI') : config('statusCode.NOT_FOUND_VI'),  $data);
         }
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
