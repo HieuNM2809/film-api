@@ -28,6 +28,10 @@ class Post extends Base
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+    public function organizations()
+    {
+        return $this->belongsTo(Organization::class, 'id_organizations');
+    }
 
     public function comment()
     {

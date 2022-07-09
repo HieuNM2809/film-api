@@ -167,7 +167,7 @@ class PostController extends BaseController
         }
         if ($request->expectsJson()) {
             $data = $this->table
-                        ->with("titleType")->with("user")
+                        ->with("titleType")->with("user")->with('organizations')
                         ->orderBy('created_at', $request->sort)
                         ->paginate($request->posts_on_page);
             return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
