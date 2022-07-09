@@ -74,7 +74,7 @@ class PostController extends BaseController
     public function show($id, Request $request)
     {
         if ($request->expectsJson()) {
-            $data = $this->table->with("titleType")->with("user")->with('organizations')->find($id);
+            $data = $this->table->with("titleType")->withCount('comment')->with("user")->with('organizations')->find($id);
             return $this->dataResponse($data ?'200' :'404', $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI'),  $data);
         }
         return view('pages.post.detail', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
@@ -148,7 +148,7 @@ class PostController extends BaseController
         }
         if ($request->expectsJson()) {
             $data = $this->table
-                        ->with("titleType")->with("user")->with('organizations')
+                        ->with("titleType")->withCount('comment')->with("user")->with('organizations')
                         ->paginate($request->posts_on_page);
             return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
         }
@@ -167,7 +167,7 @@ class PostController extends BaseController
         }
         if ($request->expectsJson()) {
             $data = $this->table
-                        ->with("titleType")->with("user")->with('organizations')
+                        ->with("titleType")->withCount('comment')->with("user")->with('organizations')
                         ->orderBy('created_at', $request->sort)
                         ->paginate($request->posts_on_page);
             return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
@@ -184,7 +184,7 @@ class PostController extends BaseController
         }
         if ($request->expectsJson()) {
             $data = $this->table
-                        ->with("titleType")->with("user")->with('organizations')
+                        ->with("titleType")->withCount('comment')->with("user")->with('organizations')
                         ->orderBy('created_at', $request->sort)
                         ->where('id_user', $request->id_user)
                         ->get();
@@ -202,7 +202,7 @@ class PostController extends BaseController
         }
         if ($request->expectsJson()) {
             $data = $this->table
-                        ->with("titleType")->with("user")->with('organizations')
+                        ->with("titleType")->withCount('comment')->with("user")->with('organizations')
                         ->orderBy('created_at', $request->sort)
                         ->where('id_title_type', $request->id_title_type)
                         ->get();
