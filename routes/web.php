@@ -47,6 +47,10 @@ Route::post('comfirm-token-forget-password',  [MailController::class  , 'confirm
 //     Route::get('user','Controller@post');
 // })
 
+Route::get('/', function(){
+    return redirect('/admin');
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
     Route::get('/', [IndexController::class,'index']);
     Route::resource('comment', Admin\CommentController::class);
