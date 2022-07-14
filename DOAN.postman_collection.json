@@ -40,7 +40,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoanan1@gmail.com\",\r\n    \"password\":\"123456\",\r\n\r\n    \"avatar\" :\"https://avatar.com/hinh1.png\",\r\n    \"birthday\" :\"2022-03-20\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Hoàng An\",\r\n    \"email\": \"hoanan1q@gmail.com\",\r\n    \"password\":\"123456NguyenHieu123$%^^\",\r\n\r\n    \"avatar\" :\"https://avatar.com/hinh1.png\",\r\n    \"birthday\" :\"2022-03-20\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -587,12 +587,12 @@
 							"formdata": [
 								{
 									"key": "id_user",
-									"value": "1",
+									"value": "4",
 									"type": "text"
 								},
 								{
 									"key": "id_post",
-									"value": "2",
+									"value": "8",
 									"type": "text"
 								}
 							]
@@ -667,7 +667,7 @@
 							"formdata": [
 								{
 									"key": "id_user",
-									"value": "1",
+									"value": "4",
 									"type": "text"
 								}
 							]
@@ -732,7 +732,7 @@
 							"formdata": [
 								{
 									"key": "key",
-									"value": "12he title must be at least 10 characters",
+									"value": "Log",
 									"type": "text"
 								}
 							]
@@ -746,6 +746,41 @@
 								"api",
 								"post",
 								"search-like-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-suggestions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_post",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlDoAn}}/api/post/post-suggestions",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"post-suggestions"
 							]
 						}
 					},
@@ -1505,22 +1540,19 @@
 									"key": "image",
 									"description": "Trường không bắt buộc",
 									"type": "file",
-									"src": "/D:/ImageExample.jpg",
-									"disabled": true
+									"src": "/D:/ImageExample.jpg"
 								},
 								{
 									"key": "website",
 									"value": "http://hello.com",
 									"description": "Trường không bắt buộc",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "description",
 									"value": "http://hello.com",
 									"description": "Trường không bắt buộc",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
@@ -1622,14 +1654,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{urlDoAn}}/api/organization/44",
+							"raw": "{{urlDoAn}}/api/organization/1",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"organization",
-								"44"
+								"1"
 							]
 						}
 					},
@@ -1657,14 +1689,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{urlDoAn}}/api/organization/1",
+							"raw": "{{urlDoAn}}/api/organization/2",
 							"host": [
 								"{{urlDoAn}}"
 							],
 							"path": [
 								"api",
 								"organization",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -3089,7 +3121,7 @@
 								},
 								{
 									"key": "parent",
-									"value": "1",
+									"value": "242",
 									"type": "text"
 								},
 								{
@@ -3596,12 +3628,12 @@
 							"formdata": [
 								{
 									"key": "id_organization",
-									"value": "1",
+									"value": "4",
 									"type": "text"
 								},
 								{
 									"key": "id_user",
-									"value": "1",
+									"value": "2",
 									"type": "text"
 								}
 							]
@@ -3645,7 +3677,7 @@
 							"formdata": [
 								{
 									"key": "id_user",
-									"value": "3",
+									"value": "2",
 									"type": "text"
 								}
 							]
@@ -3689,7 +3721,7 @@
 							"formdata": [
 								{
 									"key": "id_organization",
-									"value": "3",
+									"value": "4",
 									"type": "text"
 								}
 							]
@@ -4555,6 +4587,29 @@
 								"api",
 								"permission",
 								"24"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Noti",
+			"item": [
+				{
+					"name": "get-noti",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlDoAn}}/api/get-noti",
+							"host": [
+								"{{urlDoAn}}"
+							],
+							"path": [
+								"api",
+								"get-noti"
 							]
 						}
 					},

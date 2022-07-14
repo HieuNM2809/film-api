@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\AlertAdmin;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class AlertAdminController extends BaseController
 {
@@ -124,5 +125,12 @@ class AlertAdminController extends BaseController
             return view('message.sendMessage');
         } else {
         }
+    }
+    public function getNoti(){
+        $data = DB::table('alert_admin')->leftJoin('users', 'users.id','alert_admin.id_user')
+        ->select('title', 'content','alert_admin.created_at','name')
+        ->orderBy('created_at','DESC')->get();
+
+        return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
     }
 }

@@ -25,6 +25,7 @@ use App\Http\Controllers\UserOrganizationsController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrganizationPostController;
 use App\Http\Controllers\ExtensionController;
+use App\Http\Controllers\AlertAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,6 +109,7 @@ Route::apiResource('group-post', OrganizationPostController::class);  //ok
 // text to speech
 Route::get('text-to-speech/{text?}',[ExtensionController::class , 'textToSpeech']);
 Route::get('get-api-text-to-speech/{text?}',[ExtensionController::class,'get_api_text_to_speech'] );
+Route::get('get-noti',[AlertAdminController::class,'getNoti'] );
 
 
 
