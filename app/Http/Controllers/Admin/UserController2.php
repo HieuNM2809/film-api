@@ -62,7 +62,9 @@ class UserController2 extends BaseController
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:5',
-            'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
+            'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
+            'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
+            // |numeric|between:9,11
         ],[
             'birthday.before'           => 'Vui lòng chọn ngày sinh nhỏ hơn ngày hiện tại',
             'birthday.required'           => 'Vui lòng chọn ngày sinh',
