@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
-use App\Models\IconRank;
-use App\Models\RuleRank;
+use App\Models\Permission;
+use App\Models\GroupPermission;
 
-class IconRankController extends AdminController
+class PermissionController extends AdminController
 {
     public function __construct()
     {
         parent::__construct();
-        $this->model = new IconRank();
-        $this->table = "icon_rank";
+        $this->model = new Permission();
+        $this->table = "permission";
         $this->data = $this->model->withTrashed()->paginate($this->perPage);
-        $this->controllerName = 'IconRankController';
+        $this->controllerName = 'PermissionController';
     }
 
     public function index()
@@ -30,8 +30,8 @@ class IconRankController extends AdminController
 
     public function create()
     {
-        $data = new RuleRank();
-        $dataForeign["ruleRank"] = $data->all();
+        $data = new GroupPermission();
+        $dataForeign["groupPermission"] = $data->all();
         return view($this->view . $this->table . '.add')->with([
             'controllerName' => $this->controllerName,
             'table' => $this->table,
@@ -43,19 +43,13 @@ class IconRankController extends AdminController
     {
         // dữ liệu
         $param = $request->all();
-        $param = [
-            "id_rule" => $param["id_rule"],
-            "title" => $param["title"]
-        ];
+        $param["view"] = $param["view"] ?? null;
+        $param["view"] = $param["view"] == "on" ? 1 : 0;
+        $param["create"] = $param["create"] ?? null;
+        $param["create"] = $param["create"] == "on" ? 1 : 0;
+        $param["edit"] = $param["edit"] ?? null;
+        $param["edit"] = $param["edit"] == "on" ? 1 : 0;
         unset($param["_token"]);
-        // upload avatar
-        if ($request->image) {
-            $name = uploadImage($request, 'image', $this->table);
-            if (!$name) {
-                return back()->withInput();
-            }
-        }
-        $param['icon'] = $name ?? "";
         // create comment
         $create = insertTable($this->table . 's', $param);
         if ($create) {
@@ -77,8 +71,8 @@ class IconRankController extends AdminController
      */
     public function edit($id)
     {
-        $data = new RuleRank();
-        $dataForeign["ruleRank"] = $data->all();
+        $data = new GroupPermission();
+        $dataForeign["groupPermission"] = $data->all();
         $data = $this->model->withTrashed()->find($id);
         return view($this->view . $this->table . '.edit')->with([
             'controllerName' => $this->controllerName,
@@ -92,25 +86,14 @@ class IconRankController extends AdminController
     public function update(Request $request, $id)
     {
         $param = $request->all();
+        $param["view"] = $param["view"] ?? null;
+        $param["view"] = $param["view"] == "on" ? 1 : 0;
+        $param["create"] = $param["create"] ?? null;
+        $param["create"] = $param["create"] == "on" ? 1 : 0;
+        $param["edit"] = $param["edit"] ?? null;
+        $param["edit"] = $param["edit"] == "on" ? 1 : 0;
         unset($param["_token"]);
         unset($param["_method"]);
-        // upload avatar
-        try{
-            if ($request->image) {
-                $name = uploadImage($request, 'image', 'icon_rank');
-                if (!$name) {
-                    return back()->withInput();
-                }
-            }
-        }catch(Exception $e){
-
-        }
-
-        $param['icon'] = $name ?? "";
-        if ($param['image']) {
-            unset($param['image']);
-        }
-        // return $param;
         $update = updateTable($this->table . 's', $param, ['id' => $id]);
         if ($update) {
             return redirect()->route($this->table . '.index');

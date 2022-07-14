@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
     Route::resource('title_type', Admin\TitleTypeController::class);
     Route::resource('icon_rank', Admin\IconRankController::class);
     Route::resource('organization', Admin\OrganizationController::class);
+    Route::resource('permission', Admin\PermissionController::class);
 
 
     Route::get('login', [AuthController::class , 'index']);
@@ -106,9 +107,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
         Route::resource('user', UserController::class);
         Route::resource('user-feel', UserFeelController::class);
         Route::resource('react', ReactController::class);
-        Route::resource('group-permission', GroupPermissionController::class);
         Route::resource('hash-tag', HashtagController::class);
-        Route::resource('permission', PermissionController::class);
         Route::resource('credit-cart', CreditCartController::class);
         Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
     });
@@ -127,7 +126,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
     Route::resource('user', UserController::class);
     Route::resource('user-feel', UserFeelController::class);
     Route::resource('react', ReactController::class);
-    Route::resource('permission', PermissionController::class);
 
 });
 

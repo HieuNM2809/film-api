@@ -75,14 +75,14 @@
                             <a href="#">
                                 <i class="fa fa-user"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý User</strong>
+                                    <strong>Quản lý người dùng</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
                             <ul class="collapse {!! (in_array($controllerName, ['UserController2'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách User</a></li>
+                                <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách người dùng</a></li>
                             </ul>
                         </li>
                         <!-- Quản lý icon rank-->
@@ -90,14 +90,14 @@
                             <a href="#">
                                 <i class="fas fa-code"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý icon rank</strong>
+                                    <strong>Quản lý danh hiệu</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
                             <ul class="collapse {!! (in_array($controllerName, ['IconRankController'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/icon_rank') ? 'active-link' : '' }}"><a href="{{url('admin/icon_rank')}}">Danh sách icon rank</a></li>
+                                <li class="{{ Request::is('admin/icon_rank') ? 'active-link' : '' }}"><a href="{{url('admin/icon_rank')}}">Danh sách danh hiệu</a></li>
                             </ul>
                         </li>
                         <!-- Quản lý title_type-->
@@ -105,14 +105,14 @@
                             <a href="#">
                                 <i class="fas fa-heading"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý Title Type</strong>
+                                    <strong>Quản lý danh hiệu</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
                             <ul class="collapse {!! (in_array($controllerName, ['TitleTypeController'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/title_type') ? 'active-link' : '' }}"><a href="{{url('admin/title_type')}}">Danh sách Title Type</a></li>
+                                <li class="{{ Request::is('admin/title_type') ? 'active-link' : '' }}"><a href="{{url('admin/title_type')}}">Danh sách danh hiệu</a></li>
                             </ul>
                         </li>
                         <!-- Quản lý hashtag-->
@@ -135,14 +135,14 @@
                             <a href="#">
                                 <i class="fas fa-layer-group"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý group permission</strong>
+                                    <strong>Quản lý nhóm quyền</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
                             <ul class="collapse {!! (in_array($controllerName, ['GroupPermissionController'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/group_permission') ? 'active-link' : '' }}"><a href="{{url('admin/group_permission')}}">Danh sách group permission</a></li>
+                                <li class="{{ Request::is('admin/group_permission') ? 'active-link' : '' }}"><a href="{{url('admin/group_permission')}}">Danh sách nhóm quyền</a></li>
                             </ul>
                         </li>
                         <!-- Quản lý donate-->
@@ -165,14 +165,29 @@
                             <a href="#">
                                 <i class="fas fa-credit-card"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý credit cart</strong>
+                                    <strong>Quản lý thẻ</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
                             <ul class="collapse {!! (in_array($controllerName, ['CreditCartController'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/credit_cart') ? 'active-link' : '' }}"><a href="{{url('admin/credit_cart')}}">Danh sách credit cart</a></li>
+                                <li class="{{ Request::is('admin/credit_cart') ? 'active-link' : '' }}"><a href="{{url('admin/credit_cart')}}">Danh sách thẻ</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý Tổ chức-->
+                        <li class="{!! (in_array($controllerName, ['OrganizationController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-sitemap"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý Tổ chức</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['OrganizationController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/organization') ? 'active-link' : '' }}"><a href="{{url('admin/organization')}}">Danh sách tổ chức</a></li>
                             </ul>
                         </li>
                         <!-- Quản lý comment-->
@@ -180,14 +195,29 @@
                             <a href="#">
                                 <i class="fas fa-comment-alt"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý comment</strong>
+                                    <strong>Quản lý bình luận</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
                             <ul class="collapse {!! (in_array($controllerName, ['CommentController'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/comment') ? 'active-link' : '' }}"><a href="{{url('admin/comment')}}">Danh sách comment</a></li>
+                                <li class="{{ Request::is('admin/comment') ? 'active-link' : '' }}"><a href="{{url('admin/comment')}}">Danh sách bình luận</a></li>
+                            </ul>
+                        </li>
+                        <!-- Quản lý permission-->
+                        <li class="{!! (in_array($controllerName, ['PermissionController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-lock"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý quyền</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['PermissionController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/permission') ? 'active-link' : '' }}"><a href="{{url('admin/permission')}}">Danh sách quyền</a></li>
                             </ul>
                         </li>
                         {{-- <!-- Báo cáo-->
