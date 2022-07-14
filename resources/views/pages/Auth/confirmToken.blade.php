@@ -108,13 +108,13 @@
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-								<input type="text" name="password_new" class="form-control" placeholder="Password mới">
+								<input type="password" name="password_new" class="form-control" placeholder="Password mới">
 							</div>
 						</div>
                         <div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-								<input type="text" name="token"  value="{{old('token')}}"  class="form-control" placeholder="Token">
+								<input type="password" name="token"  value="{{old('token')}}"  class="form-control" placeholder="Token">
 							</div>
 						</div>
 						<div class="mar-btm"><em>- - -</em></div>

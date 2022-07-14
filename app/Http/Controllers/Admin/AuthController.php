@@ -101,6 +101,7 @@ class AuthController extends BaseController
             'email'    => 'required|email|exists:users,email',
             'token'    => 'required',
             'password_new' => 'required',
+            'password_new'=> 'required|different:password|required|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
         ], [
             'email.required' => 'Vui lòng nhập email',
             'email.email' => 'Vui lòng nhập đúng định dạng email',
@@ -108,6 +109,8 @@ class AuthController extends BaseController
             'email.exists' => 'Email không tồn tại',
             'token.required' => 'Vui lòng nhập token',
             'password_new.required' => 'Vui lòng nhập mật khẩu mới',
+            'password_new.min' => 'Mật khẩu tối thiểu 6 kí tự',
+            'password_new.regex' => 'Mật khẩu phải có chữ ( hoa và thường), số và kí tự',
         ]);
 
         $userToken =   $this->table->getTokenByMail($request->email);
@@ -139,7 +142,7 @@ class AuthController extends BaseController
             $this->validate($request, [
                 'email'=> 'required|email|exists:users,email',
                 'password'=> 'required',
-                'password_new'=> 'required|different:password',
+                'password_new'=> 'required|different:password|required|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
             ], [
                 'email.required' => 'Vui lòng nhập email',
                 'email.email' => 'Vui lòng nhập đúng định dạng email',
@@ -147,8 +150,9 @@ class AuthController extends BaseController
                 'password.required' => 'Vui lòng nhập password',
                 'password_new.required' => 'Vui lòng nhập mật khẩu mới',
                 'password_new.different' => 'Mật khẩu mới phải khác mật khẩu cũ',
+                'password_new.min' => 'Mật khẩu tối thiểu 6 kí tự',
+                'password_new.regex' => 'Mật khẩu phải có chữ ( hoa và thường), số và kí tự',
             ]);
-
             $checkIssetUser =  (new User())->getCheckUserByMail($request->email,$request->password);
             if($checkIssetUser){
                 $data =  (new User())->updateByEmail($request->email, ['password'=>Hash::make($request->password_new)]);
