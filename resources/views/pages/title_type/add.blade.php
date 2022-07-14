@@ -40,7 +40,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label class="control-label">Mô tả chi tiết</label>
-                                        <textarea required name="description" placeholder="Mô tả" rows="13" class="form-control" style="width: 785px; height: 233px;"></textarea>
+                                        <textarea required name="description" placeholder="Mô tả" rows="13" class="form-control" style="max-width: 100%;min-width: 100%;"></textarea>
                                     </div>
                                 </div>
                             </div>
