@@ -81,6 +81,7 @@ Route::prefix('post')->group(function () {
     Route::post('un-save-post-by-user',  [UserPostController::class  , 'unSavePostByUser']);  //ok bỏ lưu bài viết
     Route::post('list-post-by-user',  [UserPostController::class  , 'listPostByUser']);  //ok danh sách bài viết đã lưu theo user id
     Route::post('search-like-all',  [PostController::class  , 'searchLikeAll']);  //ok tìm kiếm
+    Route::post('post-suggestions',  [PostController::class  , 'postSuggestions']);  //ok đề xuất bài viết
 });
 // comment custom v2
 Route::prefix('comment')->group(function () {

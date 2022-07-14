@@ -84,4 +84,13 @@ class Post extends Base
         return  $sql->get();
         // return  $this->toSqlString($sql);
     }
+    public function postSuggestions($id_post) {
+        $sql = $this->where('id_title_type',function($query)  use ($id_post){
+                    $query->from("posts")
+                        ->select("id_title_type")
+                        ->where("id", "=", $id_post);
+                })
+                ->where('id' ,'!=',$id_post);
+        return  $sql->get();
+    }
 }

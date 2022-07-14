@@ -248,6 +248,19 @@ class PostController extends BaseController
         $data = $this->table->updatePost(['number_bad_reports' =>($numberBadReports +1)] , $request->id_post);
         return  $this->dataResponse($data ?'200' :'404',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.NOT_FOUND_VI') , []);
     }
+    public function postSuggestions(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id_post' => 'required|exists:posts,id',
+        ]);
+        if ($validator->fails()) {
+            return $this->dataResponse('401', $validator->errors() , []);
+        }
+        if ($request->expectsJson()) {
+            $data = $this->table->postSuggestions($request->id_post);
+            return $this->dataResponse('200',  config('statusCode.SUCCESS_VI') ,  $data);
+        }
+        return view('pages.post.list', ['typeSite' => $this->table->orderBy('id', 'desc')->get()]);
+    }
 
 
 
