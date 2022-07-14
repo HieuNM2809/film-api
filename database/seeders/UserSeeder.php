@@ -56,7 +56,7 @@ class UserSeeder extends BaseSeeder
                 'id_permission' =>2,
                 'identity_card' => rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9),
                 'birthday' => $NewDate[rand(0,3)],
-                'avatar' =>'avatarUser'.$i.'.png',
+                'avatar' =>'avatarUser'.$i.'.jpg',
                 'url' =>'http://me.about/user'.$i.'@gmail.com',
                 'location' =>'HCM '.$i,
                 'bio' =>'HCM '.$i,
