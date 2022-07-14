@@ -94,6 +94,18 @@ class IconRankController extends AdminController
         $param = $request->all();
         unset($param["_token"]);
         unset($param["_method"]);
+        // upload avatar
+        if ($request->image) {
+            $name = uploadImage($request, 'image', 'icon_rank');
+            if (!$name) {
+                return back()->withInput();
+            }
+        }
+        $param['icon'] = $name ?? "";
+        if ($param['image']) {
+            unset($param['image']);
+        }
+        // return $param;
         $update = updateTable($this->table . 's', $param, ['id' => $id]);
         if ($update) {
             return redirect()->route($this->table . '.index');

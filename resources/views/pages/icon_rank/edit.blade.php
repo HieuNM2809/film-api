@@ -30,7 +30,7 @@
                                         <select required class="form-control" id="id_rule" name="id_rule">
                                             <option></option>
                                             @foreach ($dataForeign['ruleRank'] as $item)
-                                                <option value="{{ $item->id }}">
+                                                <option value="{{ $item->id }}" {{ isset($id) && $data->id_rule == $item->id ? 'selected' : '' }}>
                                                     Tên điều kiện: {{ $item->name }}. Số lượng: {{ $item->value }}.
                                                 </option>
                                             @endforeach
