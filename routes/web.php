@@ -56,6 +56,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
     Route::resource('hashtag', Admin\HashtagController::class);
     Route::resource('title_type', Admin\TitleTypeController::class);
     Route::resource('icon_rank', Admin\IconRankController::class);
+    Route::resource('organization', Admin\OrganizationController::class);
 
 
     Route::get('login', [AuthController::class , 'index']);
@@ -103,7 +104,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
         // Route::resource('comment', CommentsController::class);
         Route::resource('post', PostController::class);
         Route::resource('user', UserController::class);
-        Route::resource('organization', OrganizationController::class);
         Route::resource('user-feel', UserFeelController::class);
         Route::resource('react', ReactController::class);
         Route::resource('group-permission', GroupPermissionController::class);
@@ -125,7 +125,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Guest']], function(){
     Route::resource('settings', SettingsController::class);
     Route::resource('post', PostController::class);
     Route::resource('user', UserController::class);
-    Route::resource('organization', OrganizationController::class);
     Route::resource('user-feel', UserFeelController::class);
     Route::resource('react', ReactController::class);
     Route::resource('permission', PermissionController::class);
