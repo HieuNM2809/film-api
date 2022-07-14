@@ -85,6 +85,21 @@
                                 <li class="{{ Request::is('admin/user-v2') ? 'active-link' : '' }}"><a href="{{url('admin/user-v2')}}">Danh sách người dùng</a></li>
                             </ul>
                         </li>
+                        <!-- Quản lý baì viết-->
+                        <li class="{!! (in_array($controllerName, ['PostController'])) ? 'active-sub active' : '' !!}">
+                            <a href="#">
+                                <i class="fas fa-blog"></i>
+                                <span class="menu-title">
+                                    <strong>Quản lý bài viết</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse {!! (in_array($controllerName, ['PostController'])) ? 'in' : '' !!}">
+                                <li class="{{ Request::is('admin/post') ? 'active-link' : '' }}"><a href="{{url('admin/post')}}">Danh sách bài viết</a></li>
+                            </ul>
+                        </li>
                         <!-- Quản lý icon rank-->
                         <li class="{!! (in_array($controllerName, ['IconRankController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">

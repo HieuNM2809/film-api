@@ -52,7 +52,7 @@ class CreditCartController extends AdminController
         unset($param["_token"]);
         // upload avatar
         if ($request->image) {
-            $name = uploadImage($request, 'image', 'credit_cart');
+            $name = uploadImage($request, 'image', $this->table);
             if (!$name) {
                 return back()->withInput();
             }
@@ -105,7 +105,7 @@ class CreditCartController extends AdminController
         unset($param["_method"]);
         // upload avatar
         if ($request->image) {
-            $name = uploadImage($request, 'image', 'credit_cart');
+            $name = uploadImage($request, 'image', $this->table);
             if (!$name) {
                 return back()->withInput();
             }

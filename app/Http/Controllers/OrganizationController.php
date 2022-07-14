@@ -61,7 +61,7 @@ class OrganizationController extends BaseController
         }
 
         if($request->hasFile('image')) {
-            $data['image'] = uploadImage($request, 'image', 'Organization');
+            $data['image'] = uploadImage($request, 'image', $this->table);
         }
 
         $data = $this->table->createByTable($this->table, $data);
@@ -126,7 +126,7 @@ class OrganizationController extends BaseController
         unset($data['_method']);
 
         if($request->hasFile('image')) {
-            $data['image'] = uploadImage($request, 'image', 'Organization');
+            $data['image'] = uploadImage($request, 'image', $this->table);
         }
 
         $condition['id'] = $id;
