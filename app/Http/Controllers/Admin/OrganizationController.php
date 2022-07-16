@@ -109,7 +109,9 @@ class OrganizationController extends AdminController
     public function destroy(Request $request, $id)
     {
         $data = $this->model->find($id);
-        $data->delete();
+        if($data){
+            $data->delete();
+        }
         return redirect()->route($this->table . '.index');
     }
 }

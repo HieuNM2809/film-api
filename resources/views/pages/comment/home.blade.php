@@ -61,15 +61,15 @@
                                         <tbody>
                                             @foreach ($data as $item)
                                             <tr>
-                                                <td>{{$item->id}}</td>
-                                                <td>{{$item->user->name}}</td>
-                                                <td>{{$item->content}}</td>
-                                                <td>{{$item->parent}}</td>
-                                                <td>{{$item->post->title}}</td>
+                                                <td>{{$item->id ??''}}</td>
+                                                <td>{{$item->user->name ??''}}</td>
+                                                <td>{{$item->content ??''}}</td>
+                                                <td>{{$item->parent ??''}}</td>
+                                                <td>{{$item->post->title ??''}}</td>
                                                 <td style="background-size: 200px;width:200px; {{ $item->image ? "height:200px; background-position: center;" : "" }} background-repeat: no-repeat; background-image:url('../comment/{{ $item->image }}');"></td>
-                                                <td>{{$item->created_at}}</td>
-                                                <td>{{$item->updated_at}}</td>
-                                                <td>{{$item->deleted_at}}</td>
+                                                <td>{{$item->created_at??''}}</td>
+                                                <td>{{$item->updated_at??''}}</td>
+                                                <td>{{$item->deleted_at??''}}</td>
                                                 <td>
                                                     <div
                                                         style="display: flex; justify-content: space-around; align-items: center;">

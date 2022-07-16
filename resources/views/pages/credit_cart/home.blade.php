@@ -61,15 +61,15 @@
                                         <tbody>
                                             @foreach ($data as $item)
                                             <tr>
-                                                <td>{{$item->id}}</td>
-                                                <td>{{$item->user->name}}</td>
-                                                <td>{{$item->name}}</td>
-                                                <td>{{$item->cart_number}}</td>
-                                                <td>{{$item->date_expired}}</td>
+                                                <td>{{$item->id??''}}</td>
+                                                <td>{{$item->user->name??''}}</td>
+                                                <td>{{$item->name??''}}</td>
+                                                <td>{{$item->cart_number??''}}</td>
+                                                <td>{{$item->date_expired??''}}</td>
                                                 <td style="background-size: 200px;width:200px; {{ $item->avatar ? "height:200px; background-position: center;" : "" }} background-repeat: no-repeat; background-image:url('../credit_cart/{{ $item->avatar }}');"></td>
-                                                <td>{{$item->created_at}}</td>
-                                                <td>{{$item->updated_at}}</td>
-                                                <td>{{$item->deleted_at}}</td>
+                                                <td>{{$item->created_at??''}}</td>
+                                                <td>{{$item->updated_at??''}}</td>
+                                                <td>{{$item->deleted_at??''}}</td>
                                                 <td>
                                                     <div
                                                         style="display: flex; justify-content: space-around; align-items: center;">

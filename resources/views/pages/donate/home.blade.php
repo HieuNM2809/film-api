@@ -58,12 +58,12 @@
                                         <tbody>
                                             @foreach ($data as $item)
                                             <tr>
-                                                <td>{{$item->id}}</td>
-                                                <td>{{$item->user->name}}</td>
-                                                <td>{{$item->link}}</td>
-                                                <td>{{$item->created_at}}</td>
-                                                <td>{{$item->updated_at}}</td>
-                                                <td>{{$item->deleted_at}}</td>
+                                                <td>{{$item->id??''}}</td>
+                                                <td>{{$item->user->name??''}}</td>
+                                                <td>{{$item->link??''}}</td>
+                                                <td>{{$item->created_at??''}}</td>
+                                                <td>{{$item->updated_at??''}}</td>
+                                                <td>{{$item->deleted_at??''}}</td>
                                                 <td>
                                                     <div
                                                         style="display: flex; justify-content: space-around; align-items: center;">

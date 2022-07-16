@@ -86,7 +86,9 @@ class GroupPermissionController extends AdminController
     public function destroy($id)
     {
         $data = $this->model->find($id);
-        $data->delete();
+        if($data){
+            $data->delete();
+        }
         return redirect()->route($this->table . '.index');
     }
 }

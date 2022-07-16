@@ -94,7 +94,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label">Nội dung</label>
-                                        <textarea required name="content" placeholder="Nội dung" rows="13" class="form-control" style="width: 380px; height: 233px;"></textarea>
+                                        <textarea required name="content" placeholder="Nội dung" rows="13" class="form-control" style="max-width: 100%; min-width: 100%;height: 233px;"></textarea>
                                     </div>
                                 </div>
                             </div>

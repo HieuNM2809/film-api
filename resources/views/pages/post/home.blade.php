@@ -53,17 +53,17 @@
                                         <tbody>
                                             @foreach ($data as $item)
                                             <tr>
-                                                <td>{{$item->id}}</td>
-                                                <td>{{$item->title}}</td>
-                                                <td>{{$item->content}}</td>
-                                                <td>{{$item->number_bad_reports}}</td>
-                                                <td>{{$item->titleType->type}}</td>
+                                                <td>{{$item->id??''}}</td>
+                                                <td>{{$item->title??''}}</td>
+                                                <td>{{$item->content??''}}</td>
+                                                <td>{{$item->number_bad_reports??''}}</td>
+                                                <td>{{$item->titleType->type??''}}</td>
                                                 <td>{{$item->organizations->name ?? "Cá nhân"}}</td>
-                                                <td>{{$item->user->name}}</td>
+                                                <td>{{$item->user->name??''}}</td>
                                                 <td style="background-size: 200px;width:200px; {{ $item->feature_image ? "height:200px; background-position: center;" : "" }} background-repeat: no-repeat; background-image:url('../post/{{ $item->feature_image }}');"></td>
-                                                <td>{{$item->created_at}}</td>
-                                                <td>{{$item->updated_at}}</td>
-                                                <td>{{$item->deleted_at}}</td>
+                                                <td>{{$item->created_at??''}}</td>
+                                                <td>{{$item->updated_at??''}}</td>
+                                                <td>{{$item->deleted_at??''}}</td>
                                                 <td>
                                                     <div
                                                         style="display: flex; justify-content: space-around; align-items: center;">
