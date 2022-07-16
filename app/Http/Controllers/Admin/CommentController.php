@@ -53,7 +53,7 @@ class CommentController extends AdminController
         unset($param["_token"]);
         // upload avatar
         if ($request->image) {
-            $name = uploadImage($request, 'image', 'comment');
+            $name = uploadImage($request, 'image', $this->table);
             if (!$name) {
                 return back()->withInput();
             }
@@ -106,7 +106,7 @@ class CommentController extends AdminController
         unset($param["_method"]);
         // upload avatar
         if ($request->image) {
-            $name = uploadImage($request, 'image');
+            $name = uploadImage($request, 'image', $this->table);
             if (!$name) {
                 return back()->withInput();
             }

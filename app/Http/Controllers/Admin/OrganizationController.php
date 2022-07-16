@@ -86,7 +86,7 @@ class OrganizationController extends AdminController
         // upload avatar
         try{
             if ($request->image) {
-                $name = uploadImage($request, 'image', 'icon_rank');
+                $name = uploadImage($request, 'image', $this->table);
                 if (!$name) {
                     return back()->withInput();
                 }
