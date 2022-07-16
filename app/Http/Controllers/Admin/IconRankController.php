@@ -43,10 +43,12 @@ class IconRankController extends AdminController
     {
         // dữ liệu
         $param = $request->all();
-        $param = [
-            "id_rule" => $param["id_rule"],
-            "title" => $param["title"]
-        ];
+        // $param = [
+        //     "id_rule" => $param["id_rule"],
+        //     "title" => $param["title"]
+        // ];
+        $param['id_rule'] = $param["id_rule"];
+        $param['title'] = $param["title"];
         unset($param["_token"]);
         // upload avatar
         if ($request->image) {

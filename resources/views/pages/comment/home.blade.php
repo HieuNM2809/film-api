@@ -21,9 +21,9 @@
                                     <h5 class="panel-title">Bảng bình luận</h5>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="col-sm-6 table-toolbar-left">
+                                    {{--  <div class="col-sm-6 table-toolbar-left">
 										<a href="{{ route($table.'.create') }}" id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus">Thêm bình luận</a>
-									</div>
+									</div>  --}}
                                     <div class="col-sm-6 table-toolbar-right">
                                         {{-- <label class="form-inline">Show
                                             <select id="demo-show-entries" class="form-control input-sm">
@@ -73,8 +73,8 @@
                                                 <td>
                                                     <div
                                                         style="display: flex; justify-content: space-around; align-items: center;">
-                                                        <a href="{{ route($table.'.edit', $item->id) }}"><i
-                                                                class="fas fa-edit"></i></a>
+                                                        {{--  <a href="{{ route($table.'.edit', $item->id) }}"><i
+                                                                class="fas fa-edit"></i></a>  --}}
                                                         <form action="{{ route($table.'.destroy', $item->id) }}"
                                                             method="POST">
                                                             @csrf
