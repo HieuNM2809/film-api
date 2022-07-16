@@ -98,6 +98,10 @@ class UserOrganizationsController extends BaseController
         }
         if ($request->expectsJson()) {
             $data = $this->table->createByTable($this->table,$request->all());
+            if($data && isset($data['id_user'])){
+                $data['user'] = DB::table('users')->where('id', $data['id_user'])->get();
+            }
+
             return  $this->dataResponse('200',  $data ? config('statusCode.SUCCESS_VI') :config('statusCode.FAIL') , $data );
         }
     }
