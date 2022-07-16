@@ -41,6 +41,15 @@ class DonateController extends AdminController
 
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'link'=> 'required|url',
+            'idUser'=> 'required|exists:users,id',
+        ],[
+            'link.required'     => 'Vui lòng điền link',
+            'link.url'          => 'Vui lòng điền đúng định dạng URL',
+            'idUser.required'  => 'Vui lòng nhập user',
+            'idUser.exists'    => 'Users không tồn tại',
+        ]);
         // dữ liệu
         $param = $request->all();
         $param = [

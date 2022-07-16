@@ -64,7 +64,7 @@ class UserController2 extends BaseController
             'password' => 'required|min:5',
             'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
             'avatar' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
-            // |numeric|between:9,11
+            'identity_card' => 'digits_between:9,11|required|numeric'
         ],[
             'birthday.before'           => 'Vui lòng chọn ngày sinh nhỏ hơn ngày hiện tại',
             'birthday.required'           => 'Vui lòng chọn ngày sinh',
@@ -76,6 +76,10 @@ class UserController2 extends BaseController
             'password.required'     => 'Vui lòng nhập mật khẩu',
             'password.min'     => 'Độ dài mật khẩu lớn hơn 6 6 ký tự',
             'avatar.mimes'     => 'Vui lòng chọn đúng định dạng ảnh jpeg,jpg,png,gif ',
+            'identity_card.required'     => 'Vui lòng nhập CMND ',
+            'identity_card.numeric'     => 'Vui lòng nhập CMND là số',
+            'identity_card.digits_between'     => 'Vui lòng nhập CMND đúng kích thước ',
+            'identity_card.max'     => 'Vui lòng nhập CMND đúng kích thước ',
         ]);
         $data = $request->all();
         $data['avatar'] = uploadImage($request, 'avatar', 'User');

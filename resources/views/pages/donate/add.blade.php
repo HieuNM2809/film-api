@@ -16,7 +16,8 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Link ủng hộ</h3>
                     </div>
-
+                    @include('layout.messageErrors')
+                    @include('layout.alert')
                     <!--Block Styled Form -->
                     <!--===================================================-->
                     <form action="{{ route($table . '.store') }}" method="POST" enctype="multipart/form-data">
