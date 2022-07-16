@@ -36,7 +36,7 @@
                                         </label> --}}
 										<div class="form-group">
                                             <div class="input-group mar-btm">
-                                                <input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">
+                                                {{--  <input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">  --}}
                                             </div>
                                             <a href="demo-btn-addrow">
 
