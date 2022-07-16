@@ -120,14 +120,14 @@
                             <a href="#">
                                 <i class="fas fa-heading"></i>
                                 <span class="menu-title">
-                                    <strong>Quản lý danh hiệu</strong>
+                                    <strong>Quản lý loại bài viết</strong>
                                 </span>
                                 <i class="arrow"></i>
                             </a>
 
                             <!--Submenu-->
                             <ul class="collapse {!! (in_array($controllerName, ['TitleTypeController'])) ? 'in' : '' !!}">
-                                <li class="{{ Request::is('admin/title_type') ? 'active-link' : '' }}"><a href="{{url('admin/title_type')}}">Danh sách danh hiệu</a></li>
+                                <li class="{{ Request::is('admin/title_type') ? 'active-link' : '' }}"><a href="{{url('admin/title_type')}}">Danh sách loại bài viết</a></li>
                             </ul>
                         </li>
                         <!-- Quản lý hashtag-->
@@ -146,7 +146,7 @@
                             </ul>
                         </li>
                         <!-- Quản lý group_permission-->
-                        <li class="{!! (in_array($controllerName, ['GroupPermissionController'])) ? 'active-sub active' : '' !!}">
+                        {{--  <li class="{!! (in_array($controllerName, ['GroupPermissionController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
                                 <i class="fas fa-layer-group"></i>
                                 <span class="menu-title">
@@ -159,7 +159,7 @@
                             <ul class="collapse {!! (in_array($controllerName, ['GroupPermissionController'])) ? 'in' : '' !!}">
                                 <li class="{{ Request::is('admin/group_permission') ? 'active-link' : '' }}"><a href="{{url('admin/group_permission')}}">Danh sách nhóm quyền</a></li>
                             </ul>
-                        </li>
+                        </li>  --}}
                         <!-- Quản lý donate-->
                         <li class="{!! (in_array($controllerName, ['DonateController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
@@ -221,7 +221,7 @@
                             </ul>
                         </li>
                         <!-- Quản lý permission-->
-                        <li class="{!! (in_array($controllerName, ['PermissionController'])) ? 'active-sub active' : '' !!}">
+                        {{--  <li class="{!! (in_array($controllerName, ['PermissionController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">
                                 <i class="fas fa-lock"></i>
                                 <span class="menu-title">
@@ -234,7 +234,7 @@
                             <ul class="collapse {!! (in_array($controllerName, ['PermissionController'])) ? 'in' : '' !!}">
                                 <li class="{{ Request::is('admin/permission') ? 'active-link' : '' }}"><a href="{{url('admin/permission')}}">Danh sách quyền</a></li>
                             </ul>
-                        </li>
+                        </li>  --}}
                         {{-- <!-- Báo cáo-->
                         <li class="{!! (in_array($controllerName, ['ReportController'])) ? 'active-sub active' : '' !!}">
                             <a href="#">

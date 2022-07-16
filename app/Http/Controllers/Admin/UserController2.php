@@ -78,7 +78,6 @@ class UserController2 extends BaseController
             'avatar.mimes'     => 'Vui lòng chọn đúng định dạng ảnh jpeg,jpg,png,gif ',
         ]);
         $data = $request->all();
-        $data['id_permission'] = 2;
         $data['avatar'] = uploadImage($request, 'avatar', 'User');
         $data['password'] = Hash::make($request->password);
         $data = $this->table->create($data);

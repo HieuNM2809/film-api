@@ -82,6 +82,15 @@
                                         class="form-control check-required" placeholder="Ngày sinh">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Vị trí</label>
+                                <div class="col-md-6">
+                                   <select   class="form-control check-required"  name="id_permission" >
+                                    <option value="1">User</option>
+                                    <option value="2">Admin</option>
+                                   </select>
+                                </div>
+                            </div>
 
                             <!--Ngày sinh-->
                             <div class="form-group">
