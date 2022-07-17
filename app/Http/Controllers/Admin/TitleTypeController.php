@@ -14,7 +14,8 @@ class TitleTypeController extends AdminController
         parent::__construct();
         $this->model = new TitleType();
         $this->table = "title_type";
-        $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        // $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->data = $this->model->paginate($this->perPage);
         $this->controllerName = 'TitleTypeController';
     }
 

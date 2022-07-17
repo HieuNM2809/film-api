@@ -14,7 +14,8 @@ class IconRankController extends AdminController
         parent::__construct();
         $this->model = new IconRank();
         $this->table = "icon_rank";
-        $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        // $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->data = $this->model->paginate($this->perPage);
         $this->controllerName = 'IconRankController';
     }
 

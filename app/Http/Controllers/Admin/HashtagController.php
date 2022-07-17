@@ -14,7 +14,8 @@ class HashtagController extends AdminController
         parent::__construct();
         $this->model = new Hashtag();
         $this->table = "hashtag";
-        $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        // $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->data = $this->model->paginate($this->perPage);
         $this->controllerName = 'HashtagController';
     }
 

@@ -14,7 +14,8 @@ class CreditCartController extends AdminController
         parent::__construct();
         $this->model = new CreditCart();
         $this->table = "credit_cart";
-        $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        // $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->data = $this->model->paginate($this->perPage);
         $this->controllerName = 'CreditCartController';
     }
 

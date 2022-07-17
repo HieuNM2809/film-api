@@ -52,7 +52,7 @@
                                                 <th scope="col">Mô tả</th>
                                                 <th scope="col">Ngày tạo</th>
                                                 <th scope="col">Ngày sửa</th>
-                                                <th scope="col">Ngày xoá</th>
+                                                {{--  <th scope="col">Ngày xoá</th>  --}}
                                                 <th scope="col">Hành động</th>
                                             </tr>
                                         </thead>
@@ -65,7 +65,7 @@
                                                 <td>{{$item->description}}</td>
                                                 <td>{{$item->created_at}}</td>
                                                 <td>{{$item->updated_at}}</td>
-                                                <td>{{$item->deleted_at}}</td>
+                                                {{--  <td>{{$item->deleted_at}}</td>  --}}
                                                 <td>
                                                     <div
                                                         style="display: flex; justify-content: space-around; align-items: center;">

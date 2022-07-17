@@ -14,7 +14,8 @@ class DonateController extends AdminController
         parent::__construct();
         $this->model = new Donate();
         $this->table = "donate";
-        $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        // $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->data = $this->model->paginate($this->perPage);
         $this->controllerName = 'DonateController';
     }
 

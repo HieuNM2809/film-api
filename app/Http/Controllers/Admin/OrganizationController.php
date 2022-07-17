@@ -13,7 +13,8 @@ class OrganizationController extends AdminController
         parent::__construct();
         $this->model = new Organization();
         $this->table = "organization";
-        $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        // $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->data = $this->model->paginate($this->perPage);
         $this->controllerName = 'OrganizationController';
     }
 

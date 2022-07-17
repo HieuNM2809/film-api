@@ -16,7 +16,8 @@ class PostController extends AdminController
         parent::__construct();
         $this->model = new Post();
         $this->table = "post";
-        $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        // $this->data = $this->model->withTrashed()->paginate($this->perPage);
+        $this->data = $this->model ->paginate($this->perPage);
         $this->controllerName = 'PostController';
     }
 
