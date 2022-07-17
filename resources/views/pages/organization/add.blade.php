@@ -32,7 +32,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label">website</label>
-                                        <input type="text" class="form-control" name="website" required>
+                                        <input type="url"     placeholder="https://example.com"
+                                        pattern="https://.*" class="form-control" name="website" required>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +48,7 @@
                                     <div class="form-group" style="height:254px;">
                                         <label for="">Ảnh</label>
                                         <div class="custom-file">
-                                            <input type="file" class="form-control" id="image_input_Avatar"
+                                            <input type="file"  required class="form-control" id="image_input_Avatar"
                                                 onchange="LoadImage(this, '#image_Avatar')" name="image"
                                                 accept="image/gif, image/jpeg, image/png">
                                             <img id="image_Avatar" alt="your image"

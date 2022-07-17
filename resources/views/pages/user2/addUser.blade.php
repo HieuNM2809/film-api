@@ -33,14 +33,14 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Tên</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="name" name="name" value="{{old('name') }}"
+                                    <input type="text" required id="name" name="name" value="{{old('name') }}"
                                         class="form-control check-required" placeholder="Tên">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Mật khẩu</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="password" name="password" value="{{old('password') }}"
+                                    <input type="password"  required id="password" name="password" value="{{old('password') }}"
                                         class="form-control check-required" placeholder="Mật khẩu">
                                 </div>
                             </div>

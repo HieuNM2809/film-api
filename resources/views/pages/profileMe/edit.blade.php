@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Tên</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="name" name="name" value="{{ $adminLogin['name'] }}"
+                                    <input type="text" required id="name" name="name" value="{{ $adminLogin['name'] }}"
                                         class="form-control check-required" placeholder="Tên">
                                 </div>
                             </div>
