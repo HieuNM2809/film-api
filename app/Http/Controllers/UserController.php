@@ -207,7 +207,7 @@ class UserController extends BaseController
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|exists:users,email',
             'password' => 'required',
-            'password_new' => 'required|max:8|different:password',
+            'password_new' => 'required|min:8|different:password',
         ]);
         if ($validator->fails()) {
             return $this->dataResponse('401', $validator->errors(), []);
